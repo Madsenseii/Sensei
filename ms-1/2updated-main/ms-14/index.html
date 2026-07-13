@@ -638,12 +638,6 @@ nav.visible{transform:translateY(0);}
 .team-divider{width:40px;height:0.5px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin:0 auto 20px;}
 .team-back-bio{font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:300;color:rgba(232,228,216,0.65);line-height:1.75;margin-bottom:20px;}
 .team-back-quote{font-family:'Noto Serif JP',serif;font-size:11px;color:rgba(200,168,75,0.7);font-style:italic;letter-spacing:0.05em;}
-.voice-row{max-width:1300px;margin:40px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-.voice-card{border:0.5px solid rgba(200,168,75,0.15);padding:20px;display:flex;align-items:center;gap:16px;background:rgba(200,168,75,0.02);transition:all 0.3s;cursor:none;}
-.voice-card:hover{border-color:rgba(200,168,75,0.4);background:rgba(200,168,75,0.05);transform:translateX(4px);}
-.voice-img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:0.5px solid rgba(200,168,75,0.3);flex:none;}
-.voice-tag{font-size:7px;letter-spacing:0.4em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:4px;}
-.voice-name{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:700;color:#e8e4d8;}
 .card-click-burst{position:absolute;inset:0;background:rgba(200,168,75,0.12);transform:scale(0);border-radius:50%;pointer-events:none;animation:card-burst 0.5s ease forwards;}
 @keyframes card-burst{0%{transform:scale(0);opacity:1;}100%{transform:scale(2.5);opacity:0;}}
 
@@ -806,7 +800,6 @@ footer{padding:40px;border-top:0.5px solid rgba(200,168,75,0.1);display:flex;ali
   #about{grid-template-columns:1fr;}
   .verticals-grid{grid-template-columns:repeat(2,1fr);}
   .team-grid{grid-template-columns:repeat(2,1fr);}
-  .voice-row{grid-template-columns:1fr;}
   .japan-content{grid-template-columns:1fr;}
 }
 @media(max-width:600px){
@@ -2670,10 +2663,6 @@ footer{padding:40px;border-top:0.5px solid rgba(200,168,75,0.1);display:flex;ali
     <p style="font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:300;color:rgba(232,228,216,0.45);letter-spacing:0.08em;margin-top:10px">Four creators. One universe. Hover to reveal.</p>
   </div>
   <div class="team-grid" id="team-grid"></div>
-  <div style="max-width:1300px;margin:60px auto 0" class="reveal">
-    <div class="section-tag" style="margin-bottom:30px">Voice Artists — The Voices That Bring Our Characters to Life</div>
-    <div class="voice-row" id="voice-row"></div>
-  </div>
 </section>
 
 <!-- VISION -->
