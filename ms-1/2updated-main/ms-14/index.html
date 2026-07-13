@@ -814,8 +814,9 @@ footer{padding:40px;border-top:0.5px solid rgba(200,168,75,0.1);display:flex;ali
 
 /* ===== STUDIO GALLERY (about section enhancement) ===== */
 .studio-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
   margin-top: 40px;
   max-width: 1300px;
@@ -831,6 +832,8 @@ footer{padding:40px;border-top:0.5px solid rgba(200,168,75,0.1);display:flex;ali
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 1 1 calc(33.333% - 8px);
+  min-width: 260px;
 }
 .studio-gallery-item img {
   width: 100%;
@@ -1084,12 +1087,12 @@ footer{padding:40px;border-top:0.5px solid rgba(200,168,75,0.1);display:flex;ali
   .japan-photo-grid { grid-template-columns: repeat(2,1fr); }
   .japan-photo-item.large { grid-column: span 2; grid-row: span 1; aspect-ratio: 16/9; }
   .japan-photo-item.tall { grid-row: span 1; aspect-ratio: 4/3; }
-  .studio-gallery { grid-template-columns: 1fr 1fr; }
+  .studio-gallery-item { flex-basis: calc(50% - 8px); min-width: 200px; }
 }
 @media(max-width:600px){
   .japan-photo-grid { grid-template-columns: 1fr; }
   .japan-photo-item.large, .japan-photo-item.tall { grid-column: span 1; grid-row: span 1; aspect-ratio: 4/3; }
-  .studio-gallery { grid-template-columns: 1fr; }
+  .studio-gallery-item { flex-basis: 100%; }
 }
 
 
@@ -1628,8 +1631,9 @@ footer{padding:40px;border-top:0.5px solid rgba(200,168,75,0.1);display:flex;ali
 
 /* ===== STUDIO GALLERY (about section enhancement) ===== */
 .studio-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
   margin-top: 40px;
   max-width: 1300px;
@@ -1645,6 +1649,8 @@ footer{padding:40px;border-top:0.5px solid rgba(200,168,75,0.1);display:flex;ali
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 1 1 calc(33.333% - 8px);
+  min-width: 260px;
 }
 .studio-gallery-item img {
   width: 100%;
@@ -1875,12 +1881,12 @@ footer{padding:40px;border-top:0.5px solid rgba(200,168,75,0.1);display:flex;ali
   .japan-photo-grid { grid-template-columns: repeat(2,1fr); }
   .japan-photo-item.large { grid-column: span 2; grid-row: span 1; aspect-ratio: 16/9; }
   .japan-photo-item.tall { grid-row: span 1; aspect-ratio: 4/3; }
-  .studio-gallery { grid-template-columns: 1fr 1fr; }
+  .studio-gallery-item { flex-basis: calc(50% - 8px); min-width: 200px; }
 }
 @media(max-width:600px){
   .japan-photo-grid { grid-template-columns: 1fr; }
   .japan-photo-item.large, .japan-photo-item.tall { grid-column: span 1; grid-row: span 1; aspect-ratio: 4/3; }
-  .studio-gallery { grid-template-columns: 1fr; }
+  .studio-gallery-item { flex-basis: 100%; }
 }
 
 
