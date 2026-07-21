@@ -1028,16 +1028,36 @@ function initReveal(){
 document.addEventListener('DOMContentLoaded',()=>setTimeout(initReveal,4200));
 
 // ===== STAT COUNTER =====
+let countersFired=false;
 function animateCounters(){
+  if(countersFired)return;
+  countersFired=true;
   document.querySelectorAll('.stat-num[data-target]').forEach(el=>{
     const target=parseInt(el.dataset.target);let current=0;
     const step=Math.ceil(target/40);
     const t=setInterval(()=>{current=Math.min(current+step,target);el.textContent=current;if(current>=target)clearInterval(t);},30);
   });
 }
-const aboutObs=new IntersectionObserver(entries=>{if(entries[0].isIntersecting){animateCounters();aboutObs.disconnect();}},{threshold:0.3});
 const aboutEl=document.getElementById('about');
-if(aboutEl)aboutObs.observe(aboutEl);
+
+function checkAboutVisible(){
+  if(!aboutEl||countersFired)return;
+  const r=aboutEl.getBoundingClientRect();
+  if(r.top<window.innerHeight*0.85 && r.bottom>0) animateCounters();
+}
+
+if(aboutEl){
+  const aboutObs=new IntersectionObserver(entries=>{if(entries[0].isIntersecting)animateCounters();},{threshold:0.1});
+  aboutObs.observe(aboutEl);
+
+  // Fallbacks for WebViews (e.g. Instagram in-app browser) where IntersectionObserver
+  // can fail to fire on a page that loads pre-transitioned/hidden.
+  window.addEventListener('scroll',checkAboutVisible,{passive:true});
+  window.addEventListener('load',checkAboutVisible);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)checkAboutVisible();});
+  setTimeout(checkAboutVisible,1500);
+  setTimeout(animateCounters,6000); // last-resort: force it after 6s no matter what
+}
 
 // ===== ACTIVE NAV =====
 window.addEventListener('scroll',()=>{
