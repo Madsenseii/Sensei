@@ -10,7 +10,7 @@ setInterval(()=>{
   tx+=(mx-tx)*0.12;ty+=(my-ty)*0.12;
   trail.style.transform=`translate(${tx-19}px,${ty-19}px)`;
 },16);
-document.querySelectorAll('a,button,.team-card,.vertical-card,.stat-box,.mie-info-box,.iconic-card,.t-card,.omni-node').forEach(el=>{
+document.querySelectorAll('a,button,.team-card,.vertical-card,.stat-box,.mie-info-box,.iconic-card,.t-card,.omni-node,.collab-close-btn,.collab-action-btn,.collab-image-box').forEach(el=>{
   el.addEventListener('mouseenter',()=>cursor.classList.add('hovering'));
   el.addEventListener('mouseleave',()=>cursor.classList.remove('hovering'));
 });
@@ -199,7 +199,7 @@ const SHEET_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxe-COSnn1IAP
   });
 })();
 
-// ===== LEGAL MODALS (Terms & Conditions / Privacy Policy) =====
+// ===== LEGAL & COLLABORATION MODALS =====
 function openLegalModal(type){
   const modal=document.getElementById(type+'-modal');
   if(modal) modal.classList.add('open');
@@ -208,26 +208,47 @@ function closeLegalModal(type){
   const modal=document.getElementById(type+'-modal');
   if(modal) modal.classList.remove('open');
 }
+
+function openCollabModal(){
+  const modal=document.getElementById('collab-modal');
+  if(modal) modal.classList.add('open');
+}
+function closeCollabModal(){
+  const modal=document.getElementById('collab-modal');
+  if(modal) modal.classList.remove('open');
+}
+
 document.addEventListener('click', e=>{
   if(e.target.classList && e.target.classList.contains('legal-modal')){
     e.target.classList.remove('open');
+  }
+  const collabModal=document.getElementById('collab-modal');
+  if(collabModal && e.target === collabModal){
+    closeCollabModal();
   }
 });
 document.addEventListener('keydown', e=>{
   if(e.key==='Escape'){
     document.querySelectorAll('.legal-modal.open').forEach(m=>m.classList.remove('open'));
+    closeCollabModal();
   }
 });
 
-// ===== INTRO LOADER =====
+// ===== INTRO LOADER & POPUP TRIGGER =====
 setTimeout(()=>{
   const overlay=document.getElementById('intro-overlay');
-  overlay.classList.add('intro-glitch-out');
-  setTimeout(()=>{
-    overlay.style.display='none';
-    document.getElementById('main-nav').classList.add('visible');
-    initReveal();
-  },700);
+  if(overlay){
+    overlay.classList.add('intro-glitch-out');
+    setTimeout(()=>{
+      overlay.style.display='none';
+      const mainNav=document.getElementById('main-nav');
+      if(mainNav) mainNav.classList.add('visible');
+      initReveal();
+      setTimeout(openCollabModal, 300);
+    },700);
+  } else {
+    setTimeout(openCollabModal, 600);
+  }
 },3200);
 
 // ===== OMNIVERSE DATA =====
