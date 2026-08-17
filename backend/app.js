@@ -92,11 +92,11 @@ if (fs.existsSync(publicDir)) {
   });
 }
 
-// 404 handler for API routes
-app.use('/api/*', (req, res) => {
+// 404 handler for any unmatched API routes
+app.use((req, res) => {
   res.status(404).json({
     result: 'error',
-    message: `Endpoint ${req.originalUrl} not found.`
+    message: `Endpoint ${req.method} ${req.originalUrl || req.url} not found on server.`
   });
 });
 
