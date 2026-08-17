@@ -127,4 +127,4 @@ npm run build
 npm run dev
 ```
 
-The app will be live at `http://localhost:3000` (with frontend and `/api` running together).
+The app will be live at `http://localhost:3000` (with frontend and `/api` running together). 
