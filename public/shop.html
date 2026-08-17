@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop MAD SENSEI STUDIOS</title>
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
+<link rel="apple-touch-icon" href="images/favicon-192.png">
+<meta name="description" content="Official Mad Sensei Studios merchandise — limited edition tees and denim.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+/* =========================================================================
+   MAD SENSEI STUDIOS — SHOP PAGE
+   Reuses the same color tokens / fonts as index.html so this page feels
+   like one continuous site rather than a bolted-on store.
+   ========================================================================= */
+:root{
+  --red:#e62020;--red2:#ff2d2d;
+  --gold:#c8a84b;--gold2:#ffe066;--gold3:#ffd700;
+  --ink:#0a0a0a;--ink2:#111111;--ink3:#1a1a1a;
+  --paper:#f0ece0;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:#050505;color:#e8e4d8;
+  font-family:'Rajdhani',sans-serif;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+.wrap{max-width:1320px;margin:0 auto;padding:0 32px;}
+
+/* ===== NAV (same pattern as index.html) ===== */
+header.shop-nav{
+  position:sticky;top:0;z-index:80;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 32px;
+  background:rgba(5,5,5,0.9);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(200,168,75,0.18);
+}
+.shop-logo{display:flex;align-items:center;gap:0;font-family:'Noto Serif JP',serif;font-weight:900;font-size:17px;letter-spacing:0.03em;color:var(--gold);}
+.shop-logo span{color:var(--gold);}
+.shop-back{
+  font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.25em;
+  color:rgba(232,228,216,0.6);text-transform:uppercase;
+  display:flex;align-items:center;gap:8px;transition:color 0.2s;
+}
+.shop-back:hover{color:var(--gold);}
+.shop-nav-right{display:flex;align-items:center;gap:18px;}
+#cart-toggle-btn{
+  display:flex;align-items:center;gap:8px;
+  font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.2em;
+  color:var(--gold);text-transform:uppercase;border:1px solid rgba(200,168,75,0.4);
+  padding:9px 16px;background:rgba(200,168,75,0.06);cursor:pointer;
+  position:relative;transition:background 0.2s;
+}
+#cart-toggle-btn:hover{background:rgba(200,168,75,0.15);}
+#cart-count-badge{
+  position:absolute;top:-8px;right:-8px;
+  width:18px;height:18px;border-radius:50%;
+  background:var(--red2);color:#fff;font-size:10px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Share Tech Mono',monospace;
+}
+
+/* ===== SHOP HERO — diagonal gold/black split, matches product-shot art direction ===== */
+.shop-hero{
+  position:relative;overflow:hidden;
+  padding:90px 32px 70px;
+  background:
+    linear-gradient(115deg,#050505 0%,#050505 44%,rgba(120,95,30,0.55) 62%,rgba(200,168,75,0.28) 78%,#050505 100%),
+    #050505;
+  border-bottom:1px solid rgba(200,168,75,0.2);
+  text-align:center;
+}
+.shop-hero::before{
+  /* faint grid, reused visual language from hero-grid on index.html */
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(200,168,75,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(200,168,75,0.05) 1px,transparent 1px);
+  background-size:46px 46px;pointer-events:none;
+}
+.shop-hero::after{
+  content:'狂賢師';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:'Noto Serif JP',serif;font-weight:900;font-size:min(30vw,340px);
+  color:transparent;-webkit-text-stroke:0.5px rgba(200,168,75,0.06);
+  white-space:nowrap;pointer-events:none;
+}
+.shop-hero-inner{position:relative;z-index:2;}
+.shop-eyebrow{
+  font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.6em;
+  color:var(--gold);text-transform:uppercase;margin-bottom:18px;
+}
+.shop-hero h1{
+  font-family:'Noto Serif JP',serif;font-weight:900;
+  font-size:clamp(38px,7vw,84px);line-height:0.98;
+  color:transparent;-webkit-text-stroke:1.2px var(--gold);
+  text-shadow:0 0 60px rgba(200,168,75,0.18);
+  margin-bottom:14px;
+}
+.shop-hero h1 em{
+  font-style:italic;display:block;
+  background:linear-gradient(90deg,var(--gold3),var(--gold2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  -webkit-text-stroke:0;
+}
+.shop-hero p{
+  font-family:'Rajdhani',sans-serif;font-weight:300;font-size:16px;
+  color:rgba(232,228,216,0.6);max-width:520px;margin:0 auto;letter-spacing:0.02em;
+}
+
+/* ===== PRODUCT GRID ===== */
+.shop-grid-section{padding:70px 0 100px;}
+.shop-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:34px;
+}
+.product-card{
+  position:relative;background:linear-gradient(165deg,rgba(20,17,12,0.6),rgba(5,5,5,0.9));
+  border:1px solid rgba(200,168,75,0.22);
+  display:flex;flex-direction:column;
+  transition:border-color 0.25s ease,transform 0.25s ease;
+}
+.product-card:hover{border-color:rgba(200,168,75,0.55);transform:translateY(-4px);}
+.product-media{position:relative;aspect-ratio:1/1;overflow:hidden;background:#0a0a0a;}
+.product-media img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform 0.5s ease;}
+.product-card:hover .product-media img{transform:scale(1.04);}
+.product-badge{
+  position:absolute;top:12px;left:12px;z-index:2;
+  font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:0.2em;
+  background:rgba(5,5,5,0.85);border:1px solid rgba(200,168,75,0.45);
+  color:var(--gold);padding:6px 10px;text-transform:uppercase;
+}
+.product-body{padding:20px 22px 24px;display:flex;flex-direction:column;flex:1;}
+.product-cat{
+  font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:0.3em;
+  color:rgba(200,168,75,0.6);text-transform:uppercase;margin-bottom:6px;
+}
+.product-name{
+  font-family:'Rajdhani',sans-serif;font-weight:700;font-size:19px;
+  color:#f4f0e4;margin-bottom:6px;line-height:1.25;
+}
+.product-desc{
+  font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:300;
+  color:rgba(232,228,216,0.55);line-height:1.55;margin-bottom:14px;
+}
+.product-price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:16px;}
+.product-price{
+  font-family:'Share Tech Mono',monospace;font-size:20px;color:var(--gold2);
+  /* -----------------------------------------------------------------------
+     PRICE PLACEHOLDER
+     The number shown here ("XX") is injected by shop.js from the PRODUCTS
+     array in that file. To set the real price:
+       1. Open shop.js
+       2. Find the matching product object (search its `id`)
+       3. Change `price: 0` to your real number, e.g. `price: 1499`
+     The page will automatically switch from "XX" to a formatted price
+     everywhere (card, cart drawer, cart total) — no other edits needed.
+     ----------------------------------------------------------------------- */
+}
+.product-price-note{font-family:'Share Tech Mono',monospace;font-size:9px;color:rgba(232,228,216,0.4);}
+
+/* size selector */
+.product-field-label{
+  font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.2em;
+  color:rgba(232,228,216,0.5);text-transform:uppercase;margin-bottom:8px;display:block;
+}
+.size-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+.size-btn{
+  min-width:40px;padding:8px 6px;text-align:center;
+  font-family:'Share Tech Mono',monospace;font-size:11px;
+  background:rgba(255,255,255,0.03);border:1px solid rgba(200,168,75,0.35);
+  color:rgba(232,228,216,0.75);cursor:pointer;transition:all 0.2s ease;
+}
+.size-btn:hover{border-color:var(--gold);}
+.size-btn.active{background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:700;}
+
+/* qty stepper */
+.qty-row{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
+.qty-stepper{display:flex;align-items:center;border:1px solid rgba(200,168,75,0.35);}
+.qty-stepper button{
+  width:32px;height:32px;background:transparent;border:none;color:var(--gold);
+  font-size:16px;cursor:pointer;transition:background 0.2s;
+}
+.qty-stepper button:hover{background:rgba(200,168,75,0.12);}
+.qty-stepper span{width:34px;text-align:center;font-family:'Share Tech Mono',monospace;font-size:13px;}
+
+.btn-add-cart{
+  margin-top:auto;
+  font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.25em;
+  color:var(--ink);background:var(--gold);border:none;padding:14px;
+  text-transform:uppercase;cursor:pointer;transition:opacity 0.2s,transform 0.2s;
+}
+.btn-add-cart:hover{opacity:0.88;transform:translateY(-1px);}
+.btn-add-cart:disabled{opacity:0.4;cursor:not-allowed;transform:none;}
+
+/* clickable product media/name → opens the quick-view modal */
+.product-media,.product-name{cursor:pointer;}
+
+/* ===== PRODUCT QUICK-VIEW MODAL (Amazon-style detail view) ===== */
+#product-overlay .modal-box{
+  width:min(880px,100%);padding:0;overflow:hidden;
+  display:flex;flex-direction:column;
+}
+.pm-body{display:flex;flex-wrap:wrap;max-height:88vh;overflow-y:auto;}
+.pm-media{
+  flex:1 1 340px;min-width:280px;position:relative;background:#0a0a0a;
+  aspect-ratio:1/1;
+}
+.pm-media img{width:100%;height:100%;object-fit:cover;object-position:top center;}
+.pm-info{flex:1 1 360px;min-width:280px;padding:28px 30px;display:flex;flex-direction:column;}
+.pm-info .product-details{margin-top:auto;padding-top:16px;}
+#product-overlay .modal-close{z-index:5;background:rgba(5,5,5,0.65);border-radius:50%;width:30px;height:30px;}
+.pm-wishlist-btn{
+  position:absolute;top:14px;right:14px;z-index:4;width:34px;height:34px;border-radius:50%;
+  background:rgba(5,5,5,0.65);border:1px solid rgba(200,168,75,0.4);
+  color:rgba(232,228,216,0.75);font-size:16px;line-height:1;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:all 0.2s ease;
+}
+.pm-wishlist-btn:hover{border-color:var(--gold);color:var(--gold);}
+.pm-wishlist-btn.active{color:var(--red2);border-color:var(--red2);}
+.pm-media img{cursor:zoom-in;}
+
+/* ===== IMAGE LIGHTBOX — click the product photo to zoom ===== */
+#image-lightbox{
+  position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:200;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity 0.25s ease;padding:30px;
+}
+#image-lightbox.open{opacity:1;pointer-events:all;}
+.lightbox-scroll{
+  max-width:92vw;max-height:88vh;overflow:auto;
+  display:flex;align-items:center;justify-content:center;
+}
+.lightbox-scroll img{
+  max-width:92vw;max-height:88vh;object-fit:contain;
+  cursor:zoom-in;transition:transform 0.2s ease;transform-origin:center center;
+}
+.lightbox-scroll img.zoomed{
+  max-width:none;max-height:none;width:180%;cursor:zoom-out;
+}
+.lightbox-close{
+  position:fixed;top:20px;right:24px;background:rgba(10,9,8,0.8);
+  border:1px solid rgba(200,168,75,0.4);color:rgba(232,228,216,0.8);
+  width:38px;height:38px;border-radius:50%;font-size:18px;cursor:pointer;z-index:201;
+}
+.lightbox-close:hover{color:var(--gold);border-color:var(--gold);}
+.lightbox-hint{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+  color:rgba(232,228,216,0.55);font-family:'Rajdhani',sans-serif;font-size:12px;
+  letter-spacing:0.04em;text-transform:uppercase;z-index:201;
+}
+
+/* details accordion — pure HTML <details>, no JS needed */
+.product-details{margin-top:16px;border-top:0.5px solid rgba(200,168,75,0.2);padding-top:12px;}
+.product-details summary{
+  cursor:pointer;list-style:none;
+  font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.2em;
+  color:rgba(200,168,75,0.8);text-transform:uppercase;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.product-details summary::-webkit-details-marker{display:none;}
+.product-details summary::after{content:'+';font-size:14px;transition:transform 0.2s;}
+.product-details[open] summary::after{transform:rotate(45deg);}
+.product-details ul{margin:12px 0 4px;padding-left:16px;}
+.product-details li{
+  font-family:'Rajdhani',sans-serif;font-size:12.5px;font-weight:400;
+  color:rgba(232,228,216,0.6);line-height:1.7;
+}
+
+/* ===== INFO STRIP (things buyers want to know before purchasing) ===== */
+.info-strip{
+  border-top:1px solid rgba(200,168,75,0.18);border-bottom:1px solid rgba(200,168,75,0.18);
+  padding:50px 0;background:#020202;
+}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;}
+.info-item h4{
+  font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;letter-spacing:0.06em;
+  color:var(--gold);text-transform:uppercase;margin-bottom:8px;
+}
+.info-item p{
+  font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:300;
+  color:rgba(232,228,216,0.55);line-height:1.6;
+}
+/*
+  NOTE FOR LATER: replace the placeholder copy in .info-item (shipping time,
+  returns window, size-chart numbers) with your real policies once decided.
+*/
+
+/* ===== CART DRAWER ===== */
+#cart-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:90;
+  opacity:0;pointer-events:none;transition:opacity 0.3s ease;
+}
+#cart-overlay.open{opacity:1;pointer-events:all;}
+#cart-drawer{
+  position:fixed;top:0;right:0;bottom:0;width:min(400px,92vw);z-index:95;
+  background:#0a0908;border-left:1px solid rgba(200,168,75,0.35);
+  display:flex;flex-direction:column;
+  transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+#cart-drawer.open{transform:translateX(0);}
+.cart-drawer-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 22px;border-bottom:1px solid rgba(200,168,75,0.2);
+}
+.cart-drawer-head h3{font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:0.05em;color:var(--gold);text-transform:uppercase;font-size:15px;}
+#cart-close-btn{background:none;border:none;color:rgba(232,228,216,0.6);font-size:20px;cursor:pointer;}
+#cart-close-btn:hover{color:var(--gold);}
+#cart-items{flex:1;overflow-y:auto;padding:16px 22px;}
+.cart-empty{
+  font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(232,228,216,0.4);
+  text-align:center;margin-top:40px;
+}
+.cart-line{display:flex;gap:12px;padding:14px 0;border-bottom:0.5px solid rgba(200,168,75,0.12);}
+.cart-line img{width:60px;height:70px;object-fit:cover;flex:none;background:#111;}
+.cart-line-info{flex:1;min-width:0;}
+.cart-line-name{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:13px;color:#f0ece0;}
+.cart-line-meta{font-family:'Share Tech Mono',monospace;font-size:9px;color:rgba(232,228,216,0.45);margin-top:3px;}
+.cart-line-price{font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--gold2);margin-top:6px;}
+.cart-line-remove{
+  background:none;border:none;color:rgba(232,228,216,0.35);font-size:11px;
+  cursor:pointer;font-family:'Share Tech Mono',monospace;letter-spacing:0.1em;
+  text-transform:uppercase;margin-top:6px;
+}
+.cart-line-remove:hover{color:var(--red2);}
+.cart-drawer-foot{border-top:1px solid rgba(200,168,75,0.2);padding:18px 22px 22px;}
+.cart-subtotal-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;}
+.cart-subtotal-row span:first-child{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.2em;color:rgba(232,228,216,0.55);text-transform:uppercase;}
+.cart-subtotal-row span:last-child{font-family:'Share Tech Mono',monospace;font-size:18px;color:var(--gold2);}
+#checkout-btn{
+  width:100%;font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.25em;
+  color:var(--ink);background:var(--gold);border:none;padding:15px;
+  text-transform:uppercase;cursor:pointer;transition:opacity 0.2s;
+}
+#checkout-btn:hover{opacity:0.88;}
+#checkout-btn:disabled{opacity:0.35;cursor:not-allowed;}
+.cart-shipping-note{
+  font-family:'Rajdhani',sans-serif;font-size:11px;color:rgba(232,228,216,0.4);
+  text-align:center;margin-top:10px;
+}
+
+/* ===== ACCOUNT BUTTON ===== */
+.shop-icon-btn{
+  font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.2em;
+  color:rgba(232,228,216,0.75);text-transform:uppercase;
+  background:transparent;border:1px solid rgba(200,168,75,0.3);
+  padding:9px 16px;cursor:pointer;transition:all 0.2s;
+}
+.shop-icon-btn:hover{border-color:var(--gold);color:var(--gold);}
+
+/* ===== MODAL SHELL (shared by auth + address modals) ===== */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:110;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity 0.25s ease;padding:20px;
+}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal-box{
+  width:min(420px,100%);max-height:88vh;overflow-y:auto;
+  background:#0a0908;border:1px solid rgba(200,168,75,0.4);
+  padding:28px 26px;position:relative;
+  transform:translateY(16px);transition:transform 0.3s ease;
+}
+.modal-overlay.open .modal-box{transform:translateY(0);}
+.modal-close{
+  position:absolute;top:16px;right:16px;background:none;border:none;
+  color:rgba(232,228,216,0.5);font-size:18px;cursor:pointer;
+}
+.modal-close:hover{color:var(--gold);}
+.modal-title{
+  font-family:'Rajdhani',sans-serif;font-weight:700;font-size:18px;
+  letter-spacing:0.04em;color:#f4f0e4;text-transform:uppercase;margin-bottom:6px;
+}
+.modal-subtitle{font-family:'Rajdhani',sans-serif;font-size:12px;color:rgba(232,228,216,0.5);margin-bottom:20px;}
+
+/* auth tabs */
+.auth-tabs{display:flex;border:1px solid rgba(200,168,75,0.3);margin-bottom:20px;}
+.auth-tab{
+  flex:1;padding:10px;text-align:center;cursor:pointer;
+  font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.2em;
+  color:rgba(232,228,216,0.55);text-transform:uppercase;background:transparent;border:none;
+}
+.auth-tab.active{background:var(--gold);color:var(--ink);font-weight:700;}
+.auth-panel{display:none;}
+.auth-panel.active{display:block;}
+
+/* form fields, reused by auth + address forms */
+.form-field{margin-bottom:14px;}
+.form-field label{
+  display:block;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.15em;
+  color:rgba(232,228,216,0.5);text-transform:uppercase;margin-bottom:6px;
+}
+.form-field input{
+  width:100%;background:rgba(255,255,255,0.03);border:1px solid rgba(200,168,75,0.3);
+  color:#f0ece0;font-family:'Rajdhani',sans-serif;font-size:14px;padding:10px 12px;
+}
+.form-field input:focus{outline:none;border-color:var(--gold);}
+.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.form-error{
+  font-family:'Rajdhani',sans-serif;font-size:12px;color:var(--red2);
+  margin-bottom:12px;min-height:16px;
+}
+.form-submit-btn{
+  width:100%;font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.2em;
+  color:var(--ink);background:var(--gold);border:none;padding:13px;
+  text-transform:uppercase;cursor:pointer;margin-top:6px;transition:opacity 0.2s;
+}
+.form-submit-btn:hover{opacity:0.88;}
+.guest-divider{
+  display:flex;align-items:center;gap:10px;margin:16px 0;
+  font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.15em;
+  color:rgba(232,228,216,0.35);text-transform:uppercase;
+}
+.guest-divider::before,.guest-divider::after{content:'';flex:1;height:1px;background:rgba(200,168,75,0.2);}
+.guest-btn{
+  width:100%;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.15em;
+  color:rgba(232,228,216,0.7);background:transparent;border:1px solid rgba(200,168,75,0.3);
+  padding:12px;text-transform:uppercase;cursor:pointer;
+}
+.guest-btn:hover{border-color:var(--gold);color:var(--gold);}
+
+/* logged-in account panel */
+.account-info-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:0.5px solid rgba(200,168,75,0.15);font-family:'Rajdhani',sans-serif;font-size:13px;}
+.account-info-row span:first-child{color:rgba(232,228,216,0.5);}
+.account-info-row span:last-child{color:#f0ece0;font-weight:600;}
+.account-actions{display:flex;gap:10px;margin-top:20px;}
+.account-actions button{flex:1;padding:11px;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;}
+#logout-btn{background:transparent;border:1px solid rgba(200,168,75,0.3);color:rgba(232,228,216,0.7);}
+#logout-btn:hover{border-color:var(--gold);color:var(--gold);}
+#delete-account-btn{background:transparent;border:1px solid var(--red2);color:var(--red2);}
+#delete-account-btn:hover{background:rgba(255,45,45,0.1);}
+
+/* toast */
+#toast{
+  position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:#0a0908;border:1px solid var(--gold);color:var(--gold2);
+  font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:0.1em;
+  padding:12px 22px;z-index:100;opacity:0;pointer-events:none;
+  transition:opacity 0.3s ease,transform 0.3s ease;
+}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* footer */
+.shop-footer{padding:40px 32px;text-align:center;}
+.shop-footer p{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.2em;color:rgba(232,228,216,0.35);text-transform:uppercase;}
+
+@media (max-width:640px){
+  .wrap{padding:0 18px;}
+  .shop-hero{padding:70px 18px 50px;}
+  .shop-grid-section{padding:50px 0 70px;}
+}
+</style>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<header class="shop-nav">
+  <a href="index.html" class="shop-logo">M<span>AD SENSEI</span></a>
+  <div class="shop-nav-right">
+    <a href="index.html" class="shop-back">← Back to Home</a>
+    <button id="account-toggle-btn" class="shop-icon-btn" onclick="openAuthModal()">Login</button>
+    <button id="cart-toggle-btn" onclick="openCart()">
+      Cart
+      <span id="cart-count-badge">0</span>
+    </button>
+  </div>
+</header>
+
+<!-- ===================== SHOP HERO ===================== -->
+<section class="shop-hero">
+  <div class="shop-hero-inner">
+    <div class="shop-eyebrow">Premium Collection · Limited Edition</div>
+    <h1>Merchandise<em>Is Released!</em></h1>
+    <p>Oversized tees and denim, designed in-house for Mad Sensei Studios. Every drop is limited — once a size sells out, it's gone.</p>
+  </div>
+</section>
+
+<!-- ===================== PRODUCT GRID ===================== -->
+<section class="shop-grid-section">
+  <div class="wrap">
+    <div class="shop-grid" id="product-grid">
+
+      <!-- ---------------------------------------------------------------
+           PRODUCT CARD TEMPLATE
+           Each card below is wired to shop.js via data-product-id, which
+           must match an `id` in the PRODUCTS array at the top of shop.js.
+           To add a 6th product: duplicate one full <article> block, give
+           it a new data-product-id, update the image/name/sizes, then add
+           a matching object to PRODUCTS in shop.js.
+           --------------------------------------------------------------- -->
+
+      <!-- PRODUCT 1 -->
+      <article class="product-card" data-product-id="tee-noir-premium">
+        <div class="product-media" onclick="openProductModal('tee-noir-premium')">
+          <span class="product-badge">Limited Edition</span>
+          <img src="images/products/tee-noir-premium.jpeg" alt="Mad Sensei Noir Premium Oversized Tee">
+        </div>
+        <div class="product-body">
+          <div class="product-cat">Oversized Tee</div>
+          <div class="product-name" onclick="openProductModal('tee-noir-premium')">Noir Premium Tee</div>
+          <p class="product-desc">240 GSM oversized tee with drop-shoulder fit and high-quality DTG front/back print.</p>
+          <div class="product-price-row">
+            <span class="product-price" data-price-el>₹ XX</span>
+            <span class="product-price-note">incl. taxes</span>
+          </div>
+
+          <label class="product-field-label">Size</label>
+          <div class="size-row" data-size-group>
+            <button type="button" class="size-btn" data-size="S">S</button>
+            <button type="button" class="size-btn" data-size="M">M</button>
+            <button type="button" class="size-btn" data-size="L">L</button>
+            <button type="button" class="size-btn" data-size="XL">XL</button>
+            <button type="button" class="size-btn" data-size="XXL">XXL</button>
+          </div>
+
+          <label class="product-field-label">Quantity</label>
+          <div class="qty-row">
+            <div class="qty-stepper">
+              <button type="button" data-qty-minus>−</button>
+              <span data-qty-value>1</span>
+              <button type="button" data-qty-plus>+</button>
+            </div>
+          </div>
+
+          <button type="button" class="btn-add-cart" data-add-to-cart>Add to Cart</button>
+
+          <details class="product-details">
+            <summary>Product Details</summary>
+            <ul>
+              <li>100% premium cotton, 240 GSM</li>
+              <li>Oversized fit, drop shoulder</li>
+              <li>High quality DTG print — rich detail, long lasting</li>
+              <li>Premium woven label + hang tag</li>
+              <li>Limited edition run</li>
+            </ul>
+          </details>
+        </div>
+      </article>
+
+      <!-- PRODUCT 2 -->
+      <article class="product-card" data-product-id="tee-noir-allover">
+        <div class="product-media" onclick="openProductModal('tee-noir-allover')">
+          <span class="product-badge">Limited Edition</span>
+          <img src="images/products/tee-noir-allover.jpeg" alt="Mad Sensei Noir All-Over Print Oversized Tee">
+        </div>
+        <div class="product-body">
+          <div class="product-cat">Oversized Tee</div>
+          <div class="product-name" onclick="openProductModal('tee-noir-allover')">Noir All-Over Print Tee</div>
+          <p class="product-desc">Bold graffiti-style front/back graphic with sleeve prints. Streetwear cut, made for layering.</p>
+          <div class="product-price-row">
+            <span class="product-price" data-price-el>₹ XX</span>
+            <span class="product-price-note">incl. taxes</span>
+          </div>
+
+          <label class="product-field-label">Size</label>
+          <div class="size-row" data-size-group>
+            <button type="button" class="size-btn" data-size="S">S</button>
+            <button type="button" class="size-btn" data-size="M">M</button>
+            <button type="button" class="size-btn" data-size="L">L</button>
+            <button type="button" class="size-btn" data-size="XL">XL</button>
+            <button type="button" class="size-btn" data-size="XXL">XXL</button>
+          </div>
+
+          <label class="product-field-label">Quantity</label>
+          <div class="qty-row">
+            <div class="qty-stepper">
+              <button type="button" data-qty-minus>−</button>
+              <span data-qty-value>1</span>
+              <button type="button" data-qty-plus>+</button>
+            </div>
+          </div>
+
+          <button type="button" class="btn-add-cart" data-add-to-cart>Add to Cart</button>
+
+          <details class="product-details">
+            <summary>Product Details</summary>
+            <ul>
+              <li>100% premium cotton, oversized fit</li>
+              <li>All-over front & back graphic print</li>
+              <li>Ribbed crew neckline</li>
+              <li>Limited edition run</li>
+            </ul>
+          </details>
+        </div>
+      </article>
+
+      <!-- PRODUCT 3 -->
+      <article class="product-card" data-product-id="tee-ivory-blush">
+        <div class="product-media" onclick="openProductModal('tee-ivory-blush')">
+          <span class="product-badge">Limited Edition</span>
+          <img src="images/products/tee-ivory-blush.jpeg" alt="Mad Sensei Ivory Blush Oversized Tee">
+        </div>
+        <div class="product-body">
+          <div class="product-cat">Oversized Tee</div>
+          <div class="product-name" onclick="openProductModal('tee-ivory-blush')">Ivory Blush Tee</div>
+          <p class="product-desc">Soft ivory colourway with delicate blush-pink DTG artwork. Fine embroidered accents.</p>
+          <div class="product-price-row">
+            <span class="product-price" data-price-el>₹ XX</span>
+            <span class="product-price-note">incl. taxes</span>
+          </div>
+
+          <label class="product-field-label">Size</label>
+          <div class="size-row" data-size-group>
+            <button type="button" class="size-btn" data-size="S">S</button>
+            <button type="button" class="size-btn" data-size="M">M</button>
+            <button type="button" class="size-btn" data-size="L">L</button>
+            <button type="button" class="size-btn" data-size="XL">XL</button>
+            <button type="button" class="size-btn" data-size="XXL">XXL</button>
+          </div>
+
+          <label class="product-field-label">Quantity</label>
+          <div class="qty-row">
+            <div class="qty-stepper">
+              <button type="button" data-qty-minus>−</button>
+              <span data-qty-value>1</span>
+              <button type="button" data-qty-plus>+</button>
+            </div>
+          </div>
+
+          <button type="button" class="btn-add-cart" data-add-to-cart>Add to Cart</button>
+
+          <details class="product-details">
+            <summary>Product Details</summary>
+            <ul>
+              <li>100% premium cotton, soft & breathable</li>
+              <li>Oversized fit, DTG print — soft, vibrant, long lasting</li>
+              <li>Fine embroidery detailing</li>
+              <li>Premium woven label</li>
+              <li>Limited edition run</li>
+            </ul>
+          </details>
+        </div>
+      </article>
+
+      <!-- PRODUCT 4 -->
+      <article class="product-card" data-product-id="denim-blush-wash">
+        <div class="product-media" onclick="openProductModal('denim-blush-wash')">
+          <span class="product-badge">Limited Edition</span>
+          <img src="images/products/denim-blush-wash.jpeg" alt="Mad Sensei Blush Wash Wide-Leg Denim">
+        </div>
+        <div class="product-body">
+          <div class="product-cat">Wide-Leg Denim</div>
+          <div class="product-name" onclick="openProductModal('denim-blush-wash')">Blush Wash Denim</div>
+          <p class="product-desc">Premium soft-wash denim in a wide-leg, oversized cut. Exclusive leg print + embroidered back pocket.</p>
+          <div class="product-price-row">
+            <span class="product-price" data-price-el>₹ XX</span>
+            <span class="product-price-note">incl. taxes</span>
+          </div>
+
+          <label class="product-field-label">Waist Size</label>
+          <div class="size-row" data-size-group>
+            <button type="button" class="size-btn" data-size="28">28</button>
+            <button type="button" class="size-btn" data-size="30">30</button>
+            <button type="button" class="size-btn" data-size="32">32</button>
+            <button type="button" class="size-btn" data-size="34">34</button>
+            <button type="button" class="size-btn" data-size="36">36</button>
+          </div>
+
+          <label class="product-field-label">Quantity</label>
+          <div class="qty-row">
+            <div class="qty-stepper">
+              <button type="button" data-qty-minus>−</button>
+              <span data-qty-value>1</span>
+              <button type="button" data-qty-plus>+</button>
+            </div>
+          </div>
+
+          <button type="button" class="btn-add-cart" data-add-to-cart>Add to Cart</button>
+
+          <details class="product-details">
+            <summary>Product Details</summary>
+            <ul>
+              <li>Premium denim, soft & durable</li>
+              <li>Oversized, wide-leg fit</li>
+              <li>Exclusive original artwork print — unique to this drop</li>
+              <li>Embroidered back pocket + premium leather patch</li>
+              <li>Limited edition — exclusive drop</li>
+            </ul>
+          </details>
+        </div>
+      </article>
+
+      <!-- PRODUCT 5 -->
+      <article class="product-card" data-product-id="denim-ivory-wash">
+        <div class="product-media" onclick="openProductModal('denim-ivory-wash')">
+          <span class="product-badge">Limited Edition</span>
+          <img src="images/products/denim-ivory-wash.jpeg" alt="Mad Sensei Ivory Wash Wide-Leg Denim">
+        </div>
+        <div class="product-body">
+          <div class="product-cat">Wide-Leg Denim</div>
+          <div class="product-name" onclick="openProductModal('denim-ivory-wash')">Ivory Wash Denim</div>
+          <p class="product-desc">Ivory wide-leg denim with a playful chibi print, cute embroidery and a premium leather patch.</p>
+          <div class="product-price-row">
+            <span class="product-price" data-price-el>₹ XX</span>
+            <span class="product-price-note">incl. taxes</span>
+          </div>
+
+          <label class="product-field-label">Waist Size</label>
+          <div class="size-row" data-size-group>
+            <button type="button" class="size-btn" data-size="28">28</button>
+            <button type="button" class="size-btn" data-size="30">30</button>
+            <button type="button" class="size-btn" data-size="32">32</button>
+            <button type="button" class="size-btn" data-size="34">34</button>
+            <button type="button" class="size-btn" data-size="36">36</button>
+          </div>
+
+          <label class="product-field-label">Quantity</label>
+          <div class="qty-row">
+            <div class="qty-stepper">
+              <button type="button" data-qty-minus>−</button>
+              <span data-qty-value>1</span>
+              <button type="button" data-qty-plus>+</button>
+            </div>
+          </div>
+
+          <button type="button" class="btn-add-cart" data-add-to-cart>Add to Cart</button>
+
+          <details class="product-details">
+            <summary>Product Details</summary>
+            <ul>
+              <li>Premium denim, soft & comfortable</li>
+              <li>Oversized, wide-leg fit</li>
+              <li>Exclusive original print, made with love</li>
+              <li>Cute embroidery + premium leather patch</li>
+              <li>Limited edition run</li>
+            </ul>
+          </details>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INFO STRIP (pre-purchase questions) ===================== -->
+<section class="info-strip">
+  <div class="wrap info-grid">
+    <div class="info-item">
+      <h4>Shipping</h4>
+      <!-- TODO: replace with your real shipping timelines / carriers -->
+      <p>Dispatched within XX business days. Delivery in XX–XX business days depending on location.</p>
+    </div>
+    <div class="info-item">
+      <h4>Size &amp; Fit</h4>
+      <p>All tees are an oversized, drop-shoulder fit. Denim is a wide-leg, oversized cut. See size chart on request.</p>
+    </div>
+    <div class="info-item">
+      <h4>Returns</h4>
+      <!-- TODO: replace with your real returns policy -->
+      <p>Returns accepted within XX days of delivery for unworn items with tags attached.</p>
+    </div>
+    <div class="info-item">
+      <h4>Payment</h4>
+      <!-- TODO: this line updates itself once you wire a real payment method in shop.js -->
+      <p>Secure checkout. Cards, UPI and wallets supported at launch.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="shop-footer">
+  <p>Mad Sensei Studios · Limited Edition Merchandise</p>
+</footer>
+
+<!-- ===================== CART DRAWER ===================== -->
+<div id="cart-overlay" onclick="closeCart()"></div>
+<aside id="cart-drawer" aria-label="Shopping cart">
+  <div class="cart-drawer-head">
+    <h3>Your Cart</h3>
+    <button id="cart-close-btn" onclick="closeCart()" aria-label="Close cart">✕</button>
+  </div>
+  <div id="cart-items">
+    <p class="cart-empty">Your cart is empty.</p>
+  </div>
+  <div class="cart-drawer-foot">
+    <div class="cart-subtotal-row">
+      <span>Subtotal</span>
+      <span id="cart-subtotal">₹ 0</span>
+    </div>
+    <!-- ---------------------------------------------------------------
+         CHECKOUT BUTTON
+         Currently calls goToCheckout() in shop.js, which just shows an
+         alert placeholder. See the big comment block above that function
+         in shop.js for exactly how to wire real payments in.
+         --------------------------------------------------------------- -->
+    <button id="checkout-btn" onclick="goToCheckout()" disabled>Proceed to Checkout</button>
+    <p class="cart-shipping-note">Shipping & taxes calculated at checkout.</p>
+  </div>
+</aside>
+
+<div id="toast"></div>
+
+<!-- ===================== AUTH MODAL (Login / Sign Up / Account) ===================== -->
+<div id="auth-overlay" class="modal-overlay" onclick="if(event.target===this) closeAuthModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeAuthModal()">✕</button>
+
+    <!-- Shown when logged OUT -->
+    <div id="auth-guest-view">
+      <div class="modal-title">Your Account</div>
+      <div class="modal-subtitle">Log in to save your address for faster checkout.</div>
+
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab active" data-auth-tab="login" onclick="switchAuthTab('login')">Login</button>
+        <button type="button" class="auth-tab" data-auth-tab="signup" onclick="switchAuthTab('signup')">Sign Up</button>
+      </div>
+
+      <!-- LOGIN -->
+      <div class="auth-panel active" data-auth-panel="login">
+        <p class="form-error" id="login-error"></p>
+        <div class="form-field"><label>Email</label><input type="email" id="login-email"></div>
+        <div class="form-field"><label>Password</label><input type="password" id="login-password"></div>
+        <button type="button" class="form-submit-btn" onclick="handleLogin()">Log In</button>
+      </div>
+
+      <!-- SIGN UP -->
+      <div class="auth-panel" data-auth-panel="signup">
+        <p class="form-error" id="signup-error"></p>
+        <div class="form-field"><label>Name</label><input type="text" id="signup-name"></div>
+        <div class="form-field"><label>Email</label><input type="email" id="signup-email"></div>
+        <div class="form-field"><label>Password (min. 6 characters)</label><input type="password" id="signup-password"></div>
+        <button type="button" class="form-submit-btn" onclick="handleSignup()">Create Account</button>
+      </div>
+
+      <div class="guest-divider">or</div>
+      <button type="button" class="guest-btn" onclick="closeAuthModal()">Continue Browsing as Guest</button>
+    </div>
+
+    <!-- Shown when logged IN -->
+    <div id="auth-account-view" style="display:none;">
+      <div class="modal-title">My Account</div>
+      <div class="account-info-row"><span>Name</span><span id="account-name-display">—</span></div>
+      <div class="account-info-row"><span>Email</span><span id="account-email-display">—</span></div>
+      <div class="account-info-row"><span>Phone</span><span id="account-phone-display">—</span></div>
+      <div class="account-info-row"><span>Saved Address</span><span id="account-address-display">—</span></div>
+      <div class="account-actions">
+        <button type="button" id="logout-btn" onclick="handleLogout()">Log Out</button>
+        <button type="button" id="delete-account-btn" onclick="handleDeleteAccount()">Delete Account</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== ADDRESS / CHECKOUT MODAL ===================== -->
+<div id="image-lightbox" onclick="if(event.target===this) closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <div class="lightbox-scroll">
+    <img id="lightbox-img" src="" alt="" onclick="toggleZoom()">
+  </div>
+  <div class="lightbox-hint">Click image to zoom</div>
+</div>
+
+<div id="product-overlay" class="modal-overlay" onclick="if(event.target===this) closeProductModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeProductModal()">✕</button>
+    <div class="pm-body">
+      <div class="pm-media">
+        <span class="product-badge">Limited Edition</span>
+        <button type="button" class="pm-wishlist-btn" id="pm-wishlist-btn" onclick="toggleWishlist()" aria-label="Save to wishlist">♡</button>
+        <img id="pm-image" src="" alt="" onclick="openLightbox()">
+      </div>
+      <div class="pm-info">
+        <div class="product-cat" id="pm-cat"></div>
+        <div class="product-name" id="pm-name" style="font-size:24px;cursor:default;"></div>
+        <p class="product-desc" id="pm-desc"></p>
+        <div class="product-price-row">
+          <span class="product-price" id="pm-price"></span>
+          <span class="product-price-note">incl. taxes</span>
+        </div>
+
+        <label class="product-field-label" id="pm-size-label">Size</label>
+        <div class="size-row" id="pm-size-row"></div>
+
+        <label class="product-field-label">Quantity</label>
+        <div class="qty-row">
+          <div class="qty-stepper">
+            <button type="button" id="pm-qty-minus">−</button>
+            <span id="pm-qty-value">1</span>
+            <button type="button" id="pm-qty-plus">+</button>
+          </div>
+        </div>
+
+        <button type="button" class="btn-add-cart" id="pm-add-to-cart">Add to Cart</button>
+
+        <details class="product-details">
+          <summary>Product Details</summary>
+          <ul id="pm-details-list"></ul>
+        </details>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="address-overlay" class="modal-overlay" onclick="if(event.target===this) closeAddressModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeAddressModal()">✕</button>
+    <div class="modal-title">Shipping Details</div>
+    <div class="modal-subtitle">We need this to deliver your order. Required for both guest and logged-in checkout.</div>
+    <p class="form-error" id="address-error"></p>
+
+    <p id="location-status" style="font-size:0.85em;opacity:0.75;margin:-8px 0 14px;"></p>
+
+    <div class="form-row-2">
+      <div class="form-field"><label>Full Name</label><input type="text" id="addr-name"></div>
+      <div class="form-field"><label>Phone</label><input type="tel" id="addr-phone"></div>
+    </div>
+    <div class="form-field"><label>Email</label><input type="email" id="addr-email"></div>
+    <div class="form-field"><label>Address Line 1</label><input type="text" id="addr-line1"></div>
+    <div class="form-field"><label>Address Line 2 (optional)</label><input type="text" id="addr-line2"></div>
+    <div class="form-row-2">
+      <div class="form-field"><label>City</label><input type="text" id="addr-city"></div>
+      <div class="form-field"><label>State</label><input type="text" id="addr-state"></div>
+    </div>
+    <div class="form-field"><label>Pincode</label><input type="text" id="addr-pincode"></div>
+
+    <button type="button" class="form-submit-btn" onclick="submitAddressAndPay()">Continue to Payment</button>
+  </div>
+</div>
+
+<!-- ===================== PAYMENT RESULT MODAL ===================== -->
+<div id="payment-result-overlay" class="modal-overlay" onclick="if(event.target===this) closePaymentResultModal()">
+  <div class="modal-box" style="text-align:center;">
+    <button class="modal-close" onclick="closePaymentResultModal()">✕</button>
+    <div id="payment-result-icon" style="font-size:2.5em;margin-bottom:8px;"></div>
+    <div class="modal-title" id="payment-result-title"></div>
+    <p class="modal-subtitle" id="payment-result-message"></p>
+    <a id="payment-invoice-link" href="#" target="_blank" class="form-submit-btn" style="display:none;text-decoration:none;margin-top:10px;">⬇ Download Invoice</a>
+    <button type="button" class="form-submit-btn" id="payment-result-close-btn" onclick="closePaymentResultModal()" style="margin-top:10px;">Close</button>
+  </div>
+</div>
+
+<script src="shop.js"></script>
+</body>
+</html>
