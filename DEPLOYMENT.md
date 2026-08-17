@@ -11,7 +11,7 @@ This repository is fully configured and ready for **1-click / Git deployment on 
 - **Database**: PostgreSQL on Supabase (using connection pooling).
 - **Payment Gateway**: Razorpay (INR checkout with HMAC-SHA256 signature verification).
 - **Invoice & Email**: PDFKit invoice generator + Resend transactional email confirmations.
-- **SMS & Shipping**: MSG91 SMS + Shiprocket courier integrations.
+- **SMS & Shipping**: MSG91 SMS + Shiprocket courier integrations. 
 
 ---
 
