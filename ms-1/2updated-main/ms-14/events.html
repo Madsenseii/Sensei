@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEAC 2026 — Northeast Anime Con · Mad Sensei Studios</title>
+<meta name="description" content="Northeast Anime Con (NEAC) 2026 · 24–25 October 2026 · Guwahati, Assam. Cosplay, eSports, live dubbing, kendo, chess, motorsport and a Rs.3,00,000+ prize pool. Get tickets.">
+<meta property="og:title" content="NEAC 2026 — Northeast Anime Con">
+<meta property="og:description" content="24–25 October 2026 · Guwahati, Assam · Presented by Mad Sensei Studios">
+<meta property="og:image" content="https://www.madsensei.site/images/neac-poster.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root{--red:#e62020;--red2:#ff2d2d;--gold:#c8a84b;--gold2:#ffe066;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{background:#050505;color:#e8e4d8;font-family:'Share Tech Mono',monospace;overflow-x:hidden;}
+.ev-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:rgba(5,5,5,0.82);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,168,75,0.15);}
+.ev-nav-logo{font-family:'Noto Serif JP',serif;font-weight:900;font-size:18px;letter-spacing:0.08em;color:var(--gold);text-decoration:none;}
+.ev-nav-links{display:flex;align-items:center;gap:26px;}
+.ev-nav-links a{font-size:9px;letter-spacing:0.35em;color:rgba(232,228,216,0.6);text-decoration:none;text-transform:uppercase;transition:color 0.3s;}
+.ev-nav-links a:hover{color:var(--gold);}
+.ev-nav-links a.cta{background:var(--gold);color:#050505;padding:10px 20px;}
+.ev-nav-links a.cta:hover{background:var(--gold2);color:#050505;}
+.section-tag{font-size:8px;letter-spacing:0.6em;color:var(--gold);text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.section-tag::before{content:'';flex:none;width:28px;height:0.5px;background:var(--gold);}
+.section-title-main{font-family:'Noto Serif JP',serif;font-size:clamp(28px,4.5vw,58px);font-weight:900;color:#e8e4d8;line-height:1.05;margin-bottom:10px;}
+.section-title-main .outline{color:transparent;-webkit-text-stroke:1px rgba(232,228,216,0.6);}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1);}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1);}
+.reveal.visible,.reveal-left.visible{opacity:1;transform:none;}
+#events{padding-top:150px !important;min-height:100vh;}
+.ev-footer{text-align:center;padding:40px 20px 50px;border-top:1px solid rgba(200,168,75,0.15);font-size:10px;letter-spacing:0.3em;color:rgba(232,228,216,0.45);text-transform:uppercase;}
+.ev-footer a{color:var(--gold);text-decoration:none;}
+#ev-lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.35s;}
+#ev-lightbox.open{opacity:1;pointer-events:all;}
+#ev-lightbox img{max-width:90vw;max-height:84vh;object-fit:contain;border:1px solid rgba(200,168,75,0.3);}
+#ev-lightbox button{position:absolute;top:22px;right:30px;font-size:24px;color:rgba(200,168,75,0.8);background:none;border:none;cursor:pointer;}
+#ev-lightbox-cap{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:0.3em;color:rgba(200,168,75,0.7);text-transform:uppercase;text-align:center;width:90%;}
+@media(max-width:640px){.ev-nav{padding:14px 18px;}.ev-nav-links a:not(.cta){display:none;}}
+/* ===== EVENTS (NEAC 2026) ===== */
+#events{position:relative;z-index:1;padding:120px 40px;background:radial-gradient(ellipse at 15% 10%,rgba(230,32,32,0.08),transparent 55%),radial-gradient(ellipse at 90% 60%,rgba(200,168,75,0.07),transparent 55%),#030303;overflow:hidden;}
+.ev-bg-word{position:absolute;right:-2%;top:40px;font-family:'Noto Serif JP',serif;font-size:clamp(220px,32vw,480px);font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(200,168,75,0.07);line-height:1;pointer-events:none;user-select:none;}
+.ev-header,.ev-feature,.ev-ticker-wrap,.ev-sub,.ev-masonry,.ev-partners,.ev-final{position:relative;max-width:1300px;margin-left:auto;margin-right:auto;}
+.ev-header{margin-bottom:56px;}
+.ev-lead{max-width:620px;color:rgba(232,228,216,0.62);font-size:15px;line-height:1.8;margin-top:18px;}
+.ev-feature{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:56px;align-items:start;margin-bottom:70px;}
+.ev-poster-frame{position:relative;cursor:pointer;border:1px solid rgba(200,168,75,0.35);padding:10px;background:#070707;box-shadow:0 30px 80px rgba(0,0,0,0.7),0 0 60px rgba(230,32,32,0.12);transform:rotate(-1.2deg);transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);}
+.ev-poster-frame:hover{transform:rotate(0) scale(1.015);}
+.ev-poster-frame img{display:block;width:100%;height:auto;}
+.ev-poster-frame::before,.ev-poster-frame::after{content:"";position:absolute;width:22px;height:22px;border:2px solid var(--gold);pointer-events:none;}
+.ev-poster-frame::before{top:-6px;left:-6px;border-right:none;border-bottom:none;}
+.ev-poster-frame::after{bottom:-6px;right:-6px;border-left:none;border-top:none;}
+.ev-poster-hint{margin-top:16px;text-align:center;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.35em;color:rgba(200,168,75,0.55);text-transform:uppercase;}
+.ev-badge{display:inline-flex;align-items:center;gap:10px;font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.3em;color:var(--gold);border:1px solid rgba(200,168,75,0.4);padding:7px 14px;margin-bottom:26px;text-transform:uppercase;}
+.ev-badge i{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red);animation:ev-pulse 1.4s ease-in-out infinite;}
+@keyframes ev-pulse{50%{opacity:0.25;}}
+.ev-countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px;}
+.ev-tile{border:1px solid rgba(200,168,75,0.22);background:rgba(255,255,255,0.02);padding:18px 6px 12px;text-align:center;}
+.ev-tile b{display:block;font-family:'Noto Serif JP',serif;font-size:clamp(28px,4vw,46px);font-weight:900;color:#e8e4d8;line-height:1;font-variant-numeric:tabular-nums;}
+.ev-tile span{display:block;margin-top:8px;font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:0.35em;color:var(--gold);text-transform:uppercase;}
+.ev-status{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.25em;color:rgba(232,228,216,0.5);text-transform:uppercase;margin-bottom:30px;}
+.ev-facts{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(200,168,75,0.12);border:1px solid rgba(200,168,75,0.12);margin-bottom:30px;}
+.ev-facts li{background:#050505;padding:18px 20px;}
+.ev-facts small{display:block;font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:0.35em;color:var(--gold);text-transform:uppercase;margin-bottom:6px;}
+.ev-facts strong{font-family:'Noto Serif JP',serif;font-size:17px;color:#e8e4d8;font-weight:700;}
+.ev-passes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:30px;}
+.ev-pass{position:relative;display:block;text-decoration:none;border:1px solid rgba(200,168,75,0.25);padding:20px 14px;text-align:center;background:linear-gradient(180deg,rgba(200,168,75,0.06),transparent);transition:all 0.3s;}
+.ev-pass:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 12px 30px rgba(200,168,75,0.12);}
+.ev-pass.hot{border-color:var(--red);background:linear-gradient(180deg,rgba(230,32,32,0.14),transparent);}
+.ev-pass em{position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-style:normal;font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:0.2em;padding:3px 9px;white-space:nowrap;}
+.ev-pass span{display:block;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.3em;color:rgba(232,228,216,0.6);text-transform:uppercase;margin-bottom:8px;}
+.ev-pass b{font-family:'Noto Serif JP',serif;font-size:26px;color:var(--gold);font-weight:900;}
+.ev-cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
+.ev-btn{display:inline-block;text-decoration:none;font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:0.25em;text-transform:uppercase;padding:16px 30px;background:linear-gradient(135deg,var(--red) 0%,var(--red2) 100%);color:#fff;border:1px solid var(--red2);box-shadow:0 0 24px rgba(230,32,32,0.4);transition:all 0.3s;}
+.ev-btn:hover{background:var(--gold);border-color:var(--gold);color:#050505;box-shadow:0 0 30px rgba(200,168,75,0.5);}
+.ev-btn.ghost{background:none;border-color:rgba(200,168,75,0.45);color:var(--gold);box-shadow:none;}
+.ev-btn.ghost:hover{background:rgba(200,168,75,0.12);color:var(--gold);}
+.ev-ticker-wrap{overflow:hidden;border-top:1px solid rgba(200,168,75,0.15);border-bottom:1px solid rgba(200,168,75,0.15);margin-bottom:90px;padding:18px 0;max-width:none;}
+.ev-ticker{display:flex;width:max-content;animation:ev-scroll 38s linear infinite;}
+.ev-ticker span{font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:0.35em;color:rgba(232,228,216,0.7);text-transform:uppercase;padding:0 26px;white-space:nowrap;}
+.ev-ticker span.k{color:var(--gold);}
+@keyframes ev-scroll{to{transform:translateX(-50%);}}
+.ev-sub{margin-bottom:34px;}
+.ev-sub h3{font-family:'Noto Serif JP',serif;font-size:clamp(24px,3.2vw,38px);font-weight:900;color:#e8e4d8;margin-top:6px;}
+.ev-masonry{columns:3;column-gap:18px;margin-bottom:90px;}
+.ev-shot{position:relative;display:block;break-inside:avoid;margin-bottom:18px;overflow:hidden;cursor:pointer;border:1px solid rgba(200,168,75,0.18);background:#080808;transition:border-color 0.3s,transform 0.4s;}
+.ev-shot:hover{border-color:var(--gold);transform:translateY(-4px);}
+.ev-shot img{display:block;width:100%;height:auto;transition:transform 0.7s cubic-bezier(0.16,1,0.3,1);}
+.ev-shot:hover img{transform:scale(1.05);}
+.ev-shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 16px 14px;background:linear-gradient(transparent,rgba(0,0,0,0.88));font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.28em;color:var(--gold);text-transform:uppercase;opacity:0;transform:translateY(10px);transition:all 0.35s;}
+.ev-shot:hover figcaption{opacity:1;transform:none;}
+.ev-partners{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:90px;}
+.ev-partners .ev-shot{margin-bottom:0;}
+.ev-partners .ev-shot figcaption{opacity:1;transform:none;}
+.ev-final{text-align:center;padding:60px 24px;border:1px solid rgba(200,168,75,0.25);background:radial-gradient(ellipse at center,rgba(230,32,32,0.12),transparent 70%);}
+.ev-final h3{font-family:'Noto Serif JP',serif;font-size:clamp(26px,4vw,48px);font-weight:900;color:#e8e4d8;margin-bottom:12px;}
+.ev-final h3 em{font-style:normal;color:var(--gold);}
+.ev-final p{color:rgba(232,228,216,0.6);margin-bottom:28px;font-size:14px;}
+@media(max-width:980px){.ev-feature{grid-template-columns:1fr;gap:44px;}.ev-poster-frame{max-width:460px;margin:0 auto;}.ev-masonry{columns:2;}}
+@media(max-width:640px){#events{padding:90px 18px;}.ev-facts{grid-template-columns:1fr;}.ev-passes{grid-template-columns:1fr;}.ev-partners{grid-template-columns:1fr;}.ev-masonry{columns:1;}.ev-btn{width:100%;text-align:center;}}
+</style>
+</head>
+<body>
+<header class="ev-nav">
+  <a class="ev-nav-logo" href="index.html">MAD SENSEI STUDIOS</a>
+  <nav class="ev-nav-links">
+    <a href="index.html">&#8592; Back to Studio</a>
+    <a href="#ev-catalogue">Catalogue</a>
+    <a class="cta" href="https://vocational-pink-9xba1chv.edgeone.dev/?utm_source=site&utm_medium=events_page&utm_content=nav#neac-guwahati" target="_blank" rel="noopener noreferrer">Get Tickets</a>
+  </nav>
+</header>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="ev-bg-word">祭</div>
+  <div class="ev-header reveal">
+    <div class="section-tag">— Live Event · NE's 1st Anime Con —</div>
+    <h2 class="section-title-main">NEAC 2026.<br><span class="outline">Two Days. One Realm.</span></h2>
+    <p class="ev-lead">Cosplay, eSports, live dubbing, kendo, chess and motorsport showcases, with a Rs.3,00,000+ prize pool. Northeast Anime Con is where anime, culture and community meet in Guwahati.</p>
+  </div>
+
+  <div class="ev-feature">
+    <div class="reveal-left">
+      <div class="ev-poster-frame" data-caption="NEAC 2026 · 24–25 October · Guwahati, Assam" onclick="openLightbox(this)">
+        <img src="images/neac-poster.jpg" alt="NEAC 2026 - Northeast Anime Con poster">
+      </div>
+      <div class="ev-poster-hint">tap poster to enlarge</div>
+    </div>
+    <div class="ev-info reveal">
+      <div class="ev-badge"><i></i><span>Tickets open now</span></div>
+      <div class="ev-countdown" id="ev-countdown">
+        <div class="ev-tile"><b id="ev-d">--</b><span>Days</span></div>
+        <div class="ev-tile"><b id="ev-h">--</b><span>Hours</span></div>
+        <div class="ev-tile"><b id="ev-m">--</b><span>Mins</span></div>
+        <div class="ev-tile"><b id="ev-s">--</b><span>Secs</span></div>
+      </div>
+      <div class="ev-status" id="ev-status">until the gates open</div>
+      <ul class="ev-facts">
+        <li><small>Dates</small><strong>24–25 October 2026</strong></li>
+        <li><small>Location</small><strong>Guwahati, Assam</strong></li>
+        <li><small>Competitions</small><strong>14 Competitions</strong></li>
+        <li><small>Prize Pool</small><strong>Rs.3,00,000+</strong></li>
+      </ul>
+      <div class="ev-passes">
+        <a class="ev-pass" href="https://vocational-pink-9xba1chv.edgeone.dev/?utm_source=site&amp;utm_medium=events_section&amp;utm_content=tickets#neac-guwahati" target="_blank" rel="noopener noreferrer"><span>Single</span><b>Rs.350</b></a>
+        <a class="ev-pass hot" href="https://vocational-pink-9xba1chv.edgeone.dev/?utm_source=site&amp;utm_medium=events_section&amp;utm_content=tickets#neac-guwahati" target="_blank" rel="noopener noreferrer"><em>BEST VALUE</em><span>Duo</span><b>Rs.599</b></a>
+        <a class="ev-pass" href="https://vocational-pink-9xba1chv.edgeone.dev/?utm_source=site&amp;utm_medium=events_section&amp;utm_content=tickets#neac-guwahati" target="_blank" rel="noopener noreferrer"><span>Group</span><b>Rs.1,499</b></a>
+      </div>
+      <div class="ev-cta">
+        <a class="ev-btn" href="https://vocational-pink-9xba1chv.edgeone.dev/?utm_source=site&amp;utm_medium=events_section&amp;utm_content=tickets#neac-guwahati" target="_blank" rel="noopener noreferrer">Get Tickets ✦ &#8599;</a>
+        <a class="ev-btn ghost" href="#ev-catalogue">See the catalogue</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ev-ticker-wrap"><div class="ev-ticker"><span>Cosplay Championship</span><span class="k">✦</span><span>eSports Arena</span><span class="k">✦</span><span>Chess</span><span class="k">✦</span><span>Kendo</span><span class="k">✦</span><span>Live Dubbing</span><span class="k">✦</span><span>Animation Dojo</span><span class="k">✦</span><span>IP Pitch Arena</span><span class="k">✦</span><span>Motorsport & Car Showcase</span><span class="k">✦</span><span>Art & Illustration</span><span class="k">✦</span><span>Anime Edit Contest</span><span class="k">✦</span><span>Stage Shows</span><span class="k">✦</span><span>Workshops & Panels</span><span class="k">✦</span><span>Stalls & Bazaar</span><span class="k">✦</span><span>Cosplay Championship</span><span class="k">✦</span><span>eSports Arena</span><span class="k">✦</span><span>Chess</span><span class="k">✦</span><span>Kendo</span><span class="k">✦</span><span>Live Dubbing</span><span class="k">✦</span><span>Animation Dojo</span><span class="k">✦</span><span>IP Pitch Arena</span><span class="k">✦</span><span>Motorsport & Car Showcase</span><span class="k">✦</span><span>Art & Illustration</span><span class="k">✦</span><span>Anime Edit Contest</span><span class="k">✦</span><span>Stage Shows</span><span class="k">✦</span><span>Workshops & Panels</span><span class="k">✦</span><span>Stalls & Bazaar</span><span class="k">✦</span></div></div>
+
+  <div class="ev-sub reveal" id="ev-catalogue">
+    <div class="section-tag">— Event Catalogue —</div>
+    <h3>What awaits you</h3>
+  </div>
+  <div class="ev-masonry">
+    <figure class="ev-shot reveal" data-caption="Northeast Anime Con · NEAC 2026" onclick="openLightbox(this)"><img src="images/neac-logo-card.jpg" alt="NEAC 2026 logo card" loading="lazy"><figcaption>Northeast Anime Con · NEAC 2026</figcaption></figure>
+    <figure class="ev-shot reveal" data-caption="Events · Cosplay, stage shows, gaming and more" onclick="openLightbox(this)"><img src="images/events-lineup.jpg" alt="NEAC 2026 events lineup" loading="lazy"><figcaption>Events · Cosplay, stage shows, gaming and more</figcaption></figure>
+    <figure class="ev-shot reveal" data-caption="Competitions and more · Show your skills, win big" onclick="openLightbox(this)"><img src="images/competitions.jpg" alt="NEAC 2026 competitions" loading="lazy"><figcaption>Competitions and more · Show your skills, win big</figcaption></figure>
+    <figure class="ev-shot reveal" data-caption="Motorsport showcase · RB20 × Mad Sensei Studios" onclick="openLightbox(this)"><img src="images/rb20-motorsport.jpg" alt="RB20 motorsport showcase artwork" loading="lazy"><figcaption>Motorsport showcase · RB20 × Mad Sensei Studios</figcaption></figure>
+    <figure class="ev-shot reveal" data-caption="Events · Experience, connect, celebrate" onclick="openLightbox(this)"><img src="images/events-title.jpg" alt="NEAC 2026 events title card" loading="lazy"><figcaption>Events · Experience, connect, celebrate</figcaption></figure>
+    <figure class="ev-shot reveal" data-caption="Prize pool and prizes · Rs.3L+" onclick="openLightbox(this)"><img src="images/prize-pool.jpg" alt="NEAC 2026 prize pool title card" loading="lazy"><figcaption>Prize pool and prizes · Rs.3L+</figcaption></figure>
+  </div>
+
+  <div class="ev-sub reveal">
+    <div class="section-tag">— Powering NEAC 2026 —</div>
+    <h3>Our partners</h3>
+  </div>
+  <div class="ev-partners">
+    <figure class="ev-shot reveal" data-caption="Networking Partner · Arthashakti" onclick="openLightbox(this)"><img src="images/partner-arthashakti.jpg" alt="Arthashakti, networking partner of NEAC 2026" loading="lazy"><figcaption>Networking Partner · Arthashakti</figcaption></figure>
+    <figure class="ev-shot reveal" data-caption="Community Partner · ASIFA India" onclick="openLightbox(this)"><img src="images/partner-asifa-india.jpg" alt="ASIFA India, community partner of NEAC 2026" loading="lazy"><figcaption>Community Partner · ASIFA India</figcaption></figure>
+    <figure class="ev-shot reveal" data-caption="Plant Partner · Hortizi" onclick="openLightbox(this)"><img src="images/partner-hortizi.jpg" alt="Hortizi, plant partner of NEAC 2026" loading="lazy"><figcaption>Plant Partner · Hortizi</figcaption></figure>
+  </div>
+
+  <div class="ev-final reveal">
+    <h3>Be part of <em>something bigger.</em></h3>
+    <p>24–25 October 2026 · Guwahati, Assam. Anime. Culture. Community.</p>
+    <a class="ev-btn" href="https://vocational-pink-9xba1chv.edgeone.dev/?utm_source=site&amp;utm_medium=events_section&amp;utm_content=tickets#neac-guwahati" target="_blank" rel="noopener noreferrer">Grab your pass ✦ &#8599;</a>
+  </div>
+</section>
+
+<footer class="ev-footer">
+  &copy; Mad Sensei Studios &nbsp;·&nbsp; <a href="index.html">Back to main site</a>
+</footer>
+
+<div id="ev-lightbox" onclick="if(event.target===this)closeLightbox()">
+  <button type="button" aria-label="Close" onclick="closeLightbox()">✕</button>
+  <img id="ev-lightbox-img" src="" alt="">
+  <div id="ev-lightbox-cap"></div>
+</div>
+
+<script>
+function openLightbox(el){
+  var img=el.querySelector('img');
+  document.getElementById('ev-lightbox-img').src=img.src;
+  document.getElementById('ev-lightbox-img').alt=img.alt;
+  document.getElementById('ev-lightbox-cap').textContent=el.getAttribute('data-caption')||'';
+  document.getElementById('ev-lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('ev-lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox();});
+
+// scroll reveal
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.07});
+document.querySelectorAll('.reveal,.reveal-left').forEach(function(el){obs.observe(el);});
+
+// countdown
+(function(){
+  var d=document.getElementById('ev-d'),h=document.getElementById('ev-h'),m=document.getElementById('ev-m'),sc=document.getElementById('ev-s'),st=document.getElementById('ev-status');
+  var START=new Date('2026-10-24T00:00:00+05:30').getTime(),END=new Date('2026-10-26T00:00:00+05:30').getTime();
+  function pad(n){return String(n).padStart(2,'0');}
+  function tick(){
+    var now=Date.now();
+    if(now>=END){d.textContent=h.textContent=m.textContent=sc.textContent='00';st.textContent='NEAC 2026 has wrapped. Thank you for being part of it!';return;}
+    if(now>=START){d.textContent=h.textContent=m.textContent=sc.textContent='00';st.textContent='LIVE NOW · the realm is open';return;}
+    var diff=Math.floor((START-now)/1000);
+    d.textContent=pad(Math.floor(diff/86400));
+    h.textContent=pad(Math.floor(diff%86400/3600));
+    m.textContent=pad(Math.floor(diff%3600/60));
+    sc.textContent=pad(diff%60);
+    st.textContent='until the gates open';
+  }
+  tick();setInterval(tick,1000);
+})();
+</script>
+</body>
+</html>
