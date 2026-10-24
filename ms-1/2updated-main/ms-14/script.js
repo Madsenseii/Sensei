@@ -234,36 +234,6 @@ document.addEventListener('keydown', e=>{
   }
 });
 
-// ===== NEAC COUNTDOWN =====
-(function(){
-  const d=document.getElementById('ev-d');
-  if(!d) return;
-  const h=document.getElementById('ev-h'),m=document.getElementById('ev-m'),sc=document.getElementById('ev-s'),st=document.getElementById('ev-status');
-  const START=new Date('2026-10-24T00:00:00+05:30').getTime();
-  const END=new Date('2026-10-26T00:00:00+05:30').getTime();
-  const pad=n=>String(n).padStart(2,'0');
-  function tick(){
-    const now=Date.now();
-    if(now>=END){
-      d.textContent=h.textContent=m.textContent=sc.textContent='00';
-      st.textContent='NEAC 2026 has wrapped. Thank you for being part of it!';
-      return;
-    }
-    if(now>=START){
-      d.textContent=h.textContent=m.textContent=sc.textContent='00';
-      st.textContent='LIVE NOW · the realm is open';
-      return;
-    }
-    let diff=Math.floor((START-now)/1000);
-    d.textContent=pad(Math.floor(diff/86400));
-    h.textContent=pad(Math.floor(diff%86400/3600));
-    m.textContent=pad(Math.floor(diff%3600/60));
-    sc.textContent=pad(diff%60);
-    st.textContent='until the gates open';
-  }
-  tick(); setInterval(tick,1000);
-})();
-
 // ===== EVENT POPUP POSTER SLIDER =====
 (function(){
   const box=document.querySelector('.collab-slider');
