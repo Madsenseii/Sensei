@@ -491,12 +491,12 @@ nav.visible{transform:translateY(0);}
 .nav-logo{
   font-family:'Noto Serif JP',serif;font-size:17px;font-weight:900;
   color:var(--gold);letter-spacing:0.05em;text-shadow:var(--kanji-glow);
-  text-decoration:none;display:flex;align-items:center;gap:6px;
+  text-decoration:none;display:flex;align-items:center;gap:0;white-space:nowrap;
 }
 .scholar-m{position:relative;display:inline-block;}
 .scholar-hat{
-  position:absolute;top:-18px;left:50%;transform:translateX(-50%);
-  font-size:13px;line-height:1;filter:drop-shadow(0 0 5px rgba(200,168,75,0.9));
+  position:absolute;top:-15px;left:50%;transform:translateX(-50%);
+  font-size:15px;line-height:1;filter:drop-shadow(0 0 5px rgba(200,168,75,0.9));
   animation:hat-wobble 4s ease-in-out infinite;
 }
 @keyframes hat-wobble{0%,100%{transform:translateX(-50%) rotate(-3deg);}50%{transform:translateX(-50%) rotate(3deg);}}
