@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>狂賢師 MAD SENSEI STUDIOS — 狂気の創造</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/jpeg" href="images/logo.jpg">
+
+</head>
+<body>
+
+<!-- CURSOR -->
+
+<!-- JAPAN LIGHTBOX -->
+<div id="japan-lightbox">
+  <button id="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="">
+  <div id="lightbox-caption"></div>
+</div>
+
+<!-- EVENT ANNOUNCEMENT MODAL -->
+<div id="collab-modal" role="dialog" aria-modal="true" aria-labelledby="collab-title">
+  <div class="collab-card">
+    <div class="collab-bracket top-left"></div>
+    <div class="collab-bracket top-right"></div>
+    <div class="collab-bracket bottom-left"></div>
+    <div class="collab-bracket bottom-right"></div>
+
+    <div class="collab-header">
+      <div class="collab-header-tag" id="collab-title">
+        <span class="collab-pulse-dot"></span>
+        <span>// LIVE EVENT · TICKETS OPEN</span>
+        <span class="collab-kanji-tag">【特別開催】</span>
+      </div>
+      <button class="collab-close-btn" onclick="closeCollabModal()" aria-label="Close Announcement">✕</button>
+    </div>
+
+    <!-- Two posters, auto-rotating. Both link to the NEAC tickets page -->
+    <div class="collab-image-box collab-slider">
+      <a class="collab-slide active" style="--bg:url('images/event_poster.png')" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Get NEAC 2026 tickets">
+        <img class="collab-poster-img" src="images/event_poster.png" alt="NEAC 2026 - North East Anime Convention poster">
+      </a>
+      <div class="collab-image-sheen"></div>
+      <div class="collab-scanlines"></div>
+    </div>
+
+    <div class="collab-footer">
+      <div class="collab-caption">
+        <span>NEAC 2026</span> &nbsp;·&nbsp; 5 NOV 2026 &nbsp;·&nbsp; KOLKATA
+      </div>
+      <div class="collab-btn-group">
+        <a class="collab-action-btn collab-book-btn" id="event-book-btn" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer">GET TICKETS ✦ &#8599;</a>
+        <button class="collab-skip-btn" onclick="closeCollabModal()">Skip</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TERMS & CONDITIONS MODAL -->
+<div id="terms-modal" class="legal-modal">
+  <div class="legal-modal-box">
+    <button class="legal-modal-close" onclick="closeLegalModal('terms')">✕</button>
+    <h3>Terms &amp; Conditions</h3>
+    <p>Last updated: July 2026</p>
+    <h4>1. Overview</h4>
+    <p>By registering your interest with Mad Sensei Studios Pvt. Ltd. ("we", "us", "our", "the Studio"), you agree to these Terms &amp; Conditions. If you do not agree, please do not submit your details or use this site.</p>
+    <h4>2. What You're Signing Up For</h4>
+    <p>Submitting the registration form adds your email to our early-access and updates list. We'll use it to send you news about our anime, webtoons, releases, and related projects — nothing else, and never spam.</p>
+    <h4>3. Eligibility</h4>
+    <p>This site and its registration form are intended for individuals aged 13 or older. If you are under the age of majority in your jurisdiction, you confirm you have a parent or guardian's permission to register.</p>
+    <h4>4. Your Responsibilities</h4>
+    <ul>
+      <li>You confirm the email address you provide belongs to you.</li>
+      <li>You will not use this form to submit false, misleading, or another person's information.</li>
+      <li>You will not attempt to spam, flood, or abuse the registration system (for example, submitting the form repeatedly through automated means).</li>
+      <li>You are responsible for keeping any account or communication credentials associated with your submission secure.</li>
+    </ul>
+    <h4>5. Consent to Communications</h4>
+    <p>By checking the consent box and submitting the form, you expressly consent to Mad Sensei Studios contacting you by email regarding studio updates, new releases, events, and related announcements. You may withdraw this consent at any time as described in Section 8.</p>
+    <h4>6. Intellectual Property</h4>
+    <p>All characters, artwork, kanji marks, logos, story content, and other creative material on this site are the property of Mad Sensei Studios or its licensors and may not be copied, redistributed, or used commercially without prior written permission.</p>
+    <h4>7. No Guarantee of Outcome</h4>
+    <p>Registering your interest does not guarantee access to any product, release, investment opportunity, or early-access program. Timelines, features, and availability mentioned on this site are subject to change without notice.</p>
+    <h4>8. Withdrawing Consent / Unsubscribing</h4>
+    <p>You may withdraw your consent and request removal from our list at any time by emailing us at <strong>madsenseistudiospvt.ltd.team@gmail.com</strong>, or by using the unsubscribe link included in any email we send you.</p>
+    <h4>9. Limitation of Liability</h4>
+    <p>The Studio is not liable for any indirect, incidental, or consequential damages arising from your use of this site or reliance on information presented here, to the fullest extent permitted by applicable law.</p>
+    <h4>10. Governing Law</h4>
+    <p>These Terms are governed by the laws of India, without regard to conflict-of-law principles, unless otherwise required by local law applicable to you.</p>
+    <h4>11. Changes to These Terms</h4>
+    <p>We may update these Terms from time to time to reflect changes in our practices or for legal, operational, or regulatory reasons. Continued use of the site after changes are posted means you accept the revised Terms.</p>
+    <h4>12. Contact</h4>
+    <p>Questions about these Terms can be sent to <strong>madsenseistudiospvt.ltd.team@gmail.com</strong>.</p>
+  </div>
+</div>
+
+<!-- PRIVACY POLICY MODAL -->
+<div id="privacy-modal" class="legal-modal">
+  <div class="legal-modal-box">
+    <button class="legal-modal-close" onclick="closeLegalModal('privacy')">✕</button>
+    <h3>Privacy Policy</h3>
+    <p>Last updated: July 2026</p>
+    <h4>1. What We Collect</h4>
+    <p>When you register your interest, we collect the email address you provide, along with the timestamp of your submission and your consent status. We do not collect names, payment details, physical addresses, or other personal data through this form.</p>
+    <h4>2. How We Use It</h4>
+    <ul>
+      <li>To send you updates about Mad Sensei Studios releases, launches, and news.</li>
+      <li>To understand overall interest in our upcoming projects.</li>
+      <li>To respond to you if you contact us directly.</li>
+    </ul>
+    <p>We do not sell, rent, or trade your email address to third parties, and we do not use it for advertising or profiling purposes.</p>
+    <h4>3. Legal Basis for Processing</h4>
+    <p>Where applicable (for example, under GDPR), we process your email address on the basis of your explicit consent, given by checking the consent box before submitting the form. You may withdraw this consent at any time as described below.</p>
+    <h4>4. Where Your Data Is Stored</h4>
+    <p>Submitted emails are stored in a secured Google Sheets spreadsheet accessible only to the Studio's team, and processed via Google Apps Script. A local backup copy may also briefly exist in your own browser's storage on the device you used to register.</p>
+    <h4>5. Storage &amp; Security</h4>
+    <p>Your email is stored securely and retained only for as long as needed to provide you updates, or until you ask us to remove it. We take reasonable technical measures to protect your data, though no system can be guaranteed 100% secure.</p>
+    <h4>6. Your Rights</h4>
+    <ul>
+      <li>You may request access to, correction of, or deletion of your data at any time.</li>
+      <li>You may withdraw your consent and unsubscribe from communications at any time via the link in any email we send, or by contacting us directly.</li>
+      <li>You may request a copy of the data we hold about you.</li>
+      <li>If you believe your data has been misused, you have the right to lodge a complaint with your local data protection authority, where applicable.</li>
+    </ul>
+    <h4>7. Data Retention</h4>
+    <p>We retain your email address for as long as you remain subscribed, or until you request deletion, whichever comes first.</p>
+    <h4>8. Children's Privacy</h4>
+    <p>This site is not directed at children under 13, and we do not knowingly collect data from children under that age.</p>
+    <h4>9. Cookies</h4>
+    <p>This site may use minimal local browser storage to remember your preferences and a local backup of your registration. It does not use third-party advertising or tracking cookies.</p>
+    <h4>10. Changes to This Policy</h4>
+    <p>We may update this Privacy Policy from time to time. Material changes will be reflected by updating the "Last updated" date above.</p>
+    <h4>11. Contact</h4>
+    <p>For any privacy questions or data requests (including access, correction, deletion, or unsubscribe requests), please email us directly at <strong>madsenseistudiospvt.ltd.team@gmail.com</strong>.</p>
+  </div>
+</div>
+
+<div id="cursor"></div>
+<div id="cursor-trail"></div>
+
+
+<!-- ===== DNA POWER-UP INTRO LOADER ===== -->
+<div id="intro-overlay">
+  <div class="intro-spotlight"></div>
+  <div class="intro-beam"></div>
+  <div class="intro-wordmark-wrap">
+    <div class="intro-wordmark">MAD <span class="accent">SENSEI</span></div>
+    <div class="intro-line"></div>
+    <div class="intro-tagline">狂気の創造 — Studio of Worlds</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#hero" class="nav-logo">
+    <span class="scholar-m"><span class="scholar-hat">🎓</span>M</span>AD SENSEI STUDIOS
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about">Studio</a></li>
+    <li><a href="#maya-sabha">Legacy</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#register">Register</a></li>
+    <li><a href="#verticals">Verticals</a></li>
+    <li><a href="#omniverse">Universe</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#japan">Japan</a></li>
+      <li><a href="#pipeline">Pipeline</a></li>
+      <li><a href="#faq">Invest</a></li>
+    <li><a href="#contact" class="btn-gold" style="padding:10px 20px">Contact</a></li>
+  </ul>
+  <button class="nav-burger" id="nav-burger" aria-label="Toggle menu" onclick="document.getElementById('nav-links').classList.toggle('open');this.classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-collage-bg"></div>
+  <div class="hero-video-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-kanji-bg">狂賢師</div>
+  <div class="hero-3d-stage" id="hero3d-stage">
+    <div class="hero-3d-tilt" id="hero3d-tilt">
+      <div class="hero-3d-emblem">
+        <div class="emblem-ring ring-a"></div>
+        <div class="emblem-ring ring-b"></div>
+        <div class="emblem-ring ring-c"></div>
+        <div class="emblem-core"><span>狂</span></div>
+        <div class="emblem-particle ep1"></div>
+        <div class="emblem-particle ep2"></div>
+        <div class="emblem-particle ep3"></div>
+        <div class="emblem-particle ep4"></div>
+        <div class="emblem-particle ep5"></div>
+        <div class="emblem-particle ep6"></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Est. 2024 &nbsp;·&nbsp; Original Anime Studio</div>
+    <div class="hero-logo-wrap">
+      <div class="hero-giant-m glitch-text" data-text="M">
+        <span class="hero-hat-big">🎓</span>M
+      </div>
+    </div>
+    <span class="hero-studio-name glitch-text glitch-vibrate" data-text="AD SENSEI">AD SENSEI</span>
+    <span class="hero-eng-sub">Animation Studio</span>
+    <p class="hero-tagline">We don't just tell stories. We build universes.</p>
+    <div class="hero-cta">
+      <a href="#verticals" class="btn-gold">Explore Our World</a>
+      <a href="#japan" class="btn-ghost">The Japan Bridge</a>
+    </div>
+  </div>
+  <div class="hero-scroll-ind">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- PRE-REGISTER -->
+<section id="register">
+  <div class="register-wrap reveal">
+    <div class="section-tag" style="justify-content:center">Get Early Access</div>
+    <h2 class="section-title-main" style="text-align:center">Register Your<br><span class="outline">Interest.</span></h2>
+    <p class="register-sub">Be first to know when the Omniverse goes live. Drop your email — no spam, just the moments that matter.</p>
+    <form class="register-form" id="hero-register-form">
+      <input type="email" id="hero-register-email" class="register-input" placeholder="Enter your email" required>
+      <button type="submit" class="register-btn">Register Interest</button>
+    </form>
+    <div class="register-consent">
+      <input type="checkbox" id="hero-register-consent" required>
+      <label for="hero-register-consent">I agree to the <a onclick="openLegalModal('terms')">Terms &amp; Conditions</a> and <a onclick="openLegalModal('privacy')">Privacy Policy</a>, and consent to Mad Sensei Studios storing my email to send updates.</label>
+    </div>
+    <p class="register-msg" id="hero-register-msg"></p>
+  </div>
+</section>
+
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track" id="marquee">
+    <span>狂賢師</span><span class="accent">✦</span>
+    <span>MAD SENSEI</span><span class="accent">●</span>
+    <span>創造</span><span class="accent">✦</span>
+    <span>ANIME STUDIO</span><span class="accent">●</span>
+    <span>物語</span><span class="accent">✦</span>
+    <span>ORIGINAL IP</span><span class="accent">●</span>
+    <span>三重県</span><span class="accent">✦</span>
+    <span>INDIA × JAPAN</span><span class="accent">●</span>
+    <span>宇宙</span><span class="accent">✦</span>
+    <span>狂気の創造</span><span class="accent">●</span>
+    <span>狂賢師</span><span class="accent">✦</span>
+    <span>MAD SENSEI</span><span class="accent">●</span>
+    <span>創造</span><span class="accent">✦</span>
+    <span>ANIME STUDIO</span><span class="accent">●</span>
+    <span>物語</span><span class="accent">✦</span>
+    <span>ORIGINAL IP</span><span class="accent">●</span>
+    <span>三重県</span><span class="accent">✦</span>
+    <span>INDIA × JAPAN</span><span class="accent">●</span>
+    <span>宇宙</span><span class="accent">✦</span>
+    <span>狂気の創造</span><span class="accent">●</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-kanji-display reveal-left">
+    <div class="about-kanji-giant">狂</div>
+    <div class="about-kanji-glow">狂</div>
+    <img class="about-mascot-img" src="images/html_001.jpg" alt="Mad Sensei mascot in kimono">
+  </div>
+  <div class="about-text reveal">
+    <div class="section-tag">01 · Studio</div>
+    <h2 class="section-title-main">India's First<br><span class="outline">Serious Anime Studio</span></h2>
+    <p class="about-body">Mad Sensei Studios is India's bold answer to global animation — a studio that doesn't follow trends, it creates them. Born from the collision of Indian creativity and Japanese craft philosophy, we build original IPs designed for world domination.</p>
+    <div class="quote-block">
+      <p>"India's first serious attempt at creating original anime IP for global audiences."</p>
+    </div>
+    <p class="about-body">Four original IPs. Seven million organic views. 127 published chapters. This is not a dream — it is already in motion.</p>
+    <div class="about-stats">
+      <div class="stat-box powerup-hover">
+        <span class="stat-num" data-target="4">0</span>
+        <span class="stat-label">Original IPs</span>
+      </div>
+      <div class="stat-box powerup-hover">
+        <span class="stat-num" data-target="7">0</span><span class="stat-num">M+</span>
+        <span class="stat-label">Organic Views</span>
+      </div>
+      <div class="stat-box powerup-hover">
+        <span class="stat-num" data-target="127">0</span>
+        <span class="stat-label">Chapters Published</span>
+      </div>
+    </div>
+  
+  <!-- STUDIO GALLERY -->
+  <div class="studio-gallery reveal">
+    <div class="studio-gallery-item">
+      <div class="gallery-scan"></div>
+      <img src="images/html_024.jpg" alt="Manga style character sketch">
+      <div class="gallery-label">// Manga Style · Character Sketch</div>
+    </div>
+    <div class="studio-gallery-item">
+      <div class="gallery-scan"></div>
+      <img src="images/html_025.jpg" alt="Digital sketching process on monitor">
+      <div class="gallery-label">// Digital Sketching · WIP</div>
+    </div>
+    <div class="studio-gallery-item">
+      <div class="gallery-scan"></div>
+      <img src="images/html_026.jpg" alt="Character turnaround model sheet">
+      <div class="gallery-label">// Character Turnaround · Model Sheet</div>
+    </div>
+    <div class="studio-gallery-item">
+      <div class="gallery-scan"></div>
+      <img src="images/html_027.jpg" alt="Colored character design turnaround">
+      <div class="gallery-label">// Character Design · Color</div>
+    </div>
+    <div class="studio-gallery-item">
+      <div class="gallery-scan"></div>
+      <img src="images/html_028.jpg" alt="Finished character illustration">
+      <div class="gallery-label">// Finished Art · Character Scene</div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- MAYA SABHA — THE ARCHITECT'S ILLUSION -->
+<section id="maya-sabha">
+  <div class="maya-bg-word">माया</div>
+  <div class="maya-content reveal">
+    <div class="section-tag" style="justify-content:center;margin-bottom:24px">— The Architect's Illusion —</div>
+    <h2 class="maya-title">
+      <span class="maya-title-fill">MAYA SABHA</span>
+      <span class="maya-title-reflection" aria-hidden="true">MAYA SABHA</span>
+    </h2>
+    <div class="maya-illusion-panel">
+      <div class="maya-illusion-grid"></div>
+      <div class="maya-illusion-shine"></div>
+    </div>
+    <p class="maya-quote">In the Mahabharata, the divine architect <em>Maya</em> built a sabha so masterful that floor looked like water, and water looked like floor — illusion so complete it humbled emperors.<br>We build the same illusion, frame by frame: worlds so convincing, they stop feeling drawn and start feeling <em>real</em>.</p>
+    <div class="maya-caption">幻 &nbsp;·&nbsp; illusion as craft &nbsp;·&nbsp; माया सभा</div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="ev-bg-word">祭</div>
+  <div class="ev-header reveal">
+    <div class="section-tag">— Live Event · NE's 1st Anime Con —</div>
+    <h2 class="section-title-main">NEAC 2026.<br>
+      <!-- <span class="outline">Two Days. One Realm.</span></h2> -->
+    <p class="ev-lead">Cosplay, eSports, live dubbing, kendo, chess and motorsport showcases, with a Rs.3,00,000+ prize pool. Northeast Anime Con is where anime, culture and community meet in Kolkata.</p>
+  </div>
+
+  <div class="ev-feature">
+    <div class="reveal-left">
+      <a class="ev-logo-hero" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Get NEAC 2026 tickets">
+        <img src="images/logo-neac.jpg" alt="Northeast Anime Con 2026 logo">
+      </a>
+      <div class="ev-poster-hint">tap the logo to get tickets</div>
+    </div>
+    <div class="ev-info reveal">
+      <!-- <div class="ev-badge"><i></i><span>Tickets open now</span></div> -->
+      <a class="ev-brand" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Get NEAC 2026 tickets">
+        <div>
+          <b>NEAC 2026</b>
+          <span>Northeast Anime Con</span>
+          <em>NE's 1st Anime Con</em>
+        </div>
+      </a>
+      <ul class="ev-facts">
+        <li><small>Date</small><strong>5 November 2026</strong></li>
+        <li><small>Location</small><strong>Kolkata</strong></li>
+        <li><small>Competitions</small><strong>14 Competitions</strong></li>
+        <li><small>Prize Pool</small><strong>Rs.3,00,000+</strong></li>
+      </ul>
+      <div class="ev-passes">
+        <a class="ev-pass" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer"><span>Single</span><b>Rs.350</b></a>
+        <a class="ev-pass hot" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer"><em>BEST VALUE</em><span>Duo</span><b>Rs.599</b></a>
+        <a class="ev-pass" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer"><span>Group</span><b>Rs.1,499</b></a>
+      </div>
+      <div class="ev-cta">
+        <a class="ev-btn" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer">Get Tickets ✦ &#8599;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ev-ticker-wrap"><div class="ev-ticker"><span>Cosplay Championship</span><span class="k">✦</span><span>eSports Arena</span><span class="k">✦</span><span>Chess</span><span class="k">✦</span><span>Kendo</span><span class="k">✦</span><span>Live Dubbing</span><span class="k">✦</span><span>Animation Dojo</span><span class="k">✦</span><span>IP Pitch Arena</span><span class="k">✦</span><span>Motorsport & Car Showcase</span><span class="k">✦</span><span>Art & Illustration</span><span class="k">✦</span><span>Anime Edit Contest</span><span class="k">✦</span><span>Stage Shows</span><span class="k">✦</span><span>Workshops & Panels</span><span class="k">✦</span><span>Stalls & Bazaar</span><span class="k">✦</span><span>Cosplay Championship</span><span class="k">✦</span><span>eSports Arena</span><span class="k">✦</span><span>Chess</span><span class="k">✦</span><span>Kendo</span><span class="k">✦</span><span>Live Dubbing</span><span class="k">✦</span><span>Animation Dojo</span><span class="k">✦</span><span>IP Pitch Arena</span><span class="k">✦</span><span>Motorsport & Car Showcase</span><span class="k">✦</span><span>Art & Illustration</span><span class="k">✦</span><span>Anime Edit Contest</span><span class="k">✦</span><span>Stage Shows</span><span class="k">✦</span><span>Workshops & Panels</span><span class="k">✦</span><span>Stalls & Bazaar</span><span class="k">✦</span></div></div>
+
+  <div class="ev-film reveal">
+    <a class="ev-film-poster" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="TRIO: The Valley of Doom - get tickets">
+      <img src="images/trio-poster.jpg" alt="TRIO: The Valley of Doom - Vaibhavi Studios presents, a Sourav Roychoudhury film" loading="lazy">
+    </a>
+    <div class="ev-film-text">
+      <div class="section-tag">— Film Showcase —</div>
+      <div class="by">Vaibhavi Studios presents</div>
+      <h3>TRIO</h3>
+      <h4>The Valley of Doom</h4>
+      <p class="dir">A Sourav Roychoudhury film</p>
+      <a class="ev-btn" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer">Get Tickets ✦ &#8599;</a>
+    </div>
+  </div>
+
+  <div class="ev-sub reveal">
+    <div class="section-tag">— Past Events —</div>
+    <h3>Events Hosted</h3>
+  </div>
+  <div class="ev-masonry">
+    <a class="ev-shot reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Northeast Anime Con"><img src="images/neac-logo-card.jpg" alt="NEAC 2026 logo card" loading="lazy" onerror="this.closest('.ev-shot').style.display='none'"><span class="cap">Northeast Anime Con</span></a>
+    <a class="ev-shot reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Events lineup"><img src="images/events-lineup.jpg" alt="NEAC 2026 events lineup" loading="lazy" onerror="this.closest('.ev-shot').style.display='none'"><span class="cap">Events lineup</span></a>
+    <a class="ev-shot reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Competitions"><img src="images/competitions.jpg" alt="NEAC 2026 competitions" loading="lazy" onerror="this.closest('.ev-shot').style.display='none'"><span class="cap">Competitions</span></a>
+    <a class="ev-shot reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Motorsport showcase · RB20"><img src="images/rb20-motorsport.jpg" alt="RB20 motorsport showcase artwork" loading="lazy" onerror="this.closest('.ev-shot').style.display='none'"><span class="cap">Motorsport showcase · RB20</span></a>
+    <a class="ev-shot reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Events"><img src="images/events-title.jpg" alt="NEAC 2026 events title card" loading="lazy" onerror="this.closest('.ev-shot').style.display='none'"><span class="cap">Events</span></a>
+    <a class="ev-shot reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Prize pool &amp; prizes"><img src="images/prize-pool.jpg" alt="NEAC 2026 prize pool title card" loading="lazy" onerror="this.closest('.ev-shot').style.display='none'"><span class="cap">Prize pool &amp; prizes</span></a>
+  </div>
+
+  <div class="ev-sub reveal">
+    <div class="section-tag">— Powering NEAC 2026 —</div>
+    <h3>Our partners</h3>
+  </div>
+  <div class="ev-logos">
+    <a class="ev-logo reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Networking Partner · Arthashakti"><span class="ev-logo-box" style="background:#fefefe"><img src="images/logo-arthashakti.jpg" alt="Arthashakti logo" loading="lazy" onerror="this.closest('.ev-logo').style.display='none'"></span><span class="cap">Networking Partner · Arthashakti</span></a>
+    <a class="ev-logo reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Community Partner · ASIFA India"><span class="ev-logo-box" style="background:#ffffff"><img src="images/logo-asifa-india.jpg" alt="ASIFA India logo" loading="lazy" onerror="this.closest('.ev-logo').style.display='none'"></span><span class="cap">Community Partner · ASIFA India</span></a>
+    <a class="ev-logo reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Ticketing Partner · Hortizi"><span class="ev-logo-box" style="background:#000000"><img src="images/logo-hortizi.jpg" alt="Hortizi logo" loading="lazy" onerror="this.closest('.ev-logo').style.display='none'"></span><span class="cap">Ticketing Partner · Hortizi</span></a>
+    <a class="ev-logo reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Partner · RGX"><span class="ev-logo-box" style="background:#000000"><img src="images/logo-rgx.jpg" alt="RGX logo" loading="lazy" onerror="this.closest('.ev-logo').style.display='none'"></span><span class="cap">Partner · RGX</span></a>
+    <a class="ev-logo reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Partner · Too Yumm"><span class="ev-logo-box" style="background:#181415"><img src="images/logo-too-yumm.jpg" alt="Too Yumm logo" loading="lazy" onerror="this.closest('.ev-logo').style.display='none'"></span><span class="cap">Partner · Too Yumm</span></a>
+    <a class="ev-logo reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Partner · Vaibhavi Studios"><span class="ev-logo-box" style="background:#ffffff"><img src="images/logo-vaibhavi-studios.jpg" alt="Vaibhavi Studios logo" loading="lazy" onerror="this.closest('.ev-logo').style.display='none'"></span><span class="cap">Partner · Vaibhavi Studios</span></a>
+  </div>
+
+  <div class="ev-final reveal">
+    <h3>Be part of <em>something bigger.</em></h3>
+    <p>5 November 2026 · Kolkata. Anime. Culture. Community.</p>
+    <a class="ev-btn" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer">Grab your pass ✦ &#8599;</a>
+  </div>
+</section>
+
+<!-- VERTICALS -->
+<section id="verticals">
+  <div class="verticals-header reveal">
+    <div class="section-tag">02 · What We Create</div>
+    <h2 class="section-title-main">Six Verticals.<br><span class="outline">One Universe.</span></h2>
+  </div>
+  <div class="verticals-grid">
+    <div class="vertical-card reveal" style="transition-delay:0.05s">
+      <span class="vertical-num">01</span><span class="vertical-icon">映</span>
+      <div class="vertical-title">Animation Production</div>
+      <p class="vertical-desc">Full in-house anime, brand content, original IP pilots — crafted frame by frame.</p>
+      <div class="vertical-bottom-line"></div>
+    </div>
+    <div class="vertical-card reveal" style="transition-delay:0.1s">
+      <span class="vertical-num">02</span><span class="vertical-icon">書</span>
+      <div class="vertical-title">Webtoon & Web Novel</div>
+      <p class="vertical-desc">4 original IPs serialised globally. Stories that don't end — they escalate.</p>
+      <div class="vertical-bottom-line"></div>
+    </div>
+    <div class="vertical-card reveal" style="transition-delay:0.15s">
+      <span class="vertical-num">03</span><span class="vertical-icon">音</span>
+      <div class="vertical-title">Voice Over & Audio</div>
+      <p class="vertical-desc">Multilingual dubbing, VA direction, audio post — the final dimension of story.</p>
+      <div class="vertical-bottom-line"></div>
+    </div>
+    <div class="vertical-card reveal" style="transition-delay:0.2s">
+      <span class="vertical-num">04</span><span class="vertical-icon">橋</span>
+      <div class="vertical-title">Japan Co-Production</div>
+      <p class="vertical-desc">40–60% cost advantage vs Japanese-only studios. India meets Japan.</p>
+      <div class="vertical-bottom-line"></div>
+    </div>
+    <div class="vertical-card reveal" style="transition-delay:0.25s">
+      <span class="vertical-num">05</span><span class="vertical-icon">技</span>
+      <div class="vertical-title">Games & Merchandise</div>
+      <p class="vertical-desc">IP-derived games, merch — high-margin B2C extensions of our universes.</p>
+      <div class="vertical-bottom-line"></div>
+    </div>
+    <div class="vertical-card reveal" style="transition-delay:0.3s">
+      <span class="vertical-num">06</span><span class="vertical-icon">配</span>
+      <div class="vertical-title">OTT Licensing</div>
+      <p class="vertical-desc">Netflix, Crunchyroll, Disney+, Sony LIV pipeline — the world is watching.</p>
+      <div class="vertical-bottom-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- OMNIVERSE -->
+<section id="omniverse" class="omni-locked">
+<div class="omni-lock-overlay" aria-hidden="true">
+  <div class="omni-lock-badge">
+
+    <div class="omni-collab-heading">
+      <span class="omni-collab-heading-line"></span>
+      <span>THE PEOPLE SHAPING THE UNIVERSE</span>
+      <span class="omni-collab-heading-line"></span>
+    </div>
+
+
+    <!-- COLLABORATOR 01 -->
+    <div class="omni-collab-card">
+
+      <span class="omni-collab-corner tl"></span>
+      <span class="omni-collab-corner tr"></span>
+      <span class="omni-collab-corner bl"></span>
+      <span class="omni-collab-corner br"></span>
+
+      <div class="omni-collab-photo">
+        <div class="omni-collab-scan"></div>
+
+        <img
+          src="images/collaborator.jpeg"
+          alt="Founder of Arthashakti"
+        >
+      </div>
+
+
+      <div class="omni-collab-info">
+
+        <div class="omni-collab-eyebrow">
+          <span class="omni-collab-dot"></span>
+          Featured Collaborator · 001
+        </div>
+
+        <div class="omni-collab-title">
+          Founder of Arthashakti
+        </div>
+
+        <div class="omni-collab-role">
+          Founder · Entrepreneur · Collaborator
+        </div>
+
+        <div class="omni-collab-quote">
+          “The future belongs to the stories and systems
+          we choose to shape responsibly.”
+        </div>
+
+        <div class="omni-collab-meta">
+          <span class="omni-collab-status">
+            COLLABORATION · ACTIVE
+          </span>
+
+          <span class="omni-collab-action">
+            OMNIVERSE // 001
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+  <div class="omni-wrap">
+    <div class="omni-wheel-area reveal-left">
+      <svg id="omni-svg" viewBox="0 0 460 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="230" cy="230" r="200" stroke="rgba(200,168,75,0.08)" stroke-width="0.5"/>
+        <circle cx="230" cy="230" r="160" stroke="rgba(200,168,75,0.12)" stroke-width="0.5" stroke-dasharray="4 6"/>
+        <circle cx="230" cy="230" r="100" stroke="rgba(200,168,75,0.18)" stroke-width="0.5"/>
+        <circle cx="230" cy="230" r="40" stroke="rgba(200,168,75,0.35)" stroke-width="0.5"/>
+        <!-- Center -->
+        <text x="230" y="238" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="22" font-weight="900" fill="none" stroke="rgba(200,168,75,0.6)" stroke-width="0.5">狂賢師</text>
+        <!-- Nodes at 60° intervals -->
+        <g class="omni-node" onclick="showIP(0)" style="cursor:none">
+          <circle cx="230" cy="70" r="26" fill="rgba(200,168,75,0.06)" stroke="rgba(200,168,75,0.4)" stroke-width="0.5"/>
+          <text x="230" y="78" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="18" font-weight="900" fill="rgba(200,168,75,0.8)">魂</text>
+        </g>
+        <g class="omni-node" onclick="showIP(1)" style="cursor:none">
+          <circle cx="369" cy="155" r="26" fill="rgba(200,168,75,0.06)" stroke="rgba(200,168,75,0.4)" stroke-width="0.5"/>
+          <text x="369" y="163" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="18" font-weight="900" fill="rgba(200,168,75,0.8)">炎</text>
+        </g>
+        <g class="omni-node" onclick="showIP(2)" style="cursor:none">
+          <circle cx="369" cy="305" r="26" fill="rgba(200,168,75,0.06)" stroke="rgba(200,168,75,0.4)" stroke-width="0.5"/>
+          <text x="369" y="313" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="18" font-weight="900" fill="rgba(200,168,75,0.8)">影</text>
+        </g>
+        <g class="omni-node" onclick="showIP(3)" style="cursor:none">
+          <circle cx="230" cy="390" r="26" fill="rgba(200,168,75,0.06)" stroke="rgba(200,168,75,0.4)" stroke-width="0.5"/>
+          <text x="230" y="398" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="18" font-weight="900" fill="rgba(200,168,75,0.8)">嵐</text>
+        </g>
+        <g class="omni-node" onclick="showIP(4)" style="cursor:none">
+          <circle cx="91" cy="305" r="26" fill="rgba(200,168,75,0.06)" stroke="rgba(200,168,75,0.4)" stroke-width="0.5"/>
+          <text x="91" y="313" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="18" font-weight="900" fill="rgba(200,168,75,0.8)">夢</text>
+        </g>
+        <g class="omni-node" onclick="showIP(5)" style="cursor:none">
+          <circle cx="91" cy="155" r="26" fill="rgba(200,168,75,0.06)" stroke="rgba(200,168,75,0.4)" stroke-width="0.5"/>
+          <text x="91" y="163" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="18" font-weight="900" fill="rgba(200,168,75,0.8)">神</text>
+        </g>
+        <!-- Spokes -->
+        <line x1="230" y1="96" x2="230" y2="190" stroke="rgba(200,168,75,0.12)" stroke-width="0.5" stroke-dasharray="3 4"/>
+        <line x1="347" y1="163" x2="283" y2="199" stroke="rgba(200,168,75,0.12)" stroke-width="0.5" stroke-dasharray="3 4"/>
+        <line x1="347" y1="297" x2="283" y2="261" stroke="rgba(200,168,75,0.12)" stroke-width="0.5" stroke-dasharray="3 4"/>
+        <line x1="230" y1="364" x2="230" y2="270" stroke="rgba(200,168,75,0.12)" stroke-width="0.5" stroke-dasharray="3 4"/>
+        <line x1="113" y1="297" x2="177" y2="261" stroke="rgba(200,168,75,0.12)" stroke-width="0.5" stroke-dasharray="3 4"/>
+        <line x1="113" y1="163" x2="177" y2="199" stroke="rgba(200,168,75,0.12)" stroke-width="0.5" stroke-dasharray="3 4"/>
+      </svg>
+      <div class="omni-center-text" style="pointer-events:none;z-index:2;position:absolute">宇宙</div>
+    </div>
+    <div class="reveal">
+      <div class="section-tag">03 · The Universe</div>
+      <h2 class="section-title-main" style="margin-bottom:20px">Six IPs.<br><span class="outline">One Omniverse.</span></h2>
+      <p class="about-body">Every IP exists in the same universe. Click any node to reveal the IP. Each story is a facet of the same infinite world — the Mad Sensei Omniverse.</p>
+      <div id="ip-panel">
+        <div class="panel-kanji" id="panel-kanji">魂</div>
+        <div class="panel-name" id="panel-name">TAMASHII</div>
+        <span class="panel-status" id="panel-status-label">IN PRODUCTION</span>
+        <p class="panel-desc" id="panel-desc">The soul never dies. It transforms.</p>
+        <div class="panel-extra" id="panel-extra">IP_001 · WEBTOON + ANIME · LIVE</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MASCOTS / CHARACTER SHOWCASE -->
+<section id="mascots">
+  <div class="mascots-header reveal">
+    <div class="section-tag">Characters</div>
+    <h2 class="section-title-main">Faces of the<br><span class="outline">Omniverse.</span></h2>
+    <p class="mascots-sub">The studio's original characters and brand personas — each one a piece of the same world we're building.</p>
+  </div>
+  <div class="mascots-grid" id="mascots-grid"></div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="team-header reveal">
+    <div class="section-tag">04 · The People</div>
+    <h2 class="section-title-main">Meet the Studio</h2>
+    <p style="font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:300;color:rgba(232,228,216,0.45);letter-spacing:0.08em;margin-top:10px">Three creators. One universe. Hover to reveal.</p>
+  </div>
+  <div class="team-grid" id="team-grid"></div>
+</section>
+
+<!-- VISION -->
+<section id="vision">
+  <div class="vision-bg-text">創造</div>
+  <p class="vision-quote-line reveal">
+    "We are witnessing the emergence of <em>synthetic storytelling</em> — a unification of Indian spirit and Japanese craft. Those who build the right universes will shape the next generation of <em>human imagination</em>."
+  </p>
+</section>
+
+<!-- JAPAN — MEGA SECTION -->
+<section id="japan">
+  <div class="japan-hero-text reveal">
+    <div class="section-tag" style="justify-content:center;margin-bottom:20px">05 · India × Japan · 三重県</div>
+    <span class="japan-hero-kanji glitch-text" data-text="三重県">三重県</span>
+    <p style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.4em;color:rgba(200,168,75,0.5);margin-top:18px;text-transform:uppercase">MIE PREFECTURE · TSU CITY · THE SACRED HEARTLAND</p>
+  </div>
+
+  <div class="japan-content">
+    <div>
+      <h2 class="section-title-main reveal">The Bridge<br><span class="outline">Between Worlds</span></h2>
+      <p class="about-body reveal" style="margin-top:20px">Our Japan partnership roots in Mie Prefecture — the sacred heartland of traditional Japanese culture. Tsu City, the prefectural capital, sits along the Pacific coast of Honshu, home to 280,000 people and centuries of samurai heritage dating back to the Edo period (1603–1868).</p>
+      <div class="mie-box reveal">
+        <div class="mie-coords">
+          <span>34.7303° N</span>
+          <span>136.5086° E</span>
+          <span>三重県 MIE, JP</span>
+        </div>
+        <p class="mie-body">40–60% production cost advantage. Japan co-production access. Cultural authenticity baked into every frame. Near the sacred Ise Shrine — one of Japan's holiest sites. This is not outsourcing — this is fusion at the highest level.</p>
+      </div>
+      <p class="about-body reveal" style="margin-top:20px">Where India's 5,000-year storytelling tradition collides with Japan's century-old animation mastery, something unprecedented is forged. The Kumano Kodo ancient pilgrimage routes run through this very region — a land that has always been a bridge between worlds.</p>
+    </div>
+    <div>
+      <div class="japan-visual reveal-right">
+        <canvas id="flight-canvas"></canvas>
+        <button class="flight-btn" onclick="triggerFlight()">▶ LAUNCH FLIGHT PATH</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MIE INFO BOXES -->
+  <div class="mie-info-grid reveal" style="margin-top:80px">
+    <div class="mie-info-box">
+      <span class="mie-box-icon">城</span>
+      <div class="mie-box-title">Castle Town Legacy</div>
+      <p class="mie-box-body">Tsu became a powerful castle town in the Edo period (1603–1868), home to samurai warriors and feudal lords. The city's 800+ year history is written into every stone, temple, and festival tradition.</p>
+    </div>
+    <div class="mie-info-box">
+      <span class="mie-box-icon">海</span>
+      <div class="mie-box-title">Pacific Coastline</div>
+      <p class="mie-box-body">Situated along the Ise Bay and Pacific Ocean, Tsu's coastal identity deeply informs Japanese visual culture. The sea appears in countless anime — a symbol of both boundary and possibility.</p>
+    </div>
+    <div class="mie-info-box">
+      <span class="mie-box-icon">鳥</span>
+      <div class="mie-box-title">Ise Grand Shrine</div>
+      <p class="mie-box-body">Proximity to Ise Jingu — the most sacred Shinto shrine in Japan — gives Mie its spiritual gravity. The divine connection between nature, craft, and story is the air Mad Sensei breathes.</p>
+    </div>
+    <div class="mie-info-box">
+      <span class="mie-box-icon">祭</span>
+      <div class="mie-box-title">Tsu Matsuri Festival</div>
+      <p class="mie-box-body">Every October, the streets fill with traditional music, dance, and parades. This living animation — the movement of costumed bodies through ancient streets — is the original anime, predating film itself.</p>
+    </div>
+    <div class="mie-info-box">
+      <span class="mie-box-icon">山</span>
+      <div class="mie-box-title">Kumano Sacred Paths</div>
+      <p class="mie-box-body">The UNESCO-listed Kumano Kodo pilgrimage routes pass through Mie — ancient forest paths walked by emperors and pilgrims for over 1,000 years. The original quest narrative, written in stone and cedar.</p>
+    </div>
+    <div class="mie-info-box">
+      <span class="mie-box-icon">橋</span>
+      <div class="mie-box-title">The India Bridge</div>
+      <p class="mie-box-body">Mad Sensei's Mie partnership creates a cultural bridge between two great storytelling civilizations. 40–60% cost advantage. 100% creative ambition. The world's next great animation axis.</p>
+    </div>
+  </div>
+
+  <!-- ANIME HISTORY TIMELINE -->
+  <div class="anime-timeline">
+    <div class="section-tag" style="justify-content:center;margin-bottom:16px">The Lineage We Inherit</div>
+    <div class="timeline-title reveal">Japan's Animation History</div>
+    <p class="timeline-sub reveal">A century of craft. The tradition Mad Sensei carries forward.</p>
+
+    <div class="timeline-track">
+
+      <div class="timeline-item reveal">
+        <div class="t-left">
+          <div class="t-card">
+            <span class="t-era">The Birth</span>
+            <span class="t-kanji-icon">筆</span>
+            <div class="t-title">Three Fathers of Anime</div>
+            <p class="t-body">Ōten Shimokawa, Junichi Kōuchi, and Seitaro Kitayama — three artists who, in a single year, launched an entire art form. The earliest films were drawn with chalk on a board, erased and redrawn frame by frame.</p>
+            <div class="t-iconic">// CHALK ON BOARD · 5 MIN FILMS · PURE INVENTION</div>
+          </div>
+        </div>
+        <div class="t-center">
+          <div class="t-dot"></div>
+          <div class="t-year">1917</div>
+        </div>
+        <div class="t-right"></div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="t-left"></div>
+        <div class="t-center">
+          <div class="t-dot"></div>
+          <div class="t-year">1923</div>
+        </div>
+        <div class="t-right">
+          <div class="t-card">
+            <span class="t-era">Catastrophe</span>
+            <span class="t-kanji-icon">崩</span>
+            <div class="t-title">Great Kanto Earthquake</div>
+            <p class="t-body">The earthquake destroyed countless animation studios and irreplaceable early films. Most of Japan's animation heritage from this era was lost. What survived defines how resilient the art form truly is.</p>
+            <div class="t-iconic">// STUDIOS DESTROYED · ART LOST · SPIRIT SURVIVED</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="t-left">
+          <div class="t-card">
+            <span class="t-era">Wartime</span>
+            <span class="t-kanji-icon">戦</span>
+            <div class="t-title">First Feature-Length Anime</div>
+            <p class="t-body">Momotaro: Sacred Sailors (1945) — Japan's first full-length animated feature, made during wartime. Animation was used as propaganda, but the technical skill and emotional depth were undeniable milestones.</p>
+            <div class="t-iconic">// MOMOTARŌ · 1945 · FIRST FEATURE FILM</div>
+          </div>
+        </div>
+        <div class="t-center">
+          <div class="t-dot"></div>
+          <div class="t-year">1945</div>
+        </div>
+        <div class="t-right"></div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="t-left"></div>
+        <div class="t-center">
+          <div class="t-dot"></div>
+          <div class="t-year">1948</div>
+        </div>
+        <div class="t-right">
+          <div class="t-card">
+            <span class="t-era">Rebirth</span>
+            <span class="t-kanji-icon">東</span>
+            <div class="t-title">Toei Animation Founded</div>
+            <p class="t-body">Founded by Kenzō Masaoka and Sanae Yamamoto as Japan Animated Films. Toei became the engine of modern anime — producing Dragon Ball, Sailor Moon, One Piece, and hundreds more iconic titles.</p>
+            <div class="t-iconic">// TOEI · DRAGON BALL · SAILOR MOON · ONE PIECE</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="t-left">
+          <div class="t-card">
+            <span class="t-era">God of Manga</span>
+            <span class="t-kanji-icon">神</span>
+            <div class="t-title">Osamu Tezuka & Astro Boy</div>
+            <p class="t-body">Tezuka's Astro Boy (1963) aired on NBC — the first anime on American television. He single-handedly established anime's visual language: large expressive eyes, cinematic framing, emotional depth. The God of Manga changed everything.</p>
+            <div class="t-iconic">// ASTRO BOY · NBC 1963 · TEZUKA OSAMU</div>
+          </div>
+        </div>
+        <div class="t-center">
+          <div class="t-dot"></div>
+          <div class="t-year">1963</div>
+        </div>
+        <div class="t-right"></div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="t-left"></div>
+        <div class="t-center">
+          <div class="t-dot"></div>
+          <div class="t-year">1970s</div>
+        </div>
+        <div class="t-right">
+          <div class="t-card">
+            <span class="t-era">Golden Age Begins</span>
+            <span class="t-kanji-icon">金</span>
+            <div class="t-title">Mecha Era & Genre Explosion</div>
+            <p class="t-body">The 70s gave anime its genres. Mecha anime was born. Giant robots became a global symbol of Japanese imagination. The decade saw an unprecedented expansion of styles, stories, and ambition that still echoes today.</p>
+            <div class="t-iconic">// MOBILE SUIT GUNDAM · MAZINGER Z · GENRE BIRTH</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="t-left">
+          <div class="t-card">
+            <span class="t-era">Golden Decade</span>
+            <span class="t-kanji-icon">龍</span>
+            <div class="t-title">The 1980s — Peak of Creation</div>
+            <p class="t-body">Akira (1988) shattered the ceiling of what animation could be. Dragon Ball, Captain Tsubasa, and Saint Seiya conquered global audiences. The first CGI in anime appeared in 1983. OVA format invented. The world became a fan.</p>
+            <div class="t-iconic">// AKIRA 1988 · DRAGON BALL · CAPTAIN TSUBASA</div>
+          </div>
+        </div>
+        <div class="t-center">
+          <div class="t-dot"></div>
+          <div class="t-year">1980s</div>
+        </div>
+        <div class="t-right"></div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="t-left"></div>
+        <div class="t-center">
+          <div class="t-dot"></div>
+          <div class="t-year">1997</div>
+        </div>
+        <div class="t-right">
+          <div class="t-card">
+            <span class="t-era">Ghibli Age</span>
+            <span class="t-kanji-icon">宮</span>
+            <div class="t-title">Princess Mononoke & Miyazaki</div>
+            <p class="t-body">Hayao Miyazaki and Studio Ghibli elevated anime to high art. Princess Mononoke (1997) and Spirited Away (2001) won international acclaim and proved that animation could carry the full weight of human experience.</p>
+            <div class="t-iconic">// STUDIO GHIBLI · SPIRITED AWAY · OSCAR 2003</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="t-left">
+          <div class="t-card">
+            <span class="t-era">Digital Revolution</span>
+            <span class="t-kanji-icon">網</span>
+            <div class="t-title">Internet & Global Fandom</div>
+            <p class="t-body">The internet dissolved geographic barriers. Naruto, Bleach, Hunter x Hunter, Death Note — anime became truly global. Crunchyroll launched in 2006. The era of the worldwide otaku community had begun.</p>
+            <div class="t-iconic">// NARUTO · BLEACH · CRUNCHYROLL 2006</div>
+          </div>
+        </div>
+        <div class="t-center">
+          <div class="t-dot"></div>
+          <div class="t-year">2000s</div>
+        </div>
+        <div class="t-right"></div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="t-left"></div>
+        <div class="t-center">
+          <div class="t-dot" style="background:var(--red);box-shadow:0 0 12px rgba(230,32,32,0.6)"></div>
+          <div class="t-year" style="color:var(--red)">2024</div>
+        </div>
+        <div class="t-right">
+          <div class="t-card" style="border-color:rgba(230,32,32,0.3);background:rgba(230,32,32,0.03)">
+            <span class="t-era" style="color:var(--gold)">The New Chapter</span>
+            <span class="t-kanji-icon" style="color:rgba(200,168,75,0.5)">狂</span>
+            <div class="t-title" style="color:var(--gold)">Mad Sensei Studios</div>
+            <p class="t-body">India's first serious anime studio enters the lineage. Born from the union of Indian creativity and Japanese craft philosophy. The next chapter of anime's century-long story begins — and it begins here.</p>
+            <div class="t-iconic" style="color:var(--gold)">// INDIA × JAPAN · MIE · THE NEXT ERA</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end timeline -->
+  </div><!-- end anime-timeline -->
+
+  <!-- ICONIC ANIME SHOWCASE -->
+  <div class="iconic-showcase reveal">
+    <div class="section-tag" style="justify-content:center;margin-bottom:20px">The Icons That Built The Form</div>
+    <div class="iconic-title">Legendary Works That Changed Everything</div>
+    <div class="iconic-grid">
+      <div class="iconic-card">
+        <div class="iconic-scan"></div>
+        <span class="iconic-card-kanji">鉄</span>
+        <div class="iconic-card-title">Astro Boy</div>
+        <span class="iconic-card-eng">TETSUWAN ATOM</span>
+        <span class="iconic-card-year">1963</span>
+        <p class="iconic-card-desc">Tezuka's masterpiece. The birth of modern anime as a storytelling medium. First Japanese animation on American TV.</p>
+      </div>
+      <div class="iconic-card">
+        <div class="iconic-scan"></div>
+        <span class="iconic-card-kanji">竜</span>
+        <div class="iconic-card-title">Dragon Ball</div>
+        <span class="iconic-card-eng">ドラゴンボール</span>
+        <span class="iconic-card-year">1986</span>
+        <p class="iconic-card-desc">Toriyama's world-conquering saga. The power-up, the scream, the transformation — all codified by this single series.</p>
+      </div>
+      <div class="iconic-card">
+        <div class="iconic-scan"></div>
+        <span class="iconic-card-kanji">霊</span>
+        <div class="iconic-card-title">Akira</div>
+        <span class="iconic-card-eng">アキラ</span>
+        <span class="iconic-card-year">1988</span>
+        <p class="iconic-card-desc">Otomo's cyberpunk opus. Proved animation could handle adult themes with the gravity of literary fiction. Changed cinema forever.</p>
+      </div>
+      <div class="iconic-card">
+        <div class="iconic-scan"></div>
+        <span class="iconic-card-kanji">月</span>
+        <div class="iconic-card-title">Sailor Moon</div>
+        <span class="iconic-card-eng">美少女戦士</span>
+        <span class="iconic-card-year">1992</span>
+        <p class="iconic-card-desc">The magical girl that conquered the globe. Animage Grand Prix 1992. Female heroism elevated to myth through animation.</p>
+      </div>
+      <div class="iconic-card">
+        <div class="iconic-scan"></div>
+        <span class="iconic-card-kanji">宮</span>
+        <div class="iconic-card-title">Spirited Away</div>
+        <span class="iconic-card-eng">千と千尋</span>
+        <span class="iconic-card-year">2001</span>
+        <p class="iconic-card-desc">Miyazaki's Oscar-winning masterwork. The first anime to win Academy Award for Best Animated Feature. Art as devotion.</p>
+      </div>
+      <div class="iconic-card">
+        <div class="iconic-scan"></div>
+        <span class="iconic-card-kanji">忍</span>
+        <div class="iconic-card-title">Naruto</div>
+        <span class="iconic-card-eng">ナルト</span>
+        <span class="iconic-card-year">2002</span>
+        <p class="iconic-card-desc">The ninja who never gave up. A generation's defining story. Broke global streaming records and defined the golden age of internet fandom.</p>
+      </div>
+      <div class="iconic-card">
+        <div class="iconic-scan"></div>
+        <span class="iconic-card-kanji">海</span>
+        <div class="iconic-card-title">One Piece</div>
+        <span class="iconic-card-eng">ワンピース</span>
+        <span class="iconic-card-year">1999</span>
+        <p class="iconic-card-desc">Oda's endless voyage. The longest-running anime with the largest cumulative sales in manga history. A world in itself.</p>
+      </div>
+      <div class="iconic-card">
+        <div class="iconic-scan"></div>
+        <span class="iconic-card-kanji">進</span>
+        <div class="iconic-card-title">Attack on Titan</div>
+        <span class="iconic-card-eng">進撃の巨人</span>
+        <span class="iconic-card-year">2013</span>
+        <p class="iconic-card-desc">The series that redefined what anime storytelling could achieve in the modern era. Moral complexity. Political allegory. Pure spectacle.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAPAN PHOTO GALLERY -->
+  <div class="japan-gallery reveal">
+    <div class="japan-gallery-header">
+      <div class="section-tag" style="justify-content:center;margin-bottom:16px">The Land That Inspires Us</div>
+      <div class="japan-gallery-title shimmer-text">Japan Through Our Eyes</div>
+      <p style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.4em;color:rgba(200,168,75,0.5);margin-top:12px;text-transform:uppercase">// Click any image to explore</p>
+    </div>
+    <div class="japan-photo-grid">
+      <div class="japan-photo-item large" data-caption="Plum Blossom Valley · Mie Prefecture · 梅">
+        <div class="japan-card-inner">
+          <div class="japan-card-front">
+            <div class="japan-flip-hint">↻</div>
+            <img src="images/html_005.jpg" alt="Plum Blossom Valley Japan">
+            <div class="japan-card-front-caption">
+              <span class="japan-photo-caption-name">Plum Blossom Valley</span>
+              <span class="japan-photo-caption-sub">梅 · Mie Prefecture</span>
+            </div>
+          </div>
+          <div class="japan-card-back">
+            <div class="japan-back-kanji">梅</div>
+            <div class="japan-back-title">Plum Blossom Valley</div>
+            <div class="japan-back-sub">梅 · Mie Prefecture</div>
+            <div class="japan-back-divider"></div>
+            <p class="japan-back-desc">Thousands of ume trees cascade down Mie's mountain foothills in waves of pink and white — a living watercolor that has inspired Japanese artists for centuries. This is the landscape just beyond our studio walls.</p>
+            <div class="japan-back-tag">三重県 · MIE</div>
+          </div>
+        </div>
+      </div>
+      <div class="japan-photo-item" data-caption="Sacred Bamboo Grove · Ancient Forest Path · 竹">
+        <div class="japan-card-inner">
+          <div class="japan-card-front">
+            <div class="japan-flip-hint">↻</div>
+            <img src="images/html_006.jpg" alt="Sacred Bamboo Grove Japan">
+            <div class="japan-card-front-caption">
+              <span class="japan-photo-caption-name">Sacred Bamboo Grove</span>
+              <span class="japan-photo-caption-sub">竹 · Ancient Forest Path</span>
+            </div>
+          </div>
+          <div class="japan-card-back">
+            <div class="japan-back-kanji">竹</div>
+            <div class="japan-back-title">Sacred Bamboo Grove</div>
+            <div class="japan-back-sub">竹 · Ancient Forest Path</div>
+            <div class="japan-back-divider"></div>
+            <p class="japan-back-desc">Framed by living rock, ancient bamboo towers overhead filtering light into shafts of emerald. A portal to another world — needing no design intervention to be a perfect scene.</p>
+            <div class="japan-back-tag">日本 · JAPAN</div>
+          </div>
+        </div>
+      </div>
+      <div class="japan-photo-item" data-caption="Flower Festival · Kumamoto · 花">
+        <div class="japan-card-inner">
+          <div class="japan-card-front">
+            <div class="japan-flip-hint">↻</div>
+            <img src="images/html_007.jpg" alt="Flower Festival Japan">
+            <div class="japan-card-front-caption">
+              <span class="japan-photo-caption-name">Flower Festival</span>
+              <span class="japan-photo-caption-sub">花 · Kumamoto</span>
+            </div>
+          </div>
+          <div class="japan-card-back">
+            <div class="japan-back-kanji">花</div>
+            <div class="japan-back-title">Flower Festival</div>
+            <div class="japan-back-sub">花 · Kumamoto</div>
+            <div class="japan-back-divider"></div>
+            <p class="japan-back-desc">Japan's love for seasonal beauty rendered in millions of meticulous blooms. Even its outdoor festivals are curated works of art — a philosophy every Mad Sensei creator absorbs.</p>
+            <div class="japan-back-tag">日本 · JAPAN</div>
+          </div>
+        </div>
+      </div>
+      <div class="japan-photo-item" data-caption="Coastal Shrine · Pacific Torii Gate · 海">
+        <div class="japan-card-inner">
+          <div class="japan-card-front">
+            <div class="japan-flip-hint">↻</div>
+            <img src="images/html_008.jpg" alt="Coastal Shrine Japan">
+            <div class="japan-card-front-caption">
+              <span class="japan-photo-caption-name">Coastal Shrine</span>
+              <span class="japan-photo-caption-sub">海 · Pacific Torii Gate</span>
+            </div>
+          </div>
+          <div class="japan-card-back">
+            <div class="japan-back-kanji">海</div>
+            <div class="japan-back-title">Coastal Shrine</div>
+            <div class="japan-back-sub">海 · Pacific Torii Gate</div>
+            <div class="japan-back-divider"></div>
+            <p class="japan-back-desc">Where the Pacific meets tradition. A torii gate guards the boundary between the mortal world and the sacred — exactly the visual language our IPs speak every chapter.</p>
+            <div class="japan-back-tag">日本 · JAPAN</div>
+          </div>
+        </div>
+      </div>
+      <div class="japan-photo-item tall" data-caption="Cherry Blossom Tunnel · Sakura Canal · 桜">
+        <div class="japan-card-inner">
+          <div class="japan-card-front">
+            <div class="japan-flip-hint">↻</div>
+            <img src="images/html_009.jpg" alt="Sakura Tunnel Japan">
+            <div class="japan-card-front-caption">
+              <span class="japan-photo-caption-name">Sakura Tunnel</span>
+              <span class="japan-photo-caption-sub">桜 · Cherry Blossom Canal</span>
+            </div>
+          </div>
+          <div class="japan-card-back">
+            <div class="japan-back-kanji">桜</div>
+            <div class="japan-back-title">Sakura Tunnel</div>
+            <div class="japan-back-sub">桜 · Cherry Blossom Canal</div>
+            <div class="japan-back-divider"></div>
+            <p class="japan-back-desc">One figure beneath an infinite pink corridor. The most Japanese image imaginable — solitude inside overwhelming beauty. A single frame that tells a thousand stories.</p>
+            <div class="japan-back-tag">日本 · JAPAN</div>
+          </div>
+        </div>
+      </div>
+      <div class="japan-photo-item" data-caption="Edo Period Street · Castle Town · 城">
+        <div class="japan-card-inner">
+          <div class="japan-card-front">
+            <div class="japan-flip-hint">↻</div>
+            <img src="images/html_010.jpg" alt="Castle Town Street Japan">
+            <div class="japan-card-front-caption">
+              <span class="japan-photo-caption-name">Castle Town Street</span>
+              <span class="japan-photo-caption-sub">城 · Edo Period Legacy</span>
+            </div>
+          </div>
+          <div class="japan-card-back">
+            <div class="japan-back-kanji">城</div>
+            <div class="japan-back-title">Castle Town Street</div>
+            <div class="japan-back-sub">城 · Edo Period Legacy</div>
+            <div class="japan-back-divider"></div>
+            <p class="japan-back-desc">Edo Period streets preserved in amber. Walking here is walking through a shogun's Japan — the same tiles, shadows, and weight of history we pour into every chapter we produce.</p>
+            <div class="japan-back-tag">日本 · JAPAN</div>
+          </div>
+        </div>
+      </div>
+      <div class="japan-photo-item" data-caption="Seiganto-ji Pagoda · Nachi Falls · 瀑">
+        <div class="japan-card-inner">
+          <div class="japan-card-front">
+            <div class="japan-flip-hint">↻</div>
+            <img src="images/html_011.jpg" alt="Seiganto-ji Pagoda Japan">
+            <div class="japan-card-front-caption">
+              <span class="japan-photo-caption-name">Seiganto-ji Pagoda</span>
+              <span class="japan-photo-caption-sub">瀑 · Nachi Falls · Wakayama</span>
+            </div>
+          </div>
+          <div class="japan-card-back">
+            <div class="japan-back-kanji">瀑</div>
+            <div class="japan-back-title">Seiganto-ji Pagoda</div>
+            <div class="japan-back-sub">瀑 · Nachi Falls · Wakayama</div>
+            <div class="japan-back-divider"></div>
+            <p class="japan-back-desc">Japan's tallest waterfall (133m) framing a three-tiered vermilion pagoda. Sacred geometry and raw natural power — the visual ambition Mad Sensei chases in every scene we build.</p>
+            <div class="japan-back-tag">日本 · JAPAN</div>
+          </div>
+        </div>
+      </div>
+      <div class="japan-photo-item" data-caption="Historic Merchant Quarter · Pine Tree Streets · 松">
+        <div class="japan-card-inner">
+          <div class="japan-card-front">
+            <div class="japan-flip-hint">↻</div>
+            <img src="images/html_012.jpg" alt="Merchant Quarter Japan">
+            <div class="japan-card-front-caption">
+              <span class="japan-photo-caption-name">Merchant Quarter</span>
+              <span class="japan-photo-caption-sub">松 · Historic Streetscape</span>
+            </div>
+          </div>
+          <div class="japan-card-back">
+            <div class="japan-back-kanji">松</div>
+            <div class="japan-back-title">Merchant Quarter</div>
+            <div class="japan-back-sub">松 · Historic Streetscape</div>
+            <div class="japan-back-divider"></div>
+            <p class="japan-back-desc">A centuries-old pine tree growing from a rooftop, woven into the architecture. In Japan, nature is not kept out — it is written into culture, into story, into us.</p>
+            <div class="japan-back-tag">日本 · JAPAN</div>
+          </div>
+        </div>
+      </div>
+      <div class="japan-photo-item" data-caption="Meoto Iwa · Wedded Rocks Sunset · 縁">
+        <div class="japan-card-inner">
+          <div class="japan-card-front">
+            <div class="japan-flip-hint">↻</div>
+            <img src="images/html_013.jpg" alt="Meoto Iwa Japan">
+            <div class="japan-card-front-caption">
+              <span class="japan-photo-caption-name">Meoto Iwa</span>
+              <span class="japan-photo-caption-sub">縁 · Wedded Rocks · Mie</span>
+            </div>
+          </div>
+          <div class="japan-card-back">
+            <div class="japan-back-kanji">縁</div>
+            <div class="japan-back-title">Meoto Iwa</div>
+            <div class="japan-back-sub">縁 · Wedded Rocks · Mie</div>
+            <div class="japan-back-divider"></div>
+            <p class="japan-back-desc">The Wedded Rocks of Mie — two boulders bound by sacred rope, representing Izanagi and Izanami. Fifteen minutes from our studio. This is our backyard. Our daily reminder of why we make stories.</p>
+            <div class="japan-back-tag">三重県 · MIE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- PRODUCTION PIPELINE -->
+<section id="pipeline" style="position:relative;z-index:1;padding:120px 40px;background:#020202;overflow:hidden;">
+  <div style="position:absolute;font-family:'Noto Serif JP',serif;font-weight:900;font-size:clamp(100px,18vw,280px);color:transparent;-webkit-text-stroke:0.5px rgba(200,168,75,0.04);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;user-select:none;">制作</div>
+  <div style="max-width:1300px;margin:0 auto;position:relative;z-index:2;">
+    <div class="section-tag reveal" style="margin-bottom:16px">07 · How We Build</div>
+    <h2 class="section-title-main reveal" style="margin-bottom:8px">The Production</h2>
+    <h2 class="section-title-main reveal" style="margin-bottom:56px"><span class="outline">Pipeline</span></h2>
+    <div class="pipeline-grid">
+      <div class="pipeline-step reveal" style="--bar-w:100%">
+        <div class="ps-num">01</div><div class="ps-icon">概</div>
+        <div class="ps-title">Concept & IP Development</div>
+        <p class="ps-desc">Every universe starts with a world bible. Characters, lore, power systems, cultural layers — we build the DNA before the first panel is drawn.</p>
+        <div class="ps-bar"><div class="ps-bar-fill"></div></div>
+        <div class="ps-tag">// STORY ARCHITECTURE · IP DESIGN</div>
+      </div>
+      <div class="pipeline-step reveal" style="transition-delay:.07s;--bar-w:88%">
+        <div class="ps-num">02</div><div class="ps-icon">書</div>
+        <div class="ps-title">Script & Storyboard</div>
+        <p class="ps-desc">Panel-by-panel breakdown. Every scene is a decision. Camera angles, pacing, emotional beats — written in visual language before animation begins.</p>
+        <div class="ps-bar"><div class="ps-bar-fill"></div></div>
+        <div class="ps-tag">// VISUAL WRITING · PANEL FLOW</div>
+      </div>
+      <div class="pipeline-step reveal" style="transition-delay:.14s;--bar-w:93%">
+        <div class="ps-num">03</div><div class="ps-icon">絵</div>
+        <div class="ps-title">Character & Background Art</div>
+        <p class="ps-desc">In-house illustration. Every character sheet, background painting, and prop design is original. No asset libraries. No shortcuts. Just craft.</p>
+        <div class="ps-bar"><div class="ps-bar-fill"></div></div>
+        <div class="ps-tag">// ORIGINAL DESIGN · IN-HOUSE ART</div>
+      </div>
+      <div class="pipeline-step reveal" style="transition-delay:.21s;--bar-w:76%">
+        <div class="ps-num">04</div><div class="ps-icon">映</div>
+        <div class="ps-title">Animation & Compositing</div>
+        <p class="ps-desc">Full frame-by-frame animation. Clip Studio, Toon Boom, After Effects. Motion that breathes, fights, and cries. The moment art becomes alive.</p>
+        <div class="ps-bar"><div class="ps-bar-fill"></div></div>
+        <div class="ps-tag">// FRAME BY FRAME · CLIP STUDIO</div>
+      </div>
+      <div class="pipeline-step reveal" style="transition-delay:.28s;--bar-w:82%">
+        <div class="ps-num">05</div><div class="ps-icon">音</div>
+        <div class="ps-title">Voice & Audio Post</div>
+        <p class="ps-desc">Multilingual VA casting, direction, and recording. Original OST composition. Sound design. The dimension that makes viewers feel they're inside the world.</p>
+        <div class="ps-bar"><div class="ps-bar-fill"></div></div>
+        <div class="ps-tag">// MULTILINGUAL · ORIGINAL OST</div>
+      </div>
+      <div class="pipeline-step reveal" style="transition-delay:.35s;--bar-w:62%">
+        <div class="ps-num">06</div><div class="ps-icon">配</div>
+        <div class="ps-title">Distribution & Licensing</div>
+        <p class="ps-desc">Crunchyroll, Netflix, Disney+, Sony LIV, Webtoon — we don't make content for platforms. We make content the platforms come to find.</p>
+        <div class="ps-bar"><div class="ps-bar-fill"></div></div>
+        <div class="ps-tag">// OTT LICENSING · GLOBAL REACH</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- INVESTOR BRIEF + FAQ -->
+<section id="faq" style="position:relative;z-index:1;padding:120px 40px;background:#050505;overflow:hidden;">
+  <div style="max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;position:relative;z-index:2;">
+
+    <!-- LEFT: FAQ -->
+    <div>
+      <div class="section-tag reveal" style="margin-bottom:16px">08 · The Hard Questions</div>
+      <h2 class="section-title-main reveal" style="margin-bottom:8px">Investor</h2>
+      <h2 class="section-title-main reveal" style="margin-bottom:40px"><span class="outline">Brief</span></h2>
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>What makes Mad Sensei different from other Indian animation studios?</span><span class="faq-arrow">▸</span></div>
+          <div class="faq-a">We don't do service animation. We build original IP designed for global ownership. While others render for Hollywood, we're writing the stories Hollywood will want to adapt. Our Mie Prefecture partnership gives us Japanese cultural authenticity at 40–60% below Japanese-only production costs.</div>
+        </div>
+        <div class="faq-item reveal" style="transition-delay:.06s">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>What's the revenue model?</span><span class="faq-arrow">▸</span></div>
+          <div class="faq-a">Six streams: OTT licensing, Webtoon platform revenue share, merchandise IP licensing, B2B co-production fees, patron memberships, and game licensing. The IP compounds in value as the universe expands — every new story raises the floor.</div>
+        </div>
+        <div class="faq-item reveal" style="transition-delay:.12s">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>What's your current traction?</span><span class="faq-arrow">▸</span></div>
+          <div class="faq-a">7M+ organic views. 127 chapters published across 4 IPs. All without a marketing budget — pure content pull. The flywheel is turning. Investment doesn't start it; it accelerates what's already moving.</div>
+        </div>
+        <div class="faq-item reveal" style="transition-delay:.18s">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>Why Japan? Why Mie specifically?</span><span class="faq-arrow">▸</span></div>
+          <div class="faq-a">Mie Prefecture operates at regional cost structures while adjacent to Japan's creative hubs. Proximity to the Ise Grand Shrine gives our work cultural depth that can't be manufactured. Our local partner relationships open doors to authentic co-production — not outsourcing, but fusion.</div>
+        </div>
+        <div class="faq-item reveal" style="transition-delay:.24s">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>What does investment enable?</span><span class="faq-arrow">▸</span></div>
+          <div class="faq-a">Studio infrastructure buildout. Full animation pipeline for Tamashii Season 1. VA recording suites. Japan liaison office in Mie. Merchandise development. The difference between a studio that makes chapters and a studio that makes history.</div>
+        </div>
+        <div class="faq-item reveal" style="transition-delay:.30s">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>Who are you pitching to?</span><span class="faq-arrow">▸</span></div>
+          <div class="faq-a">OTT platforms seeking original IP (not just service content), IP development funds in Japan and India, angel investors who understand the entertainment landscape, and global studios looking for authentic Indo-Japanese co-production. We're selective. So are we.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Tiers + Stats -->
+    <div>
+      <div class="section-tag reveal" style="margin-bottom:20px">Patron Tiers</div>
+      <div class="tier-grid reveal">
+        <div class="tier-card powerup-hover">
+          <div class="tier-kanji">文</div><div class="tier-name">Disciple</div>
+          <div class="tier-price">₹49<span>/mo</span></div>
+          <div class="tier-desc">Early chapters, community access, behind-the-scenes</div>
+        </div>
+        <div class="tier-card powerup-hover">
+          <div class="tier-kanji">士</div><div class="tier-name">Samurai</div>
+          <div class="tier-price">₹89<span>/mo</span></div>
+          <div class="tier-desc">All previous + character wallpapers, story polls</div>
+        </div>
+        <div class="tier-card tier-featured powerup-hover">
+          <div class="tier-badge">MOST POPULAR</div>
+          <div class="tier-kanji" style="color:var(--gold);-webkit-text-stroke:0">師</div>
+          <div class="tier-name" style="color:var(--gold)">Sensei</div>
+          <div class="tier-price" style="color:var(--gold)">₹129<span>/mo</span></div>
+          <div class="tier-desc">All previous + credits, exclusive discord, pilot access</div>
+        </div>
+        <div class="tier-card powerup-hover">
+          <div class="tier-kanji">龍</div><div class="tier-name">Dragon</div>
+          <div class="tier-price">₹199<span>/mo</span></div>
+          <div class="tier-desc">All previous + original art prints, creator sessions</div>
+        </div>
+        <div class="tier-card tier-kami powerup-hover" style="grid-column:span 2">
+          <div class="tier-kanji" style="color:rgba(200,100,100,.7);-webkit-text-stroke:0;font-size:28px">神</div>
+          <div class="tier-name">Kami — Investor Tier</div>
+          <div class="tier-price" style="color:rgba(200,100,100,.85)">Custom</div>
+          <div class="tier-desc">Direct studio equity discussion. Your name lives in the universe forever.</div>
+        </div>
+      </div>
+      <div class="big-stats reveal" style="margin-top:28px">
+        <div class="big-stat"><span class="big-stat-num">4</span><span class="big-stat-label">Original IPs</span></div>
+        <div class="big-stat"><span class="big-stat-num">7M+</span><span class="big-stat-label">Organic Views</span></div>
+        <div class="big-stat"><span class="big-stat-num">127</span><span class="big-stat-label">Chapters</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner reveal">
+    <span class="contact-kanji">繋</span>
+    <div class="section-tag" style="justify-content:center">06 · Connect</div>
+    <h2 class="section-title-main" style="margin-bottom:16px">Be Part of<br><span class="outline">The Universe</span></h2>
+    <p class="contact-desc">Support the studio. Watch the world change. Become a patron, investor, or collaborator.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="https://madsenseistudio.vercel.app/patron" class="btn-gold">Become a Patron</a>
+      <a href="https://madsenseistudio.vercel.app/analytics" class="btn-ghost">Investor View</a>
+    </div>
+    <div class="social-links">
+      <a href="https://discord.gg/a7VKyFSAhS" class="social-link">Discord</a>
+      <a href="https://www.youtube.com/@MadSenseiAnime-j4y" class="social-link">YouTube</a>
+      <a href="https://www.instagram.com/mad_sensei_studios" class="social-link">Instagram</a>
+      <a href="https://www.linkedin.com/in/madsensei-studios-13a5b93b2" class="social-link">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">
+    <span style="position:relative;display:inline-block">
+      <span style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);font-size:10px">🎓</span>M
+    </span>AD SENSEI STUDIOS
+  </div>
+  <div class="footer-copy">© 2024–2026 Mad Sensei Studios Pvt. Ltd. &nbsp;·&nbsp; 狂気の創造 &nbsp;·&nbsp; 三重県</div>
+</footer>
+
+
+<!-- ==================== MASCOT SYSTEM & SENSEITRIX ==================== -->
+
+<!-- MASCOT SENSEITRIX SELECTION SCREEN -->
+<div id="senseitrix-screen" style="
+  position:fixed;inset:0;z-index:199999;
+  background:#000;
+  display:none;flex-direction:column;align-items:center;justify-content:center;
+  overflow:hidden;
+">
+  <!-- Space background canvas -->
+  <canvas id="space-canvas" style="position:absolute;inset:0;z-index:0;"></canvas>
+  
+  <!-- Scan lines -->
+  <div style="position:absolute;inset:0;z-index:1;
+    background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,255,180,0.015) 3px,rgba(0,255,180,0.015) 4px);
+    pointer-events:none;"></div>
+  
+  <!-- Logo area - Stylized MAD SENSEI Logo -->
+  <div style="position:relative;z-index:2;text-align:center;margin-bottom:20px;">
+    <!-- SVG Logo Mark -->
+    <svg viewBox="0 0 360 100" style="width:min(360px,80vw);height:auto;margin-bottom:8px;" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="logo-glow">
+          <feGaussianBlur stdDeviation="2" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:rgba(200,168,75,0.6)"/>
+          <stop offset="50%" style="stop-color:rgba(255,224,100,1)"/>
+          <stop offset="100%" style="stop-color:rgba(200,168,75,0.6)"/>
+        </linearGradient>
+      </defs>
+      <!-- Decorative top lines -->
+      <line x1="10" y1="15" x2="130" y2="15" stroke="rgba(200,168,75,0.3)" stroke-width="0.5"/>
+      <line x1="230" y1="15" x2="350" y2="15" stroke="rgba(200,168,75,0.3)" stroke-width="0.5"/>
+      <!-- Corner marks -->
+      <path d="M10,20 L10,10 L20,10" stroke="rgba(200,168,75,0.7)" stroke-width="1" fill="none"/>
+      <path d="M340,10 L350,10 L350,20" stroke="rgba(200,168,75,0.7)" stroke-width="1" fill="none"/>
+      <path d="M10,80 L10,90 L20,90" stroke="rgba(200,168,75,0.7)" stroke-width="1" fill="none"/>
+      <path d="M340,90 L350,90 L350,80" stroke="rgba(200,168,75,0.7)" stroke-width="1" fill="none"/>
+      <!-- Graduation cap icon -->
+      <text x="180" y="18" text-anchor="middle" font-size="16" fill="rgba(200,168,75,0.8)" filter="url(#logo-glow)">🎓</text>
+      <!-- Main kanji -->
+      <text x="180" y="62" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="38" font-weight="900"
+        fill="url(#logo-grad)" filter="url(#logo-glow)" letter-spacing="0.08em">狂賢師</text>
+      <!-- Studio name -->
+      <text x="180" y="83" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="9"
+        fill="rgba(200,168,75,0.7)" letter-spacing="0.35em">MAD SENSEI STUDIOS</text>
+      <!-- Decorative bottom line -->
+      <line x1="50" y1="92" x2="310" y2="92" stroke="rgba(200,168,75,0.2)" stroke-width="0.5"/>
+    </svg>
+    <div style="
+      font-family:'Share Tech Mono',monospace;font-size:clamp(8px,1.5vw,11px);
+      letter-spacing:0.55em;color:rgba(0,255,200,0.7);margin-top:4px;
+      text-transform:uppercase;
+    ">⬡ SENSEITRIX  ·  SELECT YOUR COMPANION  ·  ⬡</div>
+  </div>
+  
+  <!-- SENSEITRIX DEVICE -->
+  <div id="senseitrix-device" style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;">
+    
+    <!-- BEN 10 OMNIVERSE DIGITAL DIAL WHEEL -->
+    <div id="omni-faceplate" style="
+      position:relative;width:min(420px,86vw);height:min(420px,86vw);
+      display:flex;align-items:center;justify-content:center;
+    ">
+      <svg id="omni-dial-svg" viewBox="0 0 420 420" style="position:absolute;inset:0;width:100%;height:100%;z-index:2;overflow:visible;" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="gd1"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <filter id="gd2"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <radialGradient id="dial-bg-grad" cx="50%" cy="40%" r="55%">
+            <stop offset="0%" stop-color="#0d3a25"/>
+            <stop offset="70%" stop-color="#061a0f"/>
+            <stop offset="100%" stop-color="#020b06"/>
+          </radialGradient>
+          <linearGradient id="seg-on" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="rgba(0,255,157,0.85)"/>
+            <stop offset="100%" stop-color="rgba(0,190,110,0.55)"/>
+          </linearGradient>
+          <linearGradient id="seg-off" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="rgba(0,60,38,0.4)"/>
+            <stop offset="100%" stop-color="rgba(0,25,15,0.25)"/>
+          </linearGradient>
+          <clipPath id="hex-face-clip">
+            <polygon points="210,72 285,113 285,195 210,236 135,195 135,113"/>
+          </clipPath>
+          <clipPath id="hex-mascot-clip">
+            <polygon points="210,155 276,193 276,269 210,307 144,269 144,193"/>
+          </clipPath>
+        </defs>
+
+        <!-- ── Outer background disc ── -->
+        <circle cx="210" cy="210" r="206" fill="rgba(0,12,7,0.97)" stroke="rgba(0,255,157,0.1)" stroke-width="1"/>
+
+        <!-- ── 6 PIE SEGMENT SLICES (the dial positions) ── -->
+        <!-- Segment 0: top (0°, IP: 魂 TAMASHII) -->
+        <g class="dial-seg" id="dial-seg-0" onclick="dialClick(0)" style="cursor:pointer;">
+          <path d="M210,210 L183,28 A185,185 0 0,1 237,28 Z" fill="url(#seg-off)" stroke="rgba(0,255,157,0.25)" stroke-width="0.8" stroke-linejoin="round"/>
+          <circle cx="210" cy="48" r="22" fill="rgba(0,30,18,0.9)" stroke="rgba(0,255,157,0.4)" stroke-width="1.5" filter="url(#gd1)"/>
+          <text x="210" y="55" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="17" font-weight="900" fill="rgba(0,255,157,0.7)">魂</text>
+        </g>
+        <!-- Segment 1: upper-right (60°, IP: 炎 KAEN) -->
+        <g class="dial-seg" id="dial-seg-1" onclick="dialClick(1)" style="cursor:pointer;">
+          <path d="M210,210 L384,120 A185,185 0 0,1 395,175 Z" fill="url(#seg-off)" stroke="rgba(0,255,157,0.25)" stroke-width="0.8"/>
+          <circle cx="376" cy="130" r="22" fill="rgba(0,30,18,0.9)" stroke="rgba(0,255,157,0.4)" stroke-width="1.5" filter="url(#gd1)"/>
+          <text x="376" y="137" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="17" font-weight="900" fill="rgba(0,255,157,0.7)">炎</text>
+        </g>
+        <!-- Segment 2: lower-right (120°, IP: 影 KAGE) -->
+        <g class="dial-seg" id="dial-seg-2" onclick="dialClick(2)" style="cursor:pointer;">
+          <path d="M210,210 L395,255 A185,185 0 0,1 360,370 Z" fill="url(#seg-off)" stroke="rgba(0,255,157,0.25)" stroke-width="0.8"/>
+          <circle cx="375" cy="335" r="22" fill="rgba(0,30,18,0.9)" stroke="rgba(0,255,157,0.4)" stroke-width="1.5" filter="url(#gd1)"/>
+          <text x="375" y="342" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="17" font-weight="900" fill="rgba(0,255,157,0.7)">影</text>
+        </g>
+        <!-- Segment 3: bottom (180°, IP: 嵐 ARASHI) -->
+        <g class="dial-seg" id="dial-seg-3" onclick="dialClick(3)" style="cursor:pointer;">
+          <path d="M210,210 L237,392 A185,185 0 0,1 183,392 Z" fill="url(#seg-off)" stroke="rgba(0,255,157,0.25)" stroke-width="0.8"/>
+          <circle cx="210" cy="383" r="22" fill="rgba(0,30,18,0.9)" stroke="rgba(0,255,157,0.4)" stroke-width="1.5" filter="url(#gd1)"/>
+          <text x="210" y="390" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="17" font-weight="900" fill="rgba(0,255,157,0.7)">嵐</text>
+        </g>
+        <!-- Segment 4: lower-left (240°, IP: 夢 YUME) -->
+        <g class="dial-seg" id="dial-seg-4" onclick="dialClick(4)" style="cursor:pointer;">
+          <path d="M210,210 L60,370 A185,185 0 0,1 25,255 Z" fill="url(#seg-off)" stroke="rgba(0,255,157,0.25)" stroke-width="0.8"/>
+          <circle cx="45" cy="335" r="22" fill="rgba(0,30,18,0.9)" stroke="rgba(0,255,157,0.4)" stroke-width="1.5" filter="url(#gd1)"/>
+          <text x="45" y="342" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="17" font-weight="900" fill="rgba(0,255,157,0.7)">夢</text>
+        </g>
+        <!-- Segment 5: upper-left (300°, IP: 神 KAMI) -->
+        <g class="dial-seg" id="dial-seg-5" onclick="dialClick(5)" style="cursor:pointer;">
+          <path d="M210,210 L25,165 A185,185 0 0,1 36,120 Z" fill="url(#seg-off)" stroke="rgba(0,255,157,0.25)" stroke-width="0.8"/>
+          <circle cx="44" cy="130" r="22" fill="rgba(0,30,18,0.9)" stroke="rgba(0,255,157,0.4)" stroke-width="1.5" filter="url(#gd1)"/>
+          <text x="44" y="137" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="17" font-weight="900" fill="rgba(0,255,157,0.7)">神</text>
+        </g>
+
+        <!-- ── OUTER ROTATING TECH RING ── -->
+        <g style="transform-origin:210px 210px;animation:omni-gear-spin 10s linear infinite;">
+          <circle cx="210" cy="210" r="200" fill="none" stroke="rgba(0,255,157,0.3)" stroke-width="1.5"/>
+          <circle cx="210" cy="210" r="196" fill="none" stroke="rgba(0,255,157,0.07)" stroke-width="1" stroke-dasharray="3 9"/>
+          <line x1="210" y1="12" x2="210" y2="32" stroke="rgba(0,255,157,0.8)" stroke-width="2.5" transform="rotate(0 210 210)" filter="url(#gd1)"/>
+          <line x1="210" y1="12" x2="210" y2="32" stroke="rgba(0,255,157,0.8)" stroke-width="2.5" transform="rotate(60 210 210)" filter="url(#gd1)"/>
+          <line x1="210" y1="12" x2="210" y2="32" stroke="rgba(0,255,157,0.8)" stroke-width="2.5" transform="rotate(120 210 210)" filter="url(#gd1)"/>
+          <line x1="210" y1="12" x2="210" y2="32" stroke="rgba(0,255,157,0.8)" stroke-width="2.5" transform="rotate(180 210 210)" filter="url(#gd1)"/>
+          <line x1="210" y1="12" x2="210" y2="32" stroke="rgba(0,255,157,0.8)" stroke-width="2.5" transform="rotate(240 210 210)" filter="url(#gd1)"/>
+          <line x1="210" y1="12" x2="210" y2="32" stroke="rgba(0,255,157,0.8)" stroke-width="2.5" transform="rotate(300 210 210)" filter="url(#gd1)"/>
+          <line x1="210" y1="14" x2="210" y2="22" stroke="rgba(0,255,157,0.3)" stroke-width="1" transform="rotate(30 210 210)"/>
+          <line x1="210" y1="14" x2="210" y2="22" stroke="rgba(0,255,157,0.3)" stroke-width="1" transform="rotate(90 210 210)"/>
+          <line x1="210" y1="14" x2="210" y2="22" stroke="rgba(0,255,157,0.3)" stroke-width="1" transform="rotate(150 210 210)"/>
+          <line x1="210" y1="14" x2="210" y2="22" stroke="rgba(0,255,157,0.3)" stroke-width="1" transform="rotate(210 210 210)"/>
+          <line x1="210" y1="14" x2="210" y2="22" stroke="rgba(0,255,157,0.3)" stroke-width="1" transform="rotate(270 210 210)"/>
+          <line x1="210" y1="14" x2="210" y2="22" stroke="rgba(0,255,157,0.3)" stroke-width="1" transform="rotate(330 210 210)"/>
+        </g>
+
+        <!-- ── COUNTER-SPINNING INNER RING ── -->
+        <g style="transform-origin:210px 210px;animation:omni-gear-counter 14s linear infinite;">
+          <circle cx="210" cy="210" r="174" fill="none" stroke="rgba(0,255,157,0.1)" stroke-width="1" stroke-dasharray="4 6"/>
+        </g>
+
+        <!-- ── HEX FACEPLATE (central hexagon) ── -->
+        <polygon points="210,70 288,114 288,202 210,246 132,202 132,114"
+          fill="url(#dial-bg-grad)" stroke="rgba(0,255,157,0.65)" stroke-width="2" filter="url(#gd1)"/>
+        <!-- Inner hex bevel -->
+        <polygon points="210,82 278,122 278,196 210,236 142,196 142,122"
+          fill="none" stroke="rgba(0,255,157,0.2)" stroke-width="1"/>
+
+        <!-- ── SENSEITRIX HOURGLASS LOGO (top half of hex) ── -->
+        <g filter="url(#gd2)">
+          <polygon points="210,88 240,105 240,139 210,156 180,139 180,105"
+            fill="rgba(0,18,10,0.85)" stroke="rgba(0,255,157,0.6)" stroke-width="1.5"/>
+          <path d="M197,99 L223,99 L210,122 L223,145 L197,145 L210,122 Z"
+            fill="rgba(0,255,157,0.18)" stroke="rgba(0,255,157,0.9)" stroke-width="1.5"/>
+          <circle cx="210" cy="122" r="4.5" fill="rgba(0,255,157,1)"/>
+          <!-- Rotating accent ring on hourglass -->
+          <circle cx="210" cy="122" r="18" fill="none" stroke="rgba(0,255,157,0.2)"
+            stroke-width="0.8" stroke-dasharray="4 6"
+            style="animation:omni-gear-spin 5s linear infinite;transform-origin:210px 122px;"/>
+        </g>
+
+        <!-- ── MASCOT PREVIEW IMAGE (lower hex half) ── -->
+        <image id="omni-mascot-img" x="140" y="155" width="140" height="155"
+          preserveAspectRatio="xMidYMin slice" clip-path="url(#hex-mascot-clip)"
+          style="transition:opacity 0.35s ease;opacity:0;"/>
+        <!-- Hex border over mascot -->
+        <polygon points="210,155 276,193 276,269 210,307 144,269 144,193"
+          fill="none" stroke="rgba(0,255,157,0.55)" stroke-width="1.5" filter="url(#gd1)"/>
+        <!-- Scanning line animation -->
+        <rect id="omni-scan-bar" x="144" y="155" width="132" height="2"
+          fill="rgba(0,255,157,0.7)" filter="url(#gd1)"
+          style="animation:scan-hex 2.2s ease-in-out infinite;"/>
+
+        <!-- ── DIGITAL READOUT PANEL ── -->
+        <rect x="138" y="315" width="144" height="32" rx="3"
+          fill="rgba(0,10,6,0.95)" stroke="rgba(0,255,157,0.3)" stroke-width="1"/>
+        <!-- Scanline texture overlay (simulated with thin rect) -->
+        <rect x="139" y="316" width="142" height="30" rx="2" fill="rgba(0,255,157,0.02)"/>
+        <text id="omni-display-name" x="210" y="335" text-anchor="middle"
+          font-family="'Share Tech Mono',monospace" font-size="10.5" letter-spacing="0.22em"
+          fill="rgba(0,255,157,0.95)" filter="url(#gd1)">◈ SELECT ◈</text>
+        <text id="omni-display-trait" x="210" y="354" text-anchor="middle"
+          font-family="'Share Tech Mono',monospace" font-size="6.5" letter-spacing="0.18em"
+          fill="rgba(0,200,120,0.55)">· COMPANION SYSTEM ONLINE ·</text>
+
+        <!-- ── SELECTION POINTER ARROW (rotates to active segment) ── -->
+        <g id="omni-pointer" style="transform-origin:210px 210px;transition:transform 0.55s cubic-bezier(0.34,1.56,0.64,1);">
+          <line x1="210" y1="162" x2="210" y2="104" stroke="rgba(0,255,157,0.75)" stroke-width="1.5" filter="url(#gd1)"/>
+          <polygon points="210,92 204,110 216,110" fill="rgba(0,255,157,0.95)" filter="url(#gd2)"/>
+        </g>
+
+        <!-- ── CORNER HEX NOTCHES ── -->
+        <g fill="rgba(0,255,157,0.5)" filter="url(#gd1)">
+          <polygon points="132,114 144,114 132,126"/>
+          <polygon points="288,114 276,114 288,126"/>
+          <polygon points="132,202 144,202 132,190"/>
+          <polygon points="288,202 276,202 288,190"/>
+        </g>
+      </svg>
+
+      <!-- Scan hex animation keyframe -->
+    </div>
+
+    <!-- CHARACTER CARD GRID — primary selection -->
+    <div style="margin-top:18px;width:100%;">
+      <div style="font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:0.45em;color:rgba(0,255,157,0.4);text-align:center;margin-bottom:10px;text-transform:uppercase;">// SELECT YOUR COMPANION</div>
+      <div id="omni-selectors"></div>
+    </div>
+    
+    <!-- Dial rotation arrows -->
+    <div style="display:flex;gap:40px;margin-top:14px;align-items:center;">
+      <button id="omni-prev" style="
+        font-family:'Share Tech Mono',monospace;font-size:13px;
+        letter-spacing:0.3em;color:rgba(0,255,157,0.85);
+        background:rgba(0,25,15,0.85);
+        border:1px solid rgba(0,255,157,0.45);
+        border-radius:5px;
+        padding:10px 22px;cursor:pointer;transition:all 0.2s;
+        box-shadow:0 0 12px rgba(0,255,157,0.12);
+      " onmouseenter="this.style.boxShadow='0 0 22px rgba(0,255,157,0.45)';this.style.borderColor='rgba(0,255,157,0.9)';this.style.color='rgba(0,255,157,1)'"
+        onmouseleave="this.style.boxShadow='0 0 12px rgba(0,255,157,0.12)';this.style.borderColor='rgba(0,255,157,0.45)';this.style.color='rgba(0,255,157,0.85)'"
+      >⟨ PREV</button>
+      <div style="
+        font-family:'Share Tech Mono',monospace;font-size:9px;
+        letter-spacing:0.4em;color:rgba(0,255,180,0.5);text-align:center;
+      ">ROTATE DIAL</div>
+      <button id="omni-next" style="
+        font-family:'Share Tech Mono',monospace;font-size:13px;
+        letter-spacing:0.3em;color:rgba(0,255,157,0.85);
+        background:rgba(0,25,15,0.85);
+        border:1px solid rgba(0,255,157,0.45);
+        border-radius:5px;
+        padding:10px 22px;cursor:pointer;transition:all 0.2s;
+        box-shadow:0 0 12px rgba(0,255,157,0.12);
+      " onmouseenter="this.style.boxShadow='0 0 22px rgba(0,255,157,0.45)';this.style.borderColor='rgba(0,255,157,0.9)';this.style.color='rgba(0,255,157,1)'"
+        onmouseleave="this.style.boxShadow='0 0 12px rgba(0,255,157,0.12)';this.style.borderColor='rgba(0,255,157,0.45)';this.style.color='rgba(0,255,157,0.85)'"
+      >NEXT ⟩</button>
+    </div>
+    
+    <!-- Selected character info banner -->
+    <div id="omni-info" style="
+      margin-top:10px;text-align:center;width:min(500px,90vw);
+      background:rgba(0,15,10,0.85);
+      border:0.5px solid rgba(0,255,157,0.25);
+      border-radius:8px;
+      padding:10px 18px;
+      backdrop-filter:blur(12px);
+      display:flex;align-items:center;gap:14px;
+      box-shadow:inset 0 0 30px rgba(0,255,157,0.03), 0 0 20px rgba(0,0,0,0.5);
+    ">
+      <!-- Mini character portrait -->
+      <div id="omni-info-portrait" style="
+        width:54px;height:72px;border-radius:6px;overflow:hidden;flex-shrink:0;
+        border:1px solid rgba(0,255,157,0.3);
+        background:rgba(0,20,12,0.9);
+      ">
+        <img id="omni-info-portrait-img" style="width:100%;height:100%;object-fit:cover;object-position:top center;" src="" alt="">
+      </div>
+      <!-- Text info -->
+      <div style="flex:1;text-align:left;min-width:0;">
+        <div id="omni-char-name" style="
+          font-family:'Noto Serif JP',serif;font-size:clamp(14px,2.5vw,18px);font-weight:900;
+          color:rgba(0,255,200,0.95);margin-bottom:2px;
+        "></div>
+        <div id="omni-char-trait" style="
+          font-family:'Share Tech Mono',monospace;font-size:8px;
+          letter-spacing:0.3em;color:rgba(200,168,75,0.7);margin-bottom:5px;
+        "></div>
+        <div id="omni-char-desc" style="
+          font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:300;
+          color:rgba(232,228,216,0.55);line-height:1.5;
+          overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
+        "></div>
+      </div>
+      <div id="omni-status-text" style="
+        font-family:'Share Tech Mono',monospace;font-size:7px;
+        letter-spacing:0.2em;color:rgba(0,255,157,0.35);
+        writing-mode:vertical-rl;text-orientation:mixed;
+        flex-shrink:0;
+      ">// AWAITING</div>
+    </div>
+    
+    <!-- CONFIRM BUTTON — the SenseiTrix press! -->
+    <button id="omni-confirm" class="omni-confirm-btn">
+      ⬡ LOCK ON ⬡
+    </button>
+    <!-- Wrist band decoration -->
+    <div class="omni-wrist-band">
+      <div class="omni-wrist-led"></div>
+      <div style="font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:0.3em;color:rgba(0,255,157,0.4);">SENSEITRIX · v1.0</div>
+      <div class="omni-wrist-led"></div>
+    </div>
+    <div style="font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:0.2em;color:rgba(0,255,157,0.3);margin-top:8px;text-align:center;">
+      ← → ARROWS · ENTER TO LOCK · CLICK FACE TO CONFIRM
+    </div>
+  </div>
+</div>
+
+<!-- MASCOT COMPANION (floats on all pages) -->
+<div id="mascot-companion" style="
+  position:fixed;bottom:20px;right:20px;z-index:9999;
+  width:140px;
+  display:none;flex-direction:column;align-items:center;
+  pointer-events:all;user-select:none;
+">
+  <!-- Speech bubble -->
+  <div id="mascot-bubble" style="
+    position:absolute;bottom:170px;right:0;
+    max-width:240px;min-width:140px;
+    background:rgba(5,5,5,0.97);
+    border:1px solid rgba(200,168,75,0.5);
+    border-radius:4px;
+    padding:12px 16px;
+    font-family:'Rajdhani',sans-serif;
+    font-size:13px;line-height:1.55;
+    color:rgba(232,228,216,0.95);
+    opacity:0;transition:opacity 0.4s ease;
+    pointer-events:none;text-align:center;
+    box-shadow:0 0 30px rgba(200,168,75,0.15), 0 4px 20px rgba(0,0,0,0.5);
+  ">
+    <div style="position:absolute;bottom:-7px;right:22px;width:12px;height:12px;
+      background:rgba(5,5,5,0.97);
+      border-right:1px solid rgba(200,168,75,0.5);
+      border-bottom:1px solid rgba(200,168,75,0.5);
+      transform:rotate(45deg);"></div>
+    <span id="bubble-text"></span>
+  </div>
+  
+  <!-- Mascot sprite (the full sprite sheet, cropped to show one expression) -->
+  <div id="mascot-sprite-wrap" style="
+    width:130px;height:150px;cursor:pointer;
+    filter:drop-shadow(0 0 12px rgba(200,168,75,0.35));
+    transition:transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+    animation:mascot-float 3s ease-in-out infinite;
+    position:relative;
+  ">
+    <img id="mascot-sprite" style="
+      width:100%;height:100%;
+      object-fit:contain;object-position:top center;
+    " src="" alt="Mascot"/>
+    <!-- Shine effect on hover -->
+    <div id="mascot-shine" style="
+      position:absolute;inset:0;
+      background:linear-gradient(135deg,rgba(255,255,255,0.12) 0%,transparent 50%);
+      pointer-events:none;opacity:0;transition:opacity 0.3s;
+    "></div>
+  </div>
+  
+  <!-- Mascot name label + personality -->
+  <div id="mascot-label" style="
+    font-family:'Share Tech Mono',monospace;font-size:9px;
+    letter-spacing:0.3em;color:rgba(200,168,75,0.7);
+    margin-top:6px;text-align:center;
+  "></div>
+  <div id="mascot-trait-label" style="
+    font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:600;
+    letter-spacing:0.1em;color:rgba(200,168,75,0.4);
+    margin-top:2px;text-align:center;max-width:130px;
+    text-overflow:ellipsis;overflow:hidden;white-space:nowrap;
+  "></div>
+  
+  <!-- Change mascot / SenseiTrix button -->
+  <div onclick="openSenseitrix()" style="
+    font-family:'Share Tech Mono',monospace;font-size:7px;
+    letter-spacing:0.25em;color:rgba(0,255,157,0.5);
+    margin-top:4px;cursor:pointer;text-align:center;
+    border:0.5px solid rgba(0,255,157,0.3);padding:4px 10px;
+    border-radius:2px;transition:all 0.2s;
+    display:flex;align-items:center;gap:6px;
+  " onmouseenter="this.style.color='rgba(0,255,157,0.95)';this.style.borderColor='rgba(0,255,157,0.7)';this.style.boxShadow='0 0 10px rgba(0,255,157,0.3)'"
+    onmouseleave="this.style.color='rgba(0,255,157,0.5)';this.style.borderColor='rgba(0,255,157,0.3)';this.style.boxShadow='none'">
+    <svg width="10" height="10" viewBox="0 0 10 10"><polygon points="5,0 9.3,2.5 9.3,7.5 5,10 0.7,7.5 0.7,2.5" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="5" cy="5" r="2" fill="currentColor" opacity="0.6"/></svg>
+    SWITCH
+  </div>
+</div>
+
+<!-- MUSIC PLAYER -->
+<div id="music-player" style="
+  position:fixed;bottom:20px;left:20px;z-index:9998;
+  background:rgba(5,5,5,0.97);
+  border:0.5px solid rgba(200,168,75,0.35);
+  border-radius:6px;
+  padding:10px 14px;display:none;align-items:center;gap:10px;
+  backdrop-filter:blur(16px);
+  box-shadow:0 0 30px rgba(200,168,75,0.12), 0 4px 16px rgba(0,0,0,0.6);
+">
+  <audio id="bg-music" loop><source src="bg-music.mp3" type="audio/mpeg"></audio>
+  <button id="music-toggle" onclick="toggleMusic()" style="
+    font-family:'Share Tech Mono',monospace;font-size:14px;
+    color:var(--gold);background:none;border:none;cursor:pointer;
+    width:28px;height:28px;display:flex;align-items:center;justify-content:center;
+    transition:all 0.2s;
+  ">▶</button>
+  <div>
+    <div style="font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:0.3em;color:var(--gold);">MAD SENSEI OST</div>
+    <div id="music-status" style="font-family:'Rajdhani',sans-serif;font-size:11px;color:rgba(232,228,216,0.5);">Theme Song</div>
+  </div>
+  <input type="range" min="0" max="1" step="0.05" value="0.5" 
+    oninput="document.getElementById('bg-music').volume=this.value"
+    style="width:56px;height:2px;accent-color:var(--gold);cursor:pointer;opacity:0.7;" title="Volume"/>
+  <div id="music-bars" style="display:flex;gap:2px;align-items:center;height:16px;">
+    <div style="width:3px;background:rgba(200,168,75,0.6);animation:music-bar 0.8s ease infinite;animation-play-state:paused;" class="mbar"></div>
+    <div style="width:3px;background:rgba(200,168,75,0.6);animation:music-bar 0.8s ease 0.1s infinite;animation-play-state:paused;" class="mbar"></div>
+    <div style="width:3px;background:rgba(200,168,75,0.6);animation:music-bar 0.8s ease 0.2s infinite;animation-play-state:paused;" class="mbar"></div>
+    <div style="width:3px;background:rgba(200,168,75,0.6);animation:music-bar 0.8s ease 0.3s infinite;animation-play-state:paused;" class="mbar"></div>
+    <div style="width:3px;background:rgba(200,168,75,0.6);animation:music-bar 0.8s ease 0.4s infinite;animation-play-state:paused;" class="mbar"></div>
+  </div>
+</div>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
