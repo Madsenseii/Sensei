@@ -2800,3 +2800,5 @@ footer{padding:40px;border-top:0.5px solid rgba(200,168,75,0.1);display:flex;ali
   font-family: 'Share Tech Mono', monospace; font-size: 11px;
   color: rgba(200,168,75,0.5); letter-spacing: 0.1em;
 }
+
+.nav-links a.btn-gold { color: #050505 !important; }
