@@ -8,8 +8,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+
 </head>
 <body>
+
+<!-- CURSOR -->
+
 <!-- JAPAN LIGHTBOX -->
 <div id="japan-lightbox">
   <button id="lightbox-close" onclick="closeLightbox()">✕</button>
@@ -17,7 +21,43 @@
   <div id="lightbox-caption"></div>
 </div>
 
+<!-- EVENT ANNOUNCEMENT MODAL -->
+<div id="collab-modal" role="dialog" aria-modal="true" aria-labelledby="collab-title">
+  <div class="collab-card">
+    <div class="collab-bracket top-left"></div>
+    <div class="collab-bracket top-right"></div>
+    <div class="collab-bracket bottom-left"></div>
+    <div class="collab-bracket bottom-right"></div>
 
+    <div class="collab-header">
+      <div class="collab-header-tag" id="collab-title">
+        <span class="collab-pulse-dot"></span>
+        <span>// LIVE EVENT · TICKETS OPEN</span>
+        <span class="collab-kanji-tag">【特別開催】</span>
+      </div>
+      <button class="collab-close-btn" onclick="closeCollabModal()" aria-label="Close Announcement">✕</button>
+    </div>
+
+    <!-- Two posters, auto-rotating. Both link to the NEAC tickets page -->
+    <div class="collab-image-box collab-slider">
+      <a class="collab-slide active" style="--bg:url('images/event_poster.png')" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Get NEAC 2026 tickets">
+        <img class="collab-poster-img" src="images/event_poster.png" alt="NEAC 2026 - North East Anime Convention poster">
+      </a>
+      <div class="collab-image-sheen"></div>
+      <div class="collab-scanlines"></div>
+    </div>
+
+    <div class="collab-footer">
+      <div class="collab-caption">
+        <span>NEAC 2026</span> &nbsp;·&nbsp; 5 NOV 2026 &nbsp;·&nbsp; KOLKATA
+      </div>
+      <div class="collab-btn-group">
+        <a class="collab-action-btn collab-book-btn" id="event-book-btn" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer">GET TICKETS ✦ &#8599;</a>
+        <button class="collab-skip-btn" onclick="closeCollabModal()">Skip</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- TERMS & CONDITIONS MODAL -->
 <div id="terms-modal" class="legal-modal">
@@ -121,7 +161,7 @@
   <ul class="nav-links" id="nav-links">
     <li><a href="#about">Studio</a></li>
     <li><a href="#maya-sabha">Legacy</a></li>
-    <!-- <li><a href="#events">Events</a></li> -->
+    <li><a href="#events">Events</a></li>
     <li><a href="#register">Register</a></li>
     <li><a href="#verticals">Verticals</a></li>
     <li><a href="#omniverse">Universe</a></li>
@@ -196,6 +236,7 @@
     <p class="register-msg" id="hero-register-msg"></p>
   </div>
 </section>
+
 
 <!-- MARQUEE -->
 <div class="marquee-strip">
@@ -300,6 +341,98 @@
     </div>
     <p class="maya-quote">In the Mahabharata, the divine architect <em>Maya</em> built a sabha so masterful that floor looked like water, and water looked like floor — illusion so complete it humbled emperors.<br>We build the same illusion, frame by frame: worlds so convincing, they stop feeling drawn and start feeling <em>real</em>.</p>
     <div class="maya-caption">幻 &nbsp;·&nbsp; illusion as craft &nbsp;·&nbsp; माया सभा</div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="ev-bg-word">祭</div>
+  <div class="ev-header reveal">
+    <div class="section-tag">— Live Event · NE's 1st Anime Con —</div>
+    <h2 class="section-title-main">NEAC 2026.<br>
+      <!-- <span class="outline">Two Days. One Realm.</span></h2> -->
+    <p class="ev-lead">Cosplay, eSports, live dubbing, kendo, chess and motorsport showcases, with a Rs.3,00,000+ prize pool. Northeast Anime Con is where anime, culture and community meet in Kolkata.</p>
+  </div>
+
+  <div class="ev-feature">
+    <div class="reveal-left">
+      <a class="ev-logo-hero" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Get NEAC 2026 tickets">
+        <img src="images/logo-neac.jpg" alt="Northeast Anime Con 2026 logo">
+      </a>
+      <div class="ev-poster-hint">tap the logo to get tickets</div>
+    </div>
+    <div class="ev-info reveal">
+      <!-- <div class="ev-badge"><i></i><span>Tickets open now</span></div> -->
+      <a class="ev-brand" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Get NEAC 2026 tickets">
+        <div>
+          <b>NEAC 2026</b>
+          <span>Northeast Anime Con</span>
+          <em>NE's 1st Anime Con</em>
+        </div>
+      </a>
+      <ul class="ev-facts">
+        <li><small>Date</small><strong>5 November 2026</strong></li>
+        <li><small>Location</small><strong>Kolkata</strong></li>
+        <li><small>Competitions</small><strong>14 Competitions</strong></li>
+        <li><small>Prize Pool</small><strong>Rs.3,00,000+</strong></li>
+      </ul>
+      <div class="ev-passes">
+        <a class="ev-pass" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer"><span>Single</span><b>Rs.350</b></a>
+        <a class="ev-pass hot" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer"><em>BEST VALUE</em><span>Duo</span><b>Rs.599</b></a>
+        <a class="ev-pass" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer"><span>Group</span><b>Rs.1,499</b></a>
+      </div>
+      <div class="ev-cta">
+        <a class="ev-btn" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer">Get Tickets ✦ &#8599;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ev-ticker-wrap"><div class="ev-ticker"><span>Cosplay Championship</span><span class="k">✦</span><span>eSports Arena</span><span class="k">✦</span><span>Chess</span><span class="k">✦</span><span>Kendo</span><span class="k">✦</span><span>Live Dubbing</span><span class="k">✦</span><span>Animation Dojo</span><span class="k">✦</span><span>IP Pitch Arena</span><span class="k">✦</span><span>Motorsport & Car Showcase</span><span class="k">✦</span><span>Art & Illustration</span><span class="k">✦</span><span>Anime Edit Contest</span><span class="k">✦</span><span>Stage Shows</span><span class="k">✦</span><span>Workshops & Panels</span><span class="k">✦</span><span>Stalls & Bazaar</span><span class="k">✦</span><span>Cosplay Championship</span><span class="k">✦</span><span>eSports Arena</span><span class="k">✦</span><span>Chess</span><span class="k">✦</span><span>Kendo</span><span class="k">✦</span><span>Live Dubbing</span><span class="k">✦</span><span>Animation Dojo</span><span class="k">✦</span><span>IP Pitch Arena</span><span class="k">✦</span><span>Motorsport & Car Showcase</span><span class="k">✦</span><span>Art & Illustration</span><span class="k">✦</span><span>Anime Edit Contest</span><span class="k">✦</span><span>Stage Shows</span><span class="k">✦</span><span>Workshops & Panels</span><span class="k">✦</span><span>Stalls & Bazaar</span><span class="k">✦</span></div></div>
+
+  <div class="ev-film reveal">
+    <a class="ev-film-poster" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="TRIO: The Valley of Doom - get tickets">
+      <img src="images/trio-poster.jpg" alt="TRIO: The Valley of Doom - Vaibhavi Studios presents, a Sourav Roychoudhury film" loading="lazy">
+    </a>
+    <div class="ev-film-text">
+      <div class="section-tag">— Film Showcase —</div>
+      <div class="by">Vaibhavi Studios presents</div>
+      <h3>TRIO</h3>
+      <h4>The Valley of Doom</h4>
+      <p class="dir">A Sourav Roychoudhury film</p>
+      <a class="ev-btn" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer">Get Tickets ✦ &#8599;</a>
+    </div>
+  </div>
+
+  <div class="ev-sub reveal">
+    <div class="section-tag">— Past Events —</div>
+    <h3>Events Hosted</h3>
+  </div>
+  <div class="ev-masonry">
+    <a class="ev-shot reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Northeast Anime Con"><img src="images/neac-logo-card.jpg" alt="NEAC 2026 logo card" loading="lazy" onerror="this.closest('.ev-shot').style.display='none'"><span class="cap">Northeast Anime Con</span></a>
+    <a class="ev-shot reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Events lineup"><img src="images/events-lineup.jpg" alt="NEAC 2026 events lineup" loading="lazy" onerror="this.closest('.ev-shot').style.display='none'"><span class="cap">Events lineup</span></a>
+    <a class="ev-shot reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Competitions"><img src="images/competitions.jpg" alt="NEAC 2026 competitions" loading="lazy" onerror="this.closest('.ev-shot').style.display='none'"><span class="cap">Competitions</span></a>
+    <a class="ev-shot reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Motorsport showcase · RB20"><img src="images/rb20-motorsport.jpg" alt="RB20 motorsport showcase artwork" loading="lazy" onerror="this.closest('.ev-shot').style.display='none'"><span class="cap">Motorsport showcase · RB20</span></a>
+    <a class="ev-shot reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Events"><img src="images/events-title.jpg" alt="NEAC 2026 events title card" loading="lazy" onerror="this.closest('.ev-shot').style.display='none'"><span class="cap">Events</span></a>
+    <a class="ev-shot reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Prize pool &amp; prizes"><img src="images/prize-pool.jpg" alt="NEAC 2026 prize pool title card" loading="lazy" onerror="this.closest('.ev-shot').style.display='none'"><span class="cap">Prize pool &amp; prizes</span></a>
+  </div>
+
+  <div class="ev-sub reveal">
+    <div class="section-tag">— Powering NEAC 2026 —</div>
+    <h3>Our partners</h3>
+  </div>
+  <div class="ev-logos">
+    <a class="ev-logo reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Networking Partner · Arthashakti"><span class="ev-logo-box" style="background:#fefefe"><img src="images/logo-arthashakti.jpg" alt="Arthashakti logo" loading="lazy" onerror="this.closest('.ev-logo').style.display='none'"></span><span class="cap">Networking Partner · Arthashakti</span></a>
+    <a class="ev-logo reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Community Partner · ASIFA India"><span class="ev-logo-box" style="background:#ffffff"><img src="images/logo-asifa-india.jpg" alt="ASIFA India logo" loading="lazy" onerror="this.closest('.ev-logo').style.display='none'"></span><span class="cap">Community Partner · ASIFA India</span></a>
+    <a class="ev-logo reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Ticketing Partner · Hortizi"><span class="ev-logo-box" style="background:#000000"><img src="images/logo-hortizi.jpg" alt="Hortizi logo" loading="lazy" onerror="this.closest('.ev-logo').style.display='none'"></span><span class="cap">Ticketing Partner · Hortizi</span></a>
+    <a class="ev-logo reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Partner · RGX"><span class="ev-logo-box" style="background:#000000"><img src="images/logo-rgx.jpg" alt="RGX logo" loading="lazy" onerror="this.closest('.ev-logo').style.display='none'"></span><span class="cap">Partner · RGX</span></a>
+    <a class="ev-logo reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Partner · Too Yumm"><span class="ev-logo-box" style="background:#181415"><img src="images/logo-too-yumm.jpg" alt="Too Yumm logo" loading="lazy" onerror="this.closest('.ev-logo').style.display='none'"></span><span class="cap">Partner · Too Yumm</span></a>
+    <a class="ev-logo reveal" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Partner · Vaibhavi Studios"><span class="ev-logo-box" style="background:#ffffff"><img src="images/logo-vaibhavi-studios.jpg" alt="Vaibhavi Studios logo" loading="lazy" onerror="this.closest('.ev-logo').style.display='none'"></span><span class="cap">Partner · Vaibhavi Studios</span></a>
+  </div>
+
+  <div class="ev-final reveal">
+    <h3>Be part of <em>something bigger.</em></h3>
+    <p>5 November 2026 · Kolkata. Anime. Culture. Community.</p>
+    <a class="ev-btn" href="https://neacmanias.vercel.app/" target="_blank" rel="noopener noreferrer">Grab your pass ✦ &#8599;</a>
   </div>
 </section>
 
@@ -1011,6 +1144,7 @@
 
 </section>
 
+
 <!-- PRODUCTION PIPELINE -->
 <section id="pipeline" style="position:relative;z-index:1;padding:120px 40px;background:#020202;overflow:hidden;">
   <div style="position:absolute;font-family:'Noto Serif JP',serif;font-weight:900;font-size:clamp(100px,18vw,280px);color:transparent;-webkit-text-stroke:0.5px rgba(200,168,75,0.04);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;user-select:none;">制作</div>
@@ -1064,6 +1198,7 @@
     </div>
   </div>
 </section>
+
 
 <!-- INVESTOR BRIEF + FAQ -->
 <section id="faq" style="position:relative;z-index:1;padding:120px 40px;background:#050505;overflow:hidden;">
@@ -1144,41 +1279,7 @@
   </div>
 </section>
 
-<!-- GALLERY -->
-<section id="events">
-  <div class="ev-bg-word">祭</div>
-  <div class="ev-header reveal">
-    <div class="section-tag">— Gallery —</div>
-    <h2 class="section-title-main">Frames From<br><span class="outline">The Realm.</span></h2>
-    <p class="ev-lead">Every event we host becomes a memory worth keeping. From NEAC 2026 in Kolkata, with its cosplay, eSports, live dubbing, kendo, chess and motorsport showcases, here are the moments that built the community.</p>
-  </div>
 
-  <div class="ev-sub reveal">
-    <div class="section-tag">— Event Highlights —</div>
-    <h3>Events Hosted</h3>
-  </div>
-  <div class="ev-masonry">
-    <div class="ev-shot reveal"><img src="images/neac-logo-card.jpg" alt="NEAC 2026 logo card" loading="lazy" onerror="this.closest('.ev-shot').style.display='none'"><span class="cap">Northeast Anime Con</span></div>
-    <div class="ev-shot reveal"><img src="images/events-lineup.jpg" alt="NEAC 2026 events lineup" loading="lazy" onerror="this.closest('.ev-shot').style.display='none'"><span class="cap">Events lineup</span></div>
-    <div class="ev-shot reveal"><img src="images/competitions.jpg" alt="NEAC 2026 competitions" loading="lazy" onerror="this.closest('.ev-shot').style.display='none'"><span class="cap">Competitions</span></div>
-    <div class="ev-shot reveal"><img src="images/rb20-motorsport.jpg" alt="RB20 motorsport showcase artwork" loading="lazy" onerror="this.closest('.ev-shot').style.display='none'"><span class="cap">Motorsport showcase · RB20</span></div>
-    <div class="ev-shot reveal"><img src="images/events-title.jpg" alt="NEAC 2026 events title card" loading="lazy" onerror="this.closest('.ev-shot').style.display='none'"><span class="cap">Events</span></div>
-    <div class="ev-shot reveal"><img src="images/prize-pool.jpg" alt="NEAC 2026 prize pool title card" loading="lazy" onerror="this.closest('.ev-shot').style.display='none'"><span class="cap">Prize pool &amp; prizes</span></div>
-  </div>
-
-  <div class="ev-sub reveal">
-    <div class="section-tag">— Powered NEAC 2026 —</div>
-    <h3>Our partners</h3>
-  </div>
-  <div class="ev-logos">
-    <div class="ev-logo reveal"><span class="ev-logo-box" style="background:#fefefe"><img src="images/logo-arthashakti.jpg" alt="Arthashakti logo" loading="lazy" onerror="this.closest('.ev-logo').style.display='none'"></span><span class="cap">Networking Partner · Arthashakti</span></div>
-    <div class="ev-logo reveal"><span class="ev-logo-box" style="background:#ffffff"><img src="images/logo-asifa-india.jpg" alt="ASIFA India logo" loading="lazy" onerror="this.closest('.ev-logo').style.display='none'"></span><span class="cap">Community Partner · ASIFA India</span></div>
-    <div class="ev-logo reveal"><span class="ev-logo-box" style="background:#000000"><img src="images/logo-hortizi.jpg" alt="Hortizi logo" loading="lazy" onerror="this.closest('.ev-logo').style.display='none'"></span><span class="cap">Ticketing Partner · Hortizi</span></div>
-    <div class="ev-logo reveal"><span class="ev-logo-box" style="background:#000000"><img src="images/logo-rgx.jpg" alt="RGX logo" loading="lazy" onerror="this.closest('.ev-logo').style.display='none'"></span><span class="cap">Partner · RGX</span></div>
-    <div class="ev-logo reveal"><span class="ev-logo-box" style="background:#181415"><img src="images/logo-too-yumm.jpg" alt="Too Yumm logo" loading="lazy" onerror="this.closest('.ev-logo').style.display='none'"></span><span class="cap">Partner · Too Yumm</span></div>
-    <div class="ev-logo reveal"><span class="ev-logo-box" style="background:#ffffff"><img src="images/logo-vaibhavi-studios.jpg" alt="Vaibhavi Studios logo" loading="lazy" onerror="this.closest('.ev-logo').style.display='none'"></span><span class="cap">Partner · Vaibhavi Studios</span></div>
-  </div>
-</section>
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-inner reveal">
@@ -1202,11 +1303,12 @@
 <footer>
   <div class="footer-logo">
     <span style="position:relative;display:inline-block">
-      <span style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);font-size:10px">🎓</span>MAD SENSEI STUDIOS
-    </span>
+      <span style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);font-size:10px">🎓</span>M
+    </span>AD SENSEI STUDIOS
   </div>
   <div class="footer-copy">© 2024–2026 Mad Sensei Studios Pvt. Ltd. &nbsp;·&nbsp; 狂気の創造 &nbsp;·&nbsp; 三重県</div>
 </footer>
+
 
 <!-- ==================== MASCOT SYSTEM & SENSEITRIX ==================== -->
 
@@ -1632,7 +1734,7 @@
 </div>
 
 
+
 <script src="script.js"></script>
-//<script src="pages.js"></script>
 </body>
 </html>
