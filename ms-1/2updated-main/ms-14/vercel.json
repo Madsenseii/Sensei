@@ -1,6 +1,8 @@
 {
+  "buildCommand": "node build.js",
+  "outputDirectory": ".",
   "rewrites": [
     { "source": "/sitemap", "destination": "/sitemap.xml" },
     { "source": "/events", "destination": "/events.html" }
   ]
-} 
+}

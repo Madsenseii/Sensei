@@ -1,0 +1,15 @@
+{
+  "name": "ms-14",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "build": "node build.js",
+    "watch": "node --watch-path=src/partials build.js",
+    "dev": "node build.js && npx live-server --port=3000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
