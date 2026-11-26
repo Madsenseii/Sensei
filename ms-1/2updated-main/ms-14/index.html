@@ -225,14 +225,77 @@
 
 <!-- SENSEI TV PROMO -->
 <section id="sensei-tv-promo">
-  <div class="stv-bg-word">物語</div>
-  <div class="stv-card">
-    <div class="stv-eyebrow"><span class="nav-tv-dot"></span>NOW OPEN · SUBMISSIONS</div>
-    <h2 class="stv-title">SENSEI <span>TV</span></h2>
-    <p class="stv-sub">Pitch your IP. Share your story.</p>
-    <p class="stv-body">Manga, manhwa, webtoons, novels, animation concepts. If you have an original world, we want to read it.</p>
-    <a class="stv-btn" href="https://YOUR-SENSEI-TV-URL" target="_blank" rel="noopener noreferrer">Pitch Your IP ↗</a>
+  <div class="tvx-wrap">
+    <div class="tvx-screen" id="tvx-screen">
+      <div class="tvx-bar">
+        <span class="tvx-rec"><i></i>ON AIR</span>
+        <span class="tvx-ch">CH 01 · SENSEI TV</span>
+        <span id="tvx-time">00:00:00:00</span>
+      </div>
+
+      <div class="tvx-body">
+        <div class="tvx-kanji" aria-hidden="true">物語</div>
+        <h2 class="tvx-title" data-text="SENSEI TV">SENSEI <em>TV</em></h2>
+        <p class="tvx-type"><span id="tvx-typed"></span><b class="tvx-caret"></b></p>
+        <p class="tvx-text">Manga, manhwa, webtoons, novels, animation concepts. If you have an original world, we want to read it.</p>
+        <a class="tvx-btn" href="https://YOUR-SENSEI-TV-URL" target="_blank" rel="noopener noreferrer">
+          <span class="tvx-play">▶</span> PITCH YOUR IP
+        </a>
+      </div>
+
+      <div class="tvx-ticker" aria-hidden="true">
+        <div class="tvx-track">
+          <span>MANGA</span><span>✦</span><span>MANHWA</span><span>✦</span><span>WEBTOON</span><span>✦</span><span>LIGHT NOVEL</span><span>✦</span><span>ANIME CONCEPT</span><span>✦</span><span>SCREENPLAY</span><span>✦</span>
+          <span>MANGA</span><span>✦</span><span>MANHWA</span><span>✦</span><span>WEBTOON</span><span>✦</span><span>LIGHT NOVEL</span><span>✦</span><span>ANIME CONCEPT</span><span>✦</span><span>SCREENPLAY</span><span>✦</span>
+        </div>
+      </div>
+
+      <div class="tvx-noise"></div>
+      <div class="tvx-lines"></div>
+      <div class="tvx-vig"></div>
+    </div>
   </div>
+
+  <script>
+  (function(){
+    var screen=document.getElementById('tvx-screen');
+    if(!screen)return;
+    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* power-on when scrolled into view */
+    if('IntersectionObserver' in window && !reduce){
+      screen.classList.add('pre');
+      new IntersectionObserver(function(es,ob){
+        es.forEach(function(e){
+          if(e.isIntersecting){screen.classList.remove('pre');screen.classList.add('on');ob.disconnect();}
+        });
+      },{threshold:0.25}).observe(screen);
+    }
+
+    /* running timecode */
+    var t=document.getElementById('tvx-time'),start=Date.now();
+    function p(n){return String(n).padStart(2,'0');}
+    setInterval(function(){
+      var s=(Date.now()-start)/1000;
+      t.textContent=p(Math.floor(s/3600))+':'+p(Math.floor(s/60)%60)+':'+p(Math.floor(s%60))+':'+p(Math.floor((s%1)*25));
+    },40);
+
+    /* typewriter */
+    var el=document.getElementById('tvx-typed');
+    var lines=['Pitch your IP.','Share your story.','Build a universe.'];
+    if(reduce){el.textContent=lines[0];return;}
+    var li=0,ci=0,del=false;
+    function type(){
+      var w=lines[li];
+      el.textContent=w.slice(0,ci);
+      if(!del&&ci<w.length){ci++;setTimeout(type,80);}
+      else if(!del){del=true;setTimeout(type,1400);}
+      else if(ci>0){ci--;setTimeout(type,40);}
+      else{del=false;li=(li+1)%lines.length;setTimeout(type,300);}
+    }
+    type();
+  })();
+  </script>
 </section>
 <!-- ABOUT -->
 <section id="about">
