@@ -2802,3 +2802,67 @@ footer{padding:40px;border-top:0.5px solid rgba(200,168,75,0.1);display:flex;ali
 }
 
 .nav-links a.btn-gold { color: #050505 !important; }
+/* ===== PITCH YOUR IP — highlighted menu button ===== */
+@keyframes stv-pulse{50%{opacity:.25}}
+@keyframes tv-glow{
+  0%,100%{box-shadow:0 0 12px rgba(230,32,32,.5),0 0 0 0 rgba(255,45,45,.6)}
+  50%{box-shadow:0 0 26px rgba(255,45,45,.9),0 0 0 7px rgba(255,45,45,0)}
+}
+@keyframes tv-grad{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+@keyframes tv-sweep{0%{left:-60%}60%,100%{left:130%}}
+
+.nav-links a.nav-tv{
+  position:relative;display:inline-flex;align-items:center;gap:9px;overflow:hidden;
+  padding:11px 18px;font-size:10px;letter-spacing:0.22em;font-weight:700;
+  color:#fff !important;
+  background:linear-gradient(135deg,#e62020,#ff5a2d,#e62020);background-size:200% 200%;
+  border:1px solid #ff2d2d;
+  animation:tv-glow 2s ease-in-out infinite,tv-grad 4s linear infinite;
+  transition:transform .25s;
+}
+/* remove the grey underline effect from normal links */
+.nav-links a.nav-tv::after{display:none}
+/* light sweep */
+.nav-links a.nav-tv::before{
+  content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);
+  transform:skewX(-20deg);animation:tv-sweep 2.8s ease-in-out infinite;pointer-events:none;
+}
+.nav-links a.nav-tv:hover{
+  transform:translateY(-2px) scale(1.04);
+  background:#c8a84b;border-color:#c8a84b;color:#050505 !important;
+}
+.nav-tv-dot{
+  width:7px;height:7px;border-radius:50%;background:#fff;flex:none;
+  box-shadow:0 0 10px #fff;animation:stv-pulse 1.4s ease-in-out infinite;
+}
+.nav-tv-tag{
+  font-size:7px;letter-spacing:.2em;padding:2px 6px;
+  background:#050505;color:#c8a84b;border:1px solid #c8a84b;
+}
+@media (prefers-reduced-motion:reduce){
+  .nav-links a.nav-tv,.nav-links a.nav-tv::before{animation:none}
+}
+
+/* ===== SENSEI TV PROMO (Home) ===== */
+#sensei-tv-promo{position:relative;padding:100px 40px;background:#030303;overflow:hidden}
+.stv-bg-word{position:absolute;right:2%;top:10%;font-family:'Noto Serif JP',serif;font-size:clamp(160px,26vw,380px);
+  font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(200,168,75,.08);pointer-events:none;line-height:1}
+.stv-card{position:relative;max-width:900px;margin:0 auto;padding:56px 48px;border:1px solid rgba(200,168,75,.3);
+  background:radial-gradient(ellipse at 20% 0%,rgba(230,32,32,.15),transparent 60%),#070707;
+  box-shadow:0 30px 80px rgba(0,0,0,.7),0 0 60px rgba(230,32,32,.12)}
+.stv-card::before,.stv-card::after{content:"";position:absolute;width:24px;height:24px;border:2px solid #c8a84b}
+.stv-card::before{top:-6px;left:-6px;border-right:none;border-bottom:none}
+.stv-card::after{bottom:-6px;right:-6px;border-left:none;border-top:none}
+.stv-eyebrow{display:flex;align-items:center;gap:10px;font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.35em;color:#c8a84b;margin-bottom:22px}
+.stv-eyebrow .nav-tv-dot{background:#e62020;box-shadow:0 0 10px #e62020}
+.stv-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,11vw,140px);line-height:.9;color:#e8e4d8;letter-spacing:.02em}
+.stv-title span{color:#e62020}
+.stv-sub{font-family:'Bebas Neue',sans-serif;font-size:clamp(24px,3.5vw,40px);color:#c8a84b;margin:14px 0 18px}
+.stv-body{max-width:560px;color:rgba(232,228,216,.65);font-size:15px;line-height:1.8;margin-bottom:32px;font-family:'Rajdhani',sans-serif}
+.stv-btn{display:inline-block;text-decoration:none;font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:.25em;
+  text-transform:uppercase;padding:16px 32px;background:linear-gradient(135deg,#e62020,#ff2d2d);color:#fff;
+  border:1px solid #ff2d2d;box-shadow:0 0 24px rgba(230,32,32,.4);transition:all .3s}
+.stv-btn:hover{background:#c8a84b;border-color:#c8a84b;color:#050505;box-shadow:0 0 30px rgba(200,168,75,.5)}
+@media(max-width:640px){#sensei-tv-promo{padding:70px 18px}.stv-card{padding:36px 22px}}
+section{scroll-margin-top:70px}

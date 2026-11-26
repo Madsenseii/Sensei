@@ -1,51 +1,59 @@
-// // Show only one "page" at a time, based on the # in the URL
-// (function () {
-//   var PAGES = {
-//     hero:         ['#hero', '.marquee-strip'],   // Home
-//     register:     ['#register'],
-//     about:        ['#about'],                    // Studio
-//     'maya-sabha': ['#maya-sabha'],               // Legacy
-//     events:       ['#events'],
-//     verticals:    ['#verticals'],
-//     omniverse:    ['#omniverse', '#mascots'],    // Universe
-//     team:         ['#team', '#vision'],
-//     japan:        ['#japan'],
-//     pipeline:     ['#pipeline'],
-//     faq:          ['#faq'],                      // Invest
-//     contact:      ['#contact']
-//   };
+// Show only one "page" at a time, based on the # in the URL
+(function () {
+  var PAGES = {
+    // Home
+    hero:          ['#hero', '.marquee-strip', '#sensei-tv-promo'],
 
-//   // every section that belongs to some page
-//   var all = [];
-//   Object.keys(PAGES).forEach(function (k) {
-//     PAGES[k].forEach(function (sel) {
-//       var el = document.querySelector(sel);
-//       if (el) all.push(el);
-//     });
-//   });
+    // Menu groups
+    studio:        ['#about', '#maya-sabha', '#vision'],
+    work:          ['#verticals', '#pipeline', '#events'],
+    universe:      ['#omniverse', '#mascots'],
+    people:        ['#team', '#japan'],
+    opportunities: ['#faq', '#register'],
+    contact:       ['#contact'],
 
-//   function showPage(name) {
-//     if (!PAGES[name]) name = 'hero';          // unknown link -> Home
+    // Old links still work (hero buttons, bookmarks)
+    about:         ['#about'],
+    'maya-sabha':  ['#maya-sabha'],
+    verticals:     ['#verticals'],
+    pipeline:      ['#pipeline'],
+    events:        ['#events'],
+    omniverse:     ['#omniverse', '#mascots'],
+    team:          ['#team'],
+    japan:         ['#japan'],
+    faq:           ['#faq'],
+    register:      ['#register']
+  };
 
-//     all.forEach(function (el) { el.style.display = 'none'; });
-//     PAGES[name].forEach(function (sel) {
-//       var el = document.querySelector(sel);
-//       if (el) el.style.display = '';
-//     });
+  var all = [];
+  Object.keys(PAGES).forEach(function (k) {
+    PAGES[k].forEach(function (sel) {
+      var el = document.querySelector(sel);
+      if (el && all.indexOf(el) === -1) all.push(el);
+    });
+  });
 
-//     // close the mobile menu
-//     var links = document.getElementById('nav-links');
-//     var burger = document.getElementById('nav-burger');
-//     if (links) links.classList.remove('open');
-//     if (burger) burger.classList.remove('open');
+  function showPage(name) {
+    if (!PAGES[name]) name = 'hero';
 
-//     window.scrollTo(0, 0);
-//   }
+    all.forEach(function (el) { el.style.display = 'none'; });
+    PAGES[name].forEach(function (sel) {
+      var el = document.querySelector(sel);
+      if (el) el.style.display = '';
+    });
 
-//   function route() {
-//     showPage(location.hash.replace('#', ''));
-//   }
+    var links = document.getElementById('nav-links');
+    var burger = document.getElementById('nav-burger');
+    if (links) links.classList.remove('open');
+    if (burger) burger.classList.remove('open');
 
-//   window.addEventListener('hashchange', route);
-//   route();   // first load: shows Home only
-// })();
+    window.scrollTo(0, 0);
+  }
+
+  function route() {
+    showPage(location.hash.replace('#', ''));
+  }
+
+  window.addEventListener('hashchange', route);
+  route();
+})();

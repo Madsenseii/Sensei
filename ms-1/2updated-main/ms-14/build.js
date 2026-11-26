@@ -2,9 +2,9 @@ const fs = require('fs');
 
 // Order of sections on the page. Names must match the files in src/partials
 const parts = [
-  'modals', 'loader', 'nav', 'hero', 'register', 'marquee',
-  'about', 'maya-sabha', 'verticals', 'omniverse',
-  'mascots', 'team', 'vision', 'japan', 'pipeline', 'faq', 'events-section' ,
+  'modals', 'loader', 'nav', 'hero', 'register', 'marquee', 'sensei-tv-promo',
+  'about', 'maya-sabha', 'vision', 'verticals', 'pipeline', 'events-section',
+  'omniverse', 'mascots', 'team', 'japan', 'faq',
   'contact', 'footer', 'mascot-system'
 ];
 
@@ -24,7 +24,6 @@ const head = `<!DOCTYPE html>
 
 const tail = `
 <script src="script.js"></script>
-//<script src="pages.js"></script>
 </body>
 </html>`;
 
